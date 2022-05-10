@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS order_details;
 
 CREATE TABLE order_details (
     id SERIAL PRIMARY KEY,
-    basket_id INTEGER,
+    basket_id INTEGER REFERENCES baskets (id),
     quantity INTEGER
 );
 
@@ -45,11 +45,15 @@ CREATE TABLE meals (
 );
 
 
-DROP TABLE IF EXISTS 
+DROP TABLE IF EXISTS ordered_meals 
 
--- SELECT order_details.id, meals.id
--- FROM order_details
--- INNER JOIN mealsOrders ON order_details.id=meals.id
+CREATE TABLE ordered_meals (
+    id SERIAL PRIMARY KEY,
+    meals_id INTEGER REFERENCES meals (id),
+    order_details_id INTEGER REFERENCES order_details (id)
+)
+
+
 
 
 
