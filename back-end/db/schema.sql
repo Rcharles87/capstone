@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS order_details;
 
 CREATE TABLE order_details (
     id SERIAL PRIMARY KEY,
-    basket_id INTEGER REFERENCES baskets (id),
+    basket_id INTEGER REFERENCES baskets (id) ON DELETE CASCADE,
     quantity INTEGER
 );
 
