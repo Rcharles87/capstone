@@ -45,13 +45,14 @@ CREATE TABLE meals (
 );
 
 
-DROP TABLE IF EXISTS ordered_meals 
+DROP TABLE IF EXISTS ordered_meals; 
 
 CREATE TABLE ordered_meals (
-    id SERIAL PRIMARY KEY,
-    meals_id INTEGER REFERENCES meals (id),
+    meals_id INTEGER REFERENCES meals (id) ON UPDATE CASCADE ON DELETE CASCADE,
     order_details_id INTEGER REFERENCES order_details (id)
-)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT ordered_meals_id PRIMARY KEY (meals_id, order_details_id)
+);
 
 
 
