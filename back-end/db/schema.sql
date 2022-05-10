@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS baskets;
 CREATE TABLE baskets (
     id SERIAL PRIMARY KEY,
     is_active BOOLEAN,
-    customer_id INTEGER REFERENCES customer (id)
+    customer_id INTEGER REFERENCES customers (id)
     ON DELETE CASCADE
 );
 
@@ -38,17 +38,18 @@ DROP TABLE IF EXISTS meals;
 
 CREATE TABLE meals (
     id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
     dietary_restrictions TEXT NOT NULL,
     quantity_in_stock INTEGER,
     restaurant_id INTEGER REFERENCES restaurants (id)
     ON DELETE CASCADE
 );
 
-SELECT order_details.id, order_details.quantity, meals.id
-FROM order_details
-INNER JOIN meals ON order_details.id=meals.id
+
+DROP TABLE IF EXISTS 
+
+-- SELECT order_details.id, meals.id
+-- FROM order_details
+-- INNER JOIN mealsOrders ON order_details.id=meals.id
 
 
 
--- ALTER TABLE order_details
