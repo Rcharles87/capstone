@@ -28,4 +28,10 @@ INSERT INTO meals (restaurant_id, dietary_restrictions, quantity_in_stock ) VALU
 (1, 'vegan', 2),
 (2, 'gluten free', 5),
 (3, 'non-dairy', 10),
-(4, 'halal', 4);
+(4, 'halal', 7);
+
+INSERT INTO ordered_meals (meals_id, order_details_id) VALUES
+(1,1),
+(3,2),
+(2,3),
+(4,4);
