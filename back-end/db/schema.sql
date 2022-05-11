@@ -5,13 +5,15 @@ CREATE DATABASE tasty_waste;
 
 CREATE TABLE customers (
     id SERIAL PRIMARY KEY,
+    Fname TEXT NOT NULL,
+    Lname TEXT NOT NULL,
     username TEXT NOT NULL,
     password TEXT NOT NULL
 );
 
-DROP TABLE IF EXISTS baskets;
+DROP TABLE IF EXISTS carts;
 
-CREATE TABLE baskets (
+CREATE TABLE carts (
     id SERIAL PRIMARY KEY,
     is_active BOOLEAN,
     customer_id INTEGER REFERENCES customers (id)
@@ -22,7 +24,7 @@ DROP TABLE IF EXISTS order_details;
 
 CREATE TABLE order_details (
     id SERIAL PRIMARY KEY,
-    basket_id INTEGER REFERENCES baskets (id) ON DELETE CASCADE,
+    carts_id INTEGER REFERENCES carts (id) ON DELETE CASCADE,
     quantity INTEGER
 );
 
@@ -34,24 +36,24 @@ CREATE TABLE restaurants (
     cuisine_type TEXT NOT NULL
 );
 
-DROP TABLE IF EXISTS meals;
+DROP TABLE IF EXISTS products;
 
-CREATE TABLE meals (
+CREATE TABLE  products(
     id SERIAL PRIMARY KEY,
-    dietary_restrictions TEXT NOT NULL,
+    name TEXT NOT NULL,
     quantity_in_stock INTEGER,
     restaurant_id INTEGER REFERENCES restaurants (id)
     ON DELETE CASCADE
 );
 
 
-DROP TABLE IF EXISTS ordered_meals; 
+DROP TABLE IF EXISTS ordered_products; 
 
-CREATE TABLE ordered_meals (
-    meals_id INTEGER REFERENCES meals (id) ON UPDATE CASCADE ON DELETE CASCADE,
+CREATE TABLE ordered_products (
+    products_id INTEGER REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
     order_details_id INTEGER REFERENCES order_details (id)
     ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT ordered_meals_id PRIMARY KEY (meals_id, order_details_id)
+    CONSTRAINT ordered_meals_id PRIMARY KEY (products_id, order_details_id)
 );
 
 
