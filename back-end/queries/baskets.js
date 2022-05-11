@@ -19,8 +19,8 @@ const getPreviousBaskets = async (customer_id) => {
         return err;
     };
 };
-
-const updateCurrentBasket = async (customer_id, basket_id) => {
+/// baskets -(customerID)-> customers -(id)-> orderDetails -()->
+const updateCurrentBasket = async (customer_id) => {
     try{
         const updatedBasket = await db.one("UPDATE baskets")
     } catch (err){
