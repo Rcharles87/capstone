@@ -12,11 +12,6 @@ INSERT INTO carts (customer_id, is_active) VALUES
 (3, false),
 (3, true);
 
-INSERT INTO order_details (carts_id, quantity) VALUES
-(3, 1),
-(4, 2),
-(1, 4),
-(2, 5);
 
 INSERT INTO restaurants (name, cuisine_type ) VALUES
 ('IHop', 'breakfast'),
@@ -30,8 +25,8 @@ INSERT INTO products (restaurant_id, name, quantity_in_stock ) VALUES
 (3, 'non-dairy', 10),
 (4, 'halal', 7);
 
-INSERT INTO ordered_products (products_id, order_details_id) VALUES
-(1,1),
-(3,2),
-(2,3),
-(4,4);
+INSERT INTO order_details (carts_id, products_id, quantity) VALUES
+(3, 1, 1),
+(4, 2, 3),
+(1, 4, 5),
+(2, 3, 6);
