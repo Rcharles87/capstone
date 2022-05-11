@@ -1,8 +1,8 @@
 const express = require("express");
 const baskets = express.Router();
 const { getCurrentBasket, getPreviousBaskets } = require("../queries/baskets");
-
-baskets.get("/", async (req, res) => {
+// /baskets/:customerID?show=previous
+baskets.get("/:customerID", async (req, res) => {
     const { show } = req.query;
     const { customer_id } = req.params; //get customerID from her
     console.log(customer_id)
