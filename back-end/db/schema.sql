@@ -11,6 +11,7 @@ CREATE TABLE customers (
     password TEXT NOT NULL
 );
 
+
 DROP TABLE IF EXISTS carts;
 
 CREATE TABLE carts (
@@ -20,13 +21,6 @@ CREATE TABLE carts (
     ON DELETE CASCADE
 );
 
-DROP TABLE IF EXISTS order_details;
-
-CREATE TABLE order_details (
-    id SERIAL PRIMARY KEY,
-    carts_id INTEGER REFERENCES carts (id) ON DELETE CASCADE,
-    quantity INTEGER
-);
 
 DROP TABLE IF EXISTS restaurants;
 
@@ -35,6 +29,7 @@ CREATE TABLE restaurants (
     name TEXT NOT NULL,
     cuisine_type TEXT NOT NULL
 );
+
 
 DROP TABLE IF EXISTS products;
 
@@ -47,16 +42,12 @@ CREATE TABLE  products(
 );
 
 
-DROP TABLE IF EXISTS ordered_products; 
+DROP TABLE IF EXISTS order_details;
 
-CREATE TABLE ordered_products (
+CREATE TABLE order_details (
+    carts_id INTEGER REFERENCES carts (id) ON UPDATE CASCADE ON DELETE CASCADE,
     products_id INTEGER REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE,
-    order_details_id INTEGER REFERENCES order_details (id)
-    ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT ordered_meals_id PRIMARY KEY (products_id, order_details_id)
+    quantity INTEGER,
+    CONSTRAINT order_details_id PRIMARY KEY (products_id, carts_id)
 );
-
-
-
-
 
