@@ -51,7 +51,3 @@ CREATE TABLE order_details (
     CONSTRAINT order_details_id PRIMARY KEY (products_id, carts_id)
 );
 
-
-
-
-
