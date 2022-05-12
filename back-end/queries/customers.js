@@ -11,8 +11,8 @@ const getAllCustomers = async () => {
 
 const createCustomer = async (customer) => {
     try{
-        const newCustomer = await db.one("INSERT INTO customers(Fname, Lname, usersame, password) VALUES($1, $2, $3, $4) RETURNING *",
-        [customer.Fname, customer.Lname, customer.username, customer.password]);
+        const newCustomer = await db.one("INSERT INTO customers(Fname, Lname, username, password) VALUES($1, $2, $3, $4) RETURNING *",
+        [customer.fname, customer.lname, customer.username, customer.password]);
         return newCustomer;
     }catch(err){
         return err;
@@ -22,7 +22,7 @@ const createCustomer = async (customer) => {
 const updateCustomer = async (id, customer) => {
     try{
         const updatedCustomer = await db.one("UPDATE customers SET Fname=$1, Lname=$2, username=$3, password=$4 WHERE id=$5 RETURNING *",
-        [customer.Fname, customer.Lname, customer.username, customer.password], id);
+        [customer.fname, customer.lname, customer.username, customer.password, id]);
         return updatedCustomer;
     }catch(err){
         return err;
