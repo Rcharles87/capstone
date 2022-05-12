@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 //Controllers go here -->
-const basketsController = require("./controllers/basketsController.js");
+const cartsController = require("./controllers/cartsController.js");
 
 // Configuration
 const app = express();
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 
 //app.use goes here -->
-app.use("/baskets", basketsController)
+app.use("/carts", cartsController)
 
 app.get("*", (req, res) => {
   res.status(404).send("Page not found");
