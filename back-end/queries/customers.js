@@ -29,4 +29,20 @@ const updateCustomer = async (id, customer) => {
     };
 };
 
-module.exports = { getAllCustomers, createCustomer, updateCustomer};
+const getCurrentCustomerCart = async (id) => {
+    try{
+        // const basket = await ///
+    }catch(err){
+        
+    }
+}
+
+const getCustomersPreviousOrder = async (id) => {
+    try{
+
+    }catch(err){
+
+    }
+}
+
+module.exports = { getAllCustomers, createCustomer, updateCustomer, getCurrentCustomerCart, getCustomersPreviousOrder};
