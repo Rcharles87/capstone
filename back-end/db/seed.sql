@@ -23,10 +23,12 @@ INSERT INTO products (restaurant_id, name, quantity_in_stock ) VALUES
 (1, 'vegan', 2),
 (2, 'gluten free', 5),
 (3, 'non-dairy', 10),
-(4, 'halal', 7);
+(4, 'halal', 7),
+(4, 'bla', 3);
 
 INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (3, 1, 1),
 (4, 2, 3),
 (1, 4, 5),
-(2, 3, 6);
+(2, 3, 6),
+(1, 5, 3);

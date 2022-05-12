@@ -1,33 +1,35 @@
 const db = require("../db/dbConfig.js");
 
 const getProducts = async (customer_id) => {
-    // console.log(customer_id)
     try{
+        //use customerID get customers active cart and save in a variable called "cart"
         const cart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
+        //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
         const orderDetailsArr = await db.any('SELECT * FROM order_details WHERE carts_id=$1', cart.id);
-        // const information = {
-        //     id: customer_id, 
-        //     quantity: orderDetailsArr[0].quantity,
-        // }
-        for(let prod of orderDetailsArr){
-            // console.log(prod)
-            const productsArr =  await db.any('SELECT * FROM products WHERE id=$1', prod.products_id);
-            // return productsArr
+        const productsArr = [];
+        //loop through "orderDetailsArr" create a query for each element and match products_id to id in the Products table
+        for(let product of orderDetailsArr){
+            let productName =  await db.one('SELECT name FROM products WHERE id=$1', product.products_id);
+            productsArr.push(productName.name);
         }
+        //choose needed info & return into an array of objects
+        return orderDetailsArr.map((el,index)=> {
+            return {
+                quantity:el.quantity,
+                name:productsArr[index]
+            }
+        });
     } catch (err){
         return err;
     };
-
 };
 
 const getOrderDetails = async (cart_id) => {
-    console.log(cart_id);
     try{
 
     } catch (err){
         return err;
     };
-
 };
 
 
