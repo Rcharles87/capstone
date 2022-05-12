@@ -11,7 +11,11 @@ carts.get("/:customer_id/active", async (req, res) =>{
     //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
     //loop through "orderDetailsArr" create a query for each element and match products_id to id in the Products table
     try{
-        const ans = await getProducts(customer_id);
+        const productsInOrder = await getProducts(customer_id);
+        console.log(productsInOrder);
+        if(productsInOrder[0]){
+            res.status(200).json({})
+        }
         // console.log('is the server sending back info?',ans)
     }catch(err){
         return err

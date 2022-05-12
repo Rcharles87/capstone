@@ -5,18 +5,15 @@ const getProducts = async (customer_id) => {
     try{
         const cart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
         const orderDetailsArr = await db.any('SELECT * FROM order_details WHERE carts_id=$1', cart.id);
-        const information = {
-            id: customer_id, 
-            quantity: orderDetailsArr[0].quantity,
-        }
-        console.log(information)
+        // const information = {
+        //     id: customer_id, 
+        //     quantity: orderDetailsArr[0].quantity,
+        // }
         for(let prod of orderDetailsArr){
-            console.log(prod)
+            // console.log(prod)
             const productsArr =  await db.any('SELECT * FROM products WHERE id=$1', prod.products_id);
-            
+            // return productsArr
         }
-        console.log(productsArr)
-        // return [customer_id,orderDetailsArr.quantity, ]
     } catch (err){
         return err;
     };
