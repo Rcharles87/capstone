@@ -34,7 +34,7 @@ const getPreviousCarts = async (customer_id) => {
         // const previousOrderDetailsArr = await db.any("SELECT * FROM order_details WHERE carts_id=$1,", previousCarts.id)
         const previousProductsArr = [];
         for(let previousOrders of previousOrderDetailsArr){
-            
+            console.log(previousOrders);
         }
         
         
