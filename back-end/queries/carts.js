@@ -29,17 +29,19 @@ const getProducts = async (customer_id) => {
 
 const getPreviousCarts = async (customer_id) => {
     try{
+            //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
         const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
-            console.log("prev:", previousCarts)
-        const previousOrderDetailsArr = await db.any("SELECT * FROM order_details WHERE carts_id=$1,", previousCarts.id)
-        console.log(previousOrderDetailsArr);
-
-        const previousProductsArr = [];
-
-        for(let previousOrders of previousOrderDetailsArr){
-            
-        }
-        return previousCarts;
+        const previousOrderDetailsArr = [];
+        const previousOrdersDetailsArr2 = [];
+            // use previousCart.id to get all order details associated with previous cart.id and save as a variable previousOrderDetailsArr 
+        for(let previousCart of previousCarts){
+            // console.log("previous cart:", previousCart);
+            let orderDetail = await db.one("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
+            console.log("order:", orderDetail);
+            previousOrderDetailsArr.push(orderDetail);
+            console.log("previous order:", previousOrderDetailsArr);
+        };
+            return previousCarts;
     } catch (err){
         return err;
     };

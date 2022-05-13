@@ -35,4 +35,5 @@ INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (2, 3, 6),
 (1, 5, 3),
 (5, 1, 1),
-(6, 2, 3);
+(6, 2, 3),
+(3, 2, 1);
