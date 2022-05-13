@@ -10,7 +10,9 @@ INSERT INTO carts (customer_id, is_active) VALUES
 (1, true),
 (2, true),
 (3, false),
-(3, true);
+(3, true),
+(3, false),
+(2, false);
 
 
 INSERT INTO restaurants (name, cuisine_type ) VALUES
@@ -31,4 +33,6 @@ INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (4, 2, 3),
 (1, 4, 5),
 (2, 3, 6),
-(1, 5, 3);
+(1, 5, 3),
+(5, 1, 1),
+(6, 2, 3);
