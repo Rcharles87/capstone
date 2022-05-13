@@ -30,15 +30,14 @@ const getProducts = async (customer_id) => {
 const getPreviousCarts = async (customer_id) => {
     try{
         const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
-            console.log("prev:", previousCarts)
-        const previousOrderDetailsArr = await db.any("SELECT * FROM order_details WHERE carts_id=$1,", previousCarts.id)
         console.log(previousOrderDetailsArr);
-
+        // const previousOrderDetailsArr = await db.any("SELECT * FROM order_details WHERE carts_id=$1,", previousCarts.id)
         const previousProductsArr = [];
-
         for(let previousOrders of previousOrderDetailsArr){
             
         }
+        
+        
         return previousCarts;
     } catch (err){
         return err;
