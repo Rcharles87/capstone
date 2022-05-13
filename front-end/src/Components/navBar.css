@@ -1,0 +1,20 @@
+nav {
+    border: 1px solid gold;
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    padding: 20px;
+}
+
+.left {
+    justify-content: center;
+}
+
+.right {
+    display: flex;
+}
+
+.right div{
+    margin: 0px 15px 0px 0px;
+
+}

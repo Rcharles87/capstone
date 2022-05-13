@@ -7,14 +7,20 @@ import Footer from './Components/Footer';
 //import of pages that are linked to components
 
 import Home from './Pages/Home';
+import Cart from './Pages/Cart';
+import Login from './Pages/Login';
+import Signup from './Pages/Signup';
 
 
 function App() {
   return (
     <div className="main">
-      <NavBar />
+      <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/carts" element={<Cart/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/signup' element={<Signup/>} />
       </Routes>
      <Footer />
     </div>

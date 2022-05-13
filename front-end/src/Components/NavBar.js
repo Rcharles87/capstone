@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Home from "../Pages/Home";
+import "./navBar.css"
 
 function NavBar() {
   return (
@@ -9,8 +9,12 @@ function NavBar() {
         </div>
 
         <div className="right">
-            {/* <Link>login/signup</Link> */}
-            {/* <Link>Cart</Link> */}
+            <div>
+            <Link to="/login" >Login/Signup</Link>
+            </div>
+            <div>
+            <Link to="/cart">Cart</Link>
+            </div>
         </div>
     </nav>
   )
