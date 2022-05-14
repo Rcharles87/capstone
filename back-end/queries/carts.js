@@ -29,22 +29,47 @@ const getCurrentCart = async (customer_id) => {
 
 const getPreviousCarts = async (customer_id) => {
     try{
-            //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
+        //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
         const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
-        console.log('previous carts ~~',previousCarts)
         const previousOrderDetailsArr = [];
-            // use previousCart.id to get all order details associated with previous cart.id and save as a variable previousOrderDetailsArr 
+        // use previousCart.id to get all order details associated with previous cart.id and save as a variable previousOrderDetailsArr 
         for(let previousCart of previousCarts){
-            // console.log("previous cart:", previousCart);
-            let orderDetail = await db.one("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
-            console.log("order:", orderDetail);
-            previousOrderDetailsArr.push(orderDetail);
-            console.log("previous order:", previousOrderDetailsArr);
+            let previousOrderDetails = await db.any("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
+            // console.log("order:", previousOrderDetails);
+            previousOrderDetailsArr.push(previousOrderDetails);
         };
-        // for(let previousOrderDetail of previousOrderDetailsArr){
-        //     console.log(previousOrderDetail)
-        // }
-            // return previousCarts;
+        // console.log('previous order deets',previousOrderDetailsArr);
+
+        // [
+        //     [
+        //       { carts_id: 3, products_id: 1, quantity: 1 },
+        //       { carts_id: 3, products_id: 2, quantity: 1 },
+        //       { carts_id: 3, products_id: 3, quantity: 4 }
+        //     ],
+        //     [ { carts_id: 5, products_id: 1, quantity: 1 } ]
+        // ]
+
+        // [
+        //     [ 'vegan', 'gluten free', 'non-dairy' ],
+        //     ['vegan']
+        // ]
+
+        const array = []
+        const array2 = []
+        for(let i=0; i<previousOrderDetailsArr.length; i++){
+            for(let j=0; j<previousOrderDetailsArr[i].length; j++){
+                let productName = await db.one("SELECT name FROM products WHERE id=$1", previousOrderDetailsArr[i][j].products_id)
+                array2.push(productName.name)
+            }
+            // console.log(array2)
+            array.push(array2)
+            // console.log(array)
+        }
+        // console.log(`fdka`, array) 
+        // console.log(previousOrderDetailsArr)
+        // previousOrderDetailsArr.map((element, index) => [
+            
+        // ])
     } catch (err){
         return err;
     };
@@ -55,7 +80,6 @@ const getPreviousCarts = async (customer_id) => {
 
 const updateCurrentCart = async (customer_id, updateInfo) => {
 //** we may have to change the query because it does not account for a cart that has multiple orders*/
-
     try{
         //use customerID get customers active cart and save in a variable called "cart"
         const updatedCart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
