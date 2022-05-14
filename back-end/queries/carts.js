@@ -31,8 +31,8 @@ const getPreviousCarts = async (customer_id) => {
     try{
             //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
         const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
+        console.log('previous carts ~~',previousCarts)
         const previousOrderDetailsArr = [];
-        const previousOrdersDetailsArr2 = [];
             // use previousCart.id to get all order details associated with previous cart.id and save as a variable previousOrderDetailsArr 
         for(let previousCart of previousCarts){
             // console.log("previous cart:", previousCart);
@@ -41,10 +41,10 @@ const getPreviousCarts = async (customer_id) => {
             previousOrderDetailsArr.push(orderDetail);
             console.log("previous order:", previousOrderDetailsArr);
         };
-        for(let previousOrderDetail of previousOrderDetailsArr){
-            console.log(previousOrderDetail)
-        }
-            return previousCarts;
+        // for(let previousOrderDetail of previousOrderDetailsArr){
+        //     console.log(previousOrderDetail)
+        // }
+            // return previousCarts;
     } catch (err){
         return err;
     };
@@ -52,25 +52,23 @@ const getPreviousCarts = async (customer_id) => {
 
 
 
-//update the active cart 
-//get product_id from order details?
 
 const updateCurrentCart = async (customer_id, updateInfo) => {
+//** we may have to change the query because it does not account for a cart that has multiple orders*/
 
     try{
+        //use customerID get customers active cart and save in a variable called "cart"
         const updatedCart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
-    
+
+        // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr 
         const updatedOrderDetails = await db.one('UPDATE order_details SET quantity=$1 WHERE carts_id=$2 RETURNING *',
         [updateInfo.quantity, updatedCart.customer_id]);
         
         let updatedProduct = await db.one("SELECT name FROM products WHERE id=$1", updatedOrderDetails.products_id);
-        
         return {
             quantity: updateInfo.quantity,
             name: updatedProduct.name
         };
-
-
     } catch (err){
         return err;
     };
