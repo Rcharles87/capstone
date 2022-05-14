@@ -13,11 +13,11 @@ function NavBar() {
             <Link to="/login" >Login/Signup</Link>
             </div>
             <div>
-            <Link to="/cart">Cart</Link>
+            <Link to="/carts">Cart</Link>
             </div>
         </div>
     </nav>
   )
-}
+};
 
 export default NavBar;
