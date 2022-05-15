@@ -5,7 +5,7 @@ const getCurrentCart = async (customer_id) => {
         //use customerID get customers active cart and save in a variable called "cart"
         // const cart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
         //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
-
+        
         const cartDetailsArr = await db.any('SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=1 AND is_active=TRUE)', customer_id);
         
         const productsArr = [];
@@ -29,61 +29,49 @@ const getCurrentCart = async (customer_id) => {
 
 const getPreviousCarts = async (customer_id) => {
     try{
-        //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
-        const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
-        const previousOrderDetailsArr = [];
-        // use previousCart.id to get all order details associated with previous cart.id and save as a variable previousOrderDetailsArr 
-        for(let previousCart of previousCarts){
-            let previousOrderDetails = await db.any("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
-            // console.log("order:", previousOrderDetails);
-            previousOrderDetailsArr.push(previousOrderDetails);
-        };
-        // console.log('previous order deets',previousOrderDetailsArr);
-
-        // [
-        //     [
-        //       { carts_id: 3, products_id: 1, quantity: 1 },
-        //       { carts_id: 3, products_id: 2, quantity: 1 },
-        //       { carts_id: 3, products_id: 3, quantity: 4 }
-        //     ],
-        //     [ { carts_id: 5, products_id: 1, quantity: 1 } ]
-        // ]
-
-        // [
-        //     [ 'vegan', 'gluten free', 'non-dairy' ],
-        //     ['vegan']
-        // ]
-
-        // []
-        const array = []
-        const array2 = []
-        for(let i=0; i<previousOrderDetailsArr.length; i++){
-            for(let j=0; j<previousOrderDetailsArr[i].length; j++){
-                // let productName = ''
-                // array2.push()
-                
-                
-                //CREATE an if statement that can keep track of i whatwhere ///
-                if(i !== i+1){
-                    let productName = await db.one("SELECT name FROM products WHERE id=$1", previousOrderDetailsArr[i][j].products_id);
-                    console.log(i,j,'PRODUCT NAME',productName);
-                    array2.push(productName.name)
-                }else{
-                    console.log('i',i, 'j',j)
-                }
-                // console.log('ARRAY',array2)
-            }
-            array.push(array2)
-            // console.log('ARRAY NAME',array2)
-            // console.log(array2)
-            // array.push(array2)
-            console.log('array Int',array)
+        const previousCart = await db.many('SELECT order_details.carts_id, order_details.products_id, order_details.quantity FROM order_details WHERE carts_id IN (SELECT id FROM carts WHERE customer_id=$1 AND is_active=FALSE)', customer_id);
+        
+        for(let prod of previousCart){
+            let name = await db.one('SELECT name FROM products WHERE id=$1', prod.products_id)
+            prod.productName = name.name;
         }
-        // console.log(`fdka`, array) 
+        // console.log(previousCart);
+        let obj = {}; ///IDEA 1  ---> BUT THIS ONLY RETURNS THE FIRST ITEM IN EACH CART
+        let array = []
+        for(let order of previousCart){
+            obj[order.carts_id] = (obj[order.carts_id] || 0) + 1 // { '3': 3, '5': 1 }
+            if(obj[order.carts_id] === 1){
+                array.push(order);
+            }
+        }
+        console.log(array)  //PROBLEM ----> I GET SEPARATE CARTS BUT THE PRODUCTS ASSOCIATED W/ THE CARTS ARE GONE (WHICH I NEED)
 
-        // console.log(previousOrderDetailsArr)
-        // previousOrderDetailsArr.map((element, index) => [
-        // ])
+        // console.log(obj)
+        // console.log(obj)
+        // for(let orderInfo of previousCart){
+        //     let objectKeysArr = Object.keys(obj);
+        //     console.log('ORDER INFOOO',orderInfo)
+        //     console.log('OBJEXT KEYS ARR',objectKeysArr)
+        //     let vessel = {};
+        //     for(let objKey of objectKeysArr){
+        //         if(orderInfo.carts_id === Number(objKey)){
+        //             vessel.products += orderInfo.productName;
+        //         }
+                
+        //     }
+        // }
+    
+        // const uniqueCart = []; //IDEA 2 ---> BUT THIS ALSO RETURNS THE FIRST ITEM IN EACH FILERED CART 
+        // const unique = previousCart.filter((el) => {
+        //     const isDuplicate = uniqueCart.includes(el.carts_id);
+        //     if(!isDuplicate){
+        //         uniqueCart.push(el.carts_id);
+        //         return true;
+        //     }
+        //     return false
+        // })
+      
+        return array;
     } catch (err){
         return err;
     };
