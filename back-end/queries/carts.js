@@ -3,19 +3,19 @@ const db = require("../db/dbConfig.js");
 const getCurrentCart = async (customer_id) => {
     try{
         //use customerID get customers active cart and save in a variable called "cart"
-        const cart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
-        
+        // const cart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
         //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
-        const orderDetailsArr = await db.any('SELECT * FROM order_details WHERE carts_id=$1', cart.id);
-     
+
+        const cartDetailsArr = await db.any('SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=1 AND is_active=TRUE)', customer_id);
+        
         const productsArr = [];
         //loop through "orderDetailsArr" create a query for each element and match products_id to id in the Products table
-        for(let orderDetail of orderDetailsArr){
-            let productName =  await db.one('SELECT name FROM products WHERE id=$1', orderDetail.products_id);
+        for(let cartDetail of cartDetailsArr){
+            let productName =  await db.one('SELECT name FROM products WHERE id=$1', cartDetail.products_id);
             productsArr.push(productName.name);
         }
         //choose needed info & return into an array of objects
-        return orderDetailsArr.map((el,index)=> {
+        return cartDetailsArr.map((el,index)=> {
             return {
                 quantity:el.quantity,
                 name:productsArr[index]
@@ -54,21 +54,35 @@ const getPreviousCarts = async (customer_id) => {
         //     ['vegan']
         // ]
 
+        // []
         const array = []
         const array2 = []
         for(let i=0; i<previousOrderDetailsArr.length; i++){
             for(let j=0; j<previousOrderDetailsArr[i].length; j++){
-                let productName = await db.one("SELECT name FROM products WHERE id=$1", previousOrderDetailsArr[i][j].products_id)
-                array2.push(productName.name)
+                // let productName = ''
+                // array2.push()
+                
+                
+                //CREATE an if statement that can keep track of i whatwhere ///
+                if(i !== i+1){
+                    let productName = await db.one("SELECT name FROM products WHERE id=$1", previousOrderDetailsArr[i][j].products_id);
+                    console.log(i,j,'PRODUCT NAME',productName);
+                    array2.push(productName.name)
+                }else{
+                    console.log('i',i, 'j',j)
+                }
+                // console.log('ARRAY',array2)
             }
-            // console.log(array2)
             array.push(array2)
-            // console.log(array)
+            // console.log('ARRAY NAME',array2)
+            // console.log(array2)
+            // array.push(array2)
+            console.log('array Int',array)
         }
         // console.log(`fdka`, array) 
+
         // console.log(previousOrderDetailsArr)
         // previousOrderDetailsArr.map((element, index) => [
-            
         // ])
     } catch (err){
         return err;
