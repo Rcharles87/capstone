@@ -7,7 +7,7 @@ const getCurrentCart = async (customer_id) => {
     //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
 
     const cartDetailsArr = await db.any(
-      "SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=1 AND is_active=TRUE)",
+      "SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=$1 AND is_active=TRUE)",
       customer_id
     );
 
@@ -38,7 +38,6 @@ const getPreviousCarts = async (customer_id) => {
       "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
       customer_id
     );
-    console.log(previousCarts);
     return previousCarts;
 
     //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
