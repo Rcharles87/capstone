@@ -48,7 +48,9 @@ const handleSubmit = (event) => {
 
         <Link to="/signup">Click here to signup</Link>
     </div>
-  )
-}
+  );
+};
+
+
 
 export default Login;
