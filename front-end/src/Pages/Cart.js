@@ -10,18 +10,29 @@ function Cart() {
     useEffect(()=>{
         axios.get(`${API}/carts/${userID}/active`)
         .then((res)=>{
-          console.log({userID})
-          console.log(res)
-            setCarts(res.data);
+          console.log(res.data)
+           setCarts(res.data);
         }).catch((err)=>{
             console.log(err);
         })
-    }, []);
+    }, [userID]);
 
-    // console.log(carts)
+    const activeCart = carts.map((product)=>{
+      return (
+        <div>
+
+        <h1>
+          {product.name}  {product.quantity}
+        </h1>
+      
+        </div>
+      )
+    })
 
   return (
-      null
+      <div>
+        {activeCart}
+      </div>
   )
 }
 
