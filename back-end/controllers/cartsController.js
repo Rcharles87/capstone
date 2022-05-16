@@ -28,7 +28,6 @@ carts.put("/:customer_id/active", async (req,res) =>{
     const { body } = req;
     try{
         const updatedCart = await updateCurrentCart(customer_id, body);
-        console.log(updatedCart)
         if(updatedCart.name){
             res.status(200).json(updatedCart);
         } else {
