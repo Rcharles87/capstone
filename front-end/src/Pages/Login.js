@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
-import { axios } from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 
-const API= process.env.REACT_API_URL;
+const API= process.env.REACT_APP_API_URL;
 
 function Login() {
   const [login, setLogin] = useState({
@@ -17,10 +17,10 @@ const handleTextChange = (event) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post(`${API}/login`, login)
-    // .then((res) =>{
-        
-    // })
+    axios.post(`${API}/auth/signin`, login)
+    .then((res) =>{
+      localStorage.setItem("userID", res.data.id)
+    })
 }
 
   return (
