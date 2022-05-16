@@ -7,7 +7,7 @@ const getCurrentCart = async (customer_id) => {
     //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
 
     const cartDetailsArr = await db.any(
-      "SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=1 AND is_active=TRUE)",
+      "SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=$1 AND is_active=TRUE)",
       customer_id
     );
 
