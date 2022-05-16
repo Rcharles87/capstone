@@ -1,7 +1,7 @@
-import { axios } from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 
-const API= process.env.REACT_API_URL;
+const API= process.env.REACT_APP_API_URL;
 
 function Signup() {
     const [signUp, setSignUp] = useState({
@@ -18,10 +18,10 @@ function Signup() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`${API}/signup`, signUp)
-        // .then((res) =>{
-            
-        // })
+        axios.post(`${API}/auth/signup`, signUp)
+        .then((res) =>{
+            localStorage.setItem("userID", res.data.id)
+        })
     }
 
     return (
@@ -29,7 +29,7 @@ function Signup() {
             <form onSubmit={handleSubmit}>
             <label htmlFor="first name">First Name</label>
             <input
-                id="first name"
+                id="Fname"
                 value={signUp.Fname}
                 type="text"
                 onChange={handleTextChange}
@@ -37,7 +37,7 @@ function Signup() {
             />
             <label htmlFor="last name">Last Name</label>
             <input
-                id="last name"
+                id="Lname"
                 value={signUp.Lname}
                 type="text"
                 onChange={handleTextChange}
