@@ -12,7 +12,7 @@ const getAllCustomers = async () => {
 const createCustomer = async (customer) => {
     try{
         const newCustomer = await db.one("INSERT INTO customers(Fname, Lname, username, password) VALUES($1, $2, $3, $4) RETURNING *",
-        [customer.fname, customer.lname, customer.username, customer.password]);
+        [customer.Fname, customer.Lname, customer.username, customer.password]);
         return newCustomer;
     }catch(err){
         return err;

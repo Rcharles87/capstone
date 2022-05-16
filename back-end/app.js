@@ -5,6 +5,7 @@ const cors = require("cors");
 //Controllers go here -->
 const cartsController = require("./controllers/cartsController.js");
 const customersController = require("./controllers/customersController.js");
+const authController = require("./controllers/authController.js");
 
 // Configuration
 const app = express();
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 //app.use goes here -->
 app.use("/carts", cartsController);
 app.use("/customers", customersController);
+app.use("/auth", authController);
 
 app.get("*", (req, res) => {
   res.status(404).send("Page not found");
