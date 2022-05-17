@@ -1,4 +1,6 @@
 import { Routes , Route } from 'react-router-dom';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 //import of stand alone components 
 import NavBar from './Components/NavBar';
@@ -13,13 +15,16 @@ import Signup from './Pages/Signup';
 
 
 function App() {
+
+  const [loginText, setLoginText] = useState(false);
+
   return (
     <div className="main">
-      <NavBar/>
+      <NavBar  setLoginText={setLoginText}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/carts" element={<Cart/>} />
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
       </Routes>
      <Footer />

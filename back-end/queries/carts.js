@@ -34,67 +34,41 @@ const getCurrentCart = async (customer_id) => {
 
 const getPreviousCarts = async (customer_id) => {
   try {
-    const previousCarts = await db.any(
-      "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
-      customer_id
-    );
-    console.log(previousCarts);
-    return previousCarts;
+    const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
+    // console.log(previousCarts);
+    const allCartsDetailsArr = []
+    for (let previousCart of previousCarts){
+        const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
+        // console.log(cartDetail)
+          const productsArr = [];
+    for (let Detail of cartDetail) {
+      let productName = await db.one(
+        "SELECT name FROM products WHERE id=$1",
+        Detail.products_id
+      );
+      productsArr.push(productName.name);
+    }
+     let newCart = cartDetail.map((el, index) => {
+      return {
+        quantity: el.quantity,
+        name: productsArr[index],
+      };
+    });
+    allCartsDetailsArr.push(newCart)
+    }
 
-    //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
-    // const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
-    // const previousOrderDetailsArr = [];
-    // use previousCart.id to get all order details associated with previous cart.id and save as a variable previousOrderDetailsArr
-    // for(let previousCart of previousCarts){
-    //     let previousOrderDetails = await db.any("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
-    // console.log("order:", previousOrderDetails);
-    //     previousOrderDetailsArr.push(previousOrderDetails);
-    // };
-    // console.log('previous order deets',previousOrderDetailsArr);
 
-    // [
-    //     [
-    //       { carts_id: 3, products_id: 1, quantity: 1 },
-    //       { carts_id: 3, products_id: 2, quantity: 1 },
-    //       { carts_id: 3, products_id: 3, quantity: 4 }
-    //     ],
-    //     [ { carts_id: 5, products_id: 1, quantity: 1 } ]
-    // ]
 
-    // [
-    //     [ 'vegan', 'gluten free', 'non-dairy' ],
-    //     ['vegan']
-    // ]
 
-    // []
-    // const array = []
-    // const array2 = []
-    // for(let i=0; i<previousOrderDetailsArr.length; i++){
-    //     for(let j=0; j<previousOrderDetailsArr[i].length; j++){
-    // let productName = ''
-    // array2.push()
 
-    //CREATE an if statement that can keep track of i whatwhere ///
-    // if(i !== i+1){
-    //     let productName = await db.one("SELECT name FROM products WHERE id=$1", previousOrderDetailsArr[i][j].products_id);
-    //     console.log(i,j,'PRODUCT NAME',productName);
-    //     array2.push(productName.name)
-    // }else{
-    //     console.log('i',i, 'j',j)
-    // }
-    // console.log('ARRAY',array2)
-    // }
-    // array.push(array2)
-    // console.log('ARRAY NAME',array2)
-    // console.log(array2)
-    // array.push(array2)
-    // console.log('array Int',array)
-    // }
-    // console.log(`fdka`, array)
 
-    // console.log(previousOrderDetailsArr)
-    // previousOrderDetailsArr.map((element, index) => [
-    // ])
+
+    // const previousCarts = await db.any(
+    //   "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
+    //   customer_id
+    // );
+    return allCartsDetailsArr;
+
   } catch (err) {
     return err;
   }
