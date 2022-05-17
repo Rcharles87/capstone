@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 const API= process.env.REACT_APP_API_URL;
 
-function Login({handleLoginChange}) {
+function Login({setLoginText}) {
   const [login, setLogin] = useState({
     username:"",
     password:""
@@ -20,6 +20,7 @@ const handleSubmit = (event) => {
     axios.post(`${API}/auth/signin`, login)
     .then((res) =>{
       localStorage.setItem("userID", res.data.id)
+      setLoginText(true)
     })
 }
 
@@ -42,7 +43,7 @@ const handleSubmit = (event) => {
                 onChange={handleTextChange}
                 placeholder="Please enter a password"
             />
-            <button onSubmit={handleLoginChange}>Submit</button>
+            <button>Submit</button>
       </form>
 
 

@@ -1,27 +1,18 @@
 import { Link } from "react-router-dom";
 import "./navBar.css"
-import { useState } from "react";
+function NavBar({setLoginText}) {
 
-function NavBar() {
 
-  const [loginText, setLoginText] = useState(false);
   
-  let text = loginText ? <Link to="/"> logout</Link>: <Link to="/login">login/signup</Link>
-
-  const handleTextChange = (event) =>{
+  
+  const handleLogout = (event) =>{
     event.preventDefault()
-    if(!localStorage.userID){
-      setLoginText(!loginText)
-    } else {  
-      window.localStorage.clear()
-    }
+    window.localStorage.clear()
+    setLoginText(false) 
   }
 
-
-
-
-  // "login/signup" : "logout";
-
+  let text =  localStorage.getItem("userID") ? <Link to="/" onClick={handleLogout}>logout</Link>: <Link to="/login">login/signup</Link>
+  
 
   return (
     <nav>
@@ -30,7 +21,7 @@ function NavBar() {
         </div>
 
         <div className="right">
-            <div onClick={handleTextChange}>
+            <div >
              {text}
             </div>
             <div>
