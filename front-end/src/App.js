@@ -16,26 +16,15 @@ import Signup from './Pages/Signup';
 
 function App() {
 
-  // const [loginText, setLoginText] = useState(false);
-  
-  // let text = loginText ? <Link to="/"> logout</Link>: <Link to="/login">login/signup</Link>
-
-
-  // const handleLoginChange = (event) =>{
-  //   if(!localStorage.userID){
-  //     setLoginText(!loginText)
-  //   } else if(loginText !== false) {  
-  //     window.localStorage.clear()
-  //   }
-  // }
+  const [loginText, setLoginText] = useState(false);
 
   return (
     <div className="main">
-      <NavBar />
+      <NavBar  setLoginText={setLoginText}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/carts" element={<Cart/>} />
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
       </Routes>
      <Footer />
