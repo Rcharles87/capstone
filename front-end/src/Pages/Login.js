@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 const API= process.env.REACT_APP_API_URL;
 
 function Login({setLoginText}) {
+
+  let navigate = useNavigate();
   const [login, setLogin] = useState({
     username:"",
     password:""
@@ -21,6 +23,7 @@ const handleSubmit = (event) => {
     .then((res) =>{
       localStorage.setItem("userID", res.data.id)
       setLoginText(true)
+      navigate("/carts/inactive")
     })
 }
 

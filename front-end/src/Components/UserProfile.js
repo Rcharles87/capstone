@@ -19,16 +19,20 @@ function UserProfile() {
 
     },[userID]);
     let displayOldOrders = []
+    let restaurantName = ""
 
+    console.log(oldCarts)
     for (let oldCart of oldCarts){
         const cart = oldCart.map((detail)=>{
             return (
-                <div>
-                    <div>{detail.orderNum}</div>
+                <div>  
+                    <div>{oldCart.orderNum}
+                    <div>{detail.restaurant}</div>
+
+                    </div>
                     <div>
                     {detail.name}
                     {detail.quantity}
-
                     </div>
                 </div>
             )
@@ -39,6 +43,7 @@ function UserProfile() {
 
   return (
     <div>
+        <h1>Previous Orders</h1>
         {displayOldOrders}
     </div>
   )
