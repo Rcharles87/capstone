@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./navBar.css";
+import "../Styles/navBar.css";
 import logo from "../assets/dummy-logo.png";
 
 function NavBar({ setLoginText }) {
@@ -10,11 +10,16 @@ function NavBar({ setLoginText }) {
   };
 
   let text = localStorage.getItem("userID") ? (
-    <Link to="/" onClick={handleLogout}>
-      logout
-    </Link>
+    <div className="profile-logout-container">
+      <Link to="/" onClick={handleLogout}>Logout</Link>
+    
+      <Link to="/carts/inactive">Profile</Link>
+    </div>
   ) : (
-    <Link to="/login">login/signup</Link>
+    <div className="login-container">
+      <Link to="/login">Login/Signup</Link>
+
+    </div>
   );
 
   return (
@@ -26,7 +31,9 @@ function NavBar({ setLoginText }) {
       </div>
 
       <div className="cart">
-        <div>{text}</div>
+        <div>
+          {text}
+        </div>
         <div>
           <Link to="/carts">Cart</Link>
         </div>
