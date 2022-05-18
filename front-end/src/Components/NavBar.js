@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import "./navBar.css";
-import { useState } from "react";
+import "../Styles/navBar.css";
 import logo from "../assets/dummy-logo.png";
 
 function NavBar({ setLoginText }) {
