@@ -22,11 +22,12 @@ INSERT INTO restaurants (name, cuisine_type, add, lat, lon) VALUES
 ('Dig', 'Balanced Vegetable based dishes', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 );
 
 INSERT INTO products (restaurant_id, name, quantity_in_stock ) VALUES
-(1, 'vegan', 2),
-(2, 'gluten free', 5),
-(3, 'non-dairy', 10),
-(4, 'halal', 7),
-(4, 'bla', 3);
+(1, 'Vegan', 2),
+(2, 'Gluten free', 5),
+(3, 'Non-dairy', 10),
+(4, 'Halal', 7),
+(4, 'Kosher', 3),
+(2, 'Low Sodium', 5);
 
 INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (3, 1, 1),
