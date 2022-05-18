@@ -22,20 +22,38 @@ INSERT INTO restaurants (name, cuisine_type, add, lat, lon) VALUES
 ('Dig', 'Balanced Vegetable based dishes', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 );
 
 INSERT INTO products (restaurant_id, name, quantity_in_stock ) VALUES
-(1, 'Vegan', 2),
-(2, 'Gluten free', 5),
-(3, 'Non-dairy', 10),
-(4, 'Halal', 7),
-(4, 'Kosher', 3),
-(2, 'Low Sodium', 5);
+(1, 'Vegan', 7),
+(1, 'Gluten free', 9),
+(1, 'Non-dairy', 10),
+(1, 'Halal', 2),
+(1, 'Kosher', 6),
+(1, 'Low Sodium', 15),
+(2, 'Vegan', 22),
+(2, 'Gluten free', 35),
+(2, 'Non-dairy', 3),
+(2, 'Halal', 1),
+(2, 'Kosher', 3),
+(2, 'Low Sodium', 5),
+(3, 'Vegan', 2),
+(3, 'Gluten free', 40),
+(3, 'Non-dairy', 6),
+(3, 'Halal', 20),
+(3, 'Kosher', 11),
+(3, 'Low Sodium', 2),
+(4, 'Vegan', 15),
+(4, 'Gluten free', 21),
+(4, 'Non-dairy', 36),
+(4, 'Halal', 24),
+(4, 'Kosher', 0),
+(4, 'Low Sodium', 1);
 
 INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (3, 1, 1),
-(4, 2, 3),
-(1, 4, 5),
+(4, 21, 3),
+(1, 17, 5),
 (2, 3, 6),
 (1, 5, 3),
-(5, 1, 1),
-(6, 2, 3),
-(3, 2, 1),
-(3, 3, 4);
+(5, 9, 1),
+(6, 12, 3),
+(3, 4, 1),
+(3, 6, 4);

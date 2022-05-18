@@ -19,8 +19,21 @@ nav {
 }
 
 .cart div{
-    margin: 0px 15px 0px 0px;
+    margin: none;
 
+}
+
+.profile-logout-container a {
+    margin: 0px 15px 0px 0px;
+}
+
+.login-container {
+    margin: 0px 15px 0px 0px; 
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 
