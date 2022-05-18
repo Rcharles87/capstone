@@ -9,4 +9,13 @@ const getAllRestaurants = async () => {
   };
 };
 
-module.exports = { getAllRestaurants };
+const getOneRestaurant = async (restaurant_id) => {
+  try {
+      const oneRestaurant = await db.one("SELECT * FROM restaurants WHERE id=$1", restaurant_id);
+      return oneRestaurant;
+  } catch (err) {
+    return err;
+  };
+};
+
+module.exports = { getAllRestaurants, getOneRestaurant };

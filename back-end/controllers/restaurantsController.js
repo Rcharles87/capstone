@@ -1,6 +1,6 @@
 const express = require("express");
 const restaurants = express.Router();
-const { getAllRestaurants } = require("../queries/restaurants.js")
+const { getAllRestaurants, getOneRestaurant } = require("../queries/restaurants.js")
 
 restaurants.get("/", async (req, res) => {
     try{
@@ -9,6 +9,16 @@ restaurants.get("/", async (req, res) => {
     }catch(err){
       return err;
     }
+});
+
+restaurants.get("/:restaurant_id", async (req, res) => {
+  const {restaurant_id} = req.params;
+  try {
+    const oneRestaurant = await getOneRestaurant(restaurant_id);
+    res.status(200).json(oneRestaurant)
+  } catch (err) {
+    return err;
+  }
 });
 
 
