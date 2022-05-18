@@ -39,20 +39,27 @@ const getPreviousCarts = async (customer_id) => {
     const allCartsDetailsArr = []
     for (let previousCart of previousCarts){
         const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
-        console.log(cartDetail)
+        // console.log(cartDetail)
           const productsArr = [];
+          const restaurantsArr = [];
     for (let Detail of cartDetail) {
       let productName = await db.one(
-        "SELECT name FROM products WHERE id=$1",
-        Detail.products_id
+        "SELECT * FROM products WHERE id=$1", Detail.products_id
       );
-      productsArr.push(productName.name);
+      productsArr.push(productName);
+    }
+    for (let product of productsArr){
+      console.log(productsArr)
+      let restaurantname = await db.one(
+        "SELECT name FROM restaurants WHERE id=$1", product.restaurant_id);
+        restaurantsArr.push(restaurantname)
     }
      let newCart = cartDetail.map((el, index) => {
       return {
         'order#':el.carts_id,
         quantity: el.quantity,
-        name: productsArr[index],
+        name: productsArr[index].name,
+        restaurant: restaurantsArr[index].name
       };
     });
     allCartsDetailsArr.push(newCart)
