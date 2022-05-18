@@ -38,7 +38,6 @@ const getPreviousCarts = async (customer_id) => {
       "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
       customer_id
     );
-    console.log(previousCarts);
     return previousCarts;
 
     //use customer_ID get a customer’s inactive cart and save in a variable called “previousCarts”
