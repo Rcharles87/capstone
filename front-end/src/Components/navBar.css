@@ -1,20 +1,26 @@
 nav {
-    border: 1px solid gold;
+    /* border: 1px solid gold; */
     display: flex;
     justify-content: space-between;
-    background-color: grey;
-    padding: 20px;
+    background-color: #23395b;
+    padding: 10px;
 }
 
-.left {
+.home-logo {
     justify-content: center;
 }
 
-.right {
+.home-logo img {
+    width: 50px;
+}
+
+.cart {
     display: flex;
 }
 
-.right div{
+.cart div{
     margin: 0px 15px 0px 0px;
 
 }
+
+

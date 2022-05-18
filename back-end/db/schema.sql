@@ -27,7 +27,10 @@ DROP TABLE IF EXISTS restaurants;
 CREATE TABLE restaurants (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    cuisine_type TEXT NOT NULL
+    cuisine_type TEXT NOT NULL,
+    add TEXT NOT NULL,
+    lat DOUBLE PRECISION,
+    lon DOUBLE PRECISION
 );
 
 

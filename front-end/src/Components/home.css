@@ -1,0 +1,27 @@
+.home{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    /* grid-template-rows: 100px 100px; */
+    grid-template-areas: 
+    "a a "
+    ".b "
+    "c.";
+}
+
+#img1{
+    width: 100%;
+    /* height: auto; */
+    padding: 10px;
+    grid-area: a;
+}
+
+.home p{
+    grid-area: b;
+}
+
+#img2 {
+    width: 100%;
+    /* height: auto; */
+    padding: 10px;
+    grid-area: c;
+}
