@@ -15,11 +15,11 @@ INSERT INTO carts (customer_id, is_active) VALUES
 (2, false);
 
 
-INSERT INTO restaurants (name, cuisine_type ) VALUES
-('IHop', 'breakfast'),
-('olive garden', 'italian'),
-('panda express', 'chinese food'),
-('dairy queen', 'desert');
+INSERT INTO restaurants (name, cuisine_type, add, lat, lon) VALUES
+('Zabars', 'Cafe / Healthy', '2245 Broadway, New York, NY 10024', 40.7849024, -73.97966685 ),
+('Murrays Bagels', 'Baked Goods', '500 6th Ave New York, NY 10011', 40.7447814, -73.9985854 ),
+('Sweet Green', 'Salads & fresh vegetables', '8 E 18th St, New York, NY 10003', 40.73805135, -73.9912353351445 ),
+('Dig', 'Balanced Vegetable based dishes', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 );
 
 INSERT INTO products (restaurant_id, name, quantity_in_stock ) VALUES
 (1, 'vegan', 2),
