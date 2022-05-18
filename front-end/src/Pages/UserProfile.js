@@ -24,7 +24,7 @@ function UserProfile() {
         const cart = oldCart.map((detail)=>{
             return (
                 <div>
-                    <div>{detail['order#']}</div>
+                    <div>{detail.orderNum}</div>
                     <div>
                     {detail.name}
                     {detail.quantity}
