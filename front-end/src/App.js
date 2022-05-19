@@ -1,5 +1,6 @@
 import { Routes , Route } from 'react-router-dom';
 import { useState } from "react";
+import './App.css';
 
 //import of stand alone components 
 import NavBar from './Components/NavBar';

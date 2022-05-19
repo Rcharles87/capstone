@@ -26,7 +26,7 @@ function NavBar({ setLoginText }) {
       </div>
 
       <div className="cart">
-        <div onClick={handleTextChange}>{text}</div>
+        <div>{text}</div>
         <div>
           <Link to="/carts">Cart</Link>
         </div>
