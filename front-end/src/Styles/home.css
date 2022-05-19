@@ -2,16 +2,25 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     /* grid-template-rows: 100px 100px; */
-    grid-template-areas: 
-    "a a "
-    ".b "
-    "c.";
+    grid-template-areas:
+    "d d"
+    "e e"
+    "a ."
+    ". b "
+    "c .";
+}
+
+#fastfood{
+width: 100%;
+grid-area: d;
+margin-bottom: 50px;
 }
 
 #img1{
     width: 100%;
     /* height: auto; */
     padding: 10px;
+    margin-top: 50px;
     grid-area: a;
 }
 
@@ -25,3 +34,33 @@
     padding: 10px;
     grid-area: c;
 }
+.links-container{
+    display: flex; 
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: center;
+    float: right;
+    grid-area: e;
+}
+
+#standing-img{
+    max-width: 50%;
+    /* margin: 0 auto; */
+}
+
+#bag-img{
+    max-width: 35%; 
+    /* margin: 0 auto; */
+}
+
+.standing-container{
+    /* grid-area: e; */
+    display: flex;
+}
+
+.faq-container{
+    /* grid-area: f; */
+    display: flex;
+    margin: 0 auto;
+}
+
