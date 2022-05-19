@@ -56,7 +56,7 @@ const getPreviousCarts = async (customer_id) => {
     }
      let newCart = cartDetail.map((el, index) => {
       return {
-        'order#':el.carts_id,
+        orderNum:el.carts_id,
         quantity: el.quantity,
         name: productsArr[index].name,
         restaurant: restaurantsArr[index].name

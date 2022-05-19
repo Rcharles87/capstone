@@ -12,7 +12,7 @@ import Home from './Pages/Home';
 import Cart from './Pages/Cart';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
-import UserProfile from './Pages/UserProfile';
+import UserView from './Pages/UserView';
 import RestaurantView from './Pages/RestaurantView';
 
 
@@ -29,7 +29,7 @@ function App() {
         <Route path="/carts" element={<Cart/>} />
         <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/carts/inactive' element={<UserProfile/>} />
+        <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurants' element={<RestaurantView/>} />
 
       </Routes>
