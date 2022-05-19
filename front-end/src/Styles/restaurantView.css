@@ -1,15 +1,14 @@
-.restaurant-div-1{
+.map-container{
+  margin: 50px;
+}
+
+.map{
   margin: 70px;
   padding: 80px;
   height: 500px;
   text-align: center;
-  /* border: 1px solid black; */
 }
 
-.restaurants-list-container{
-  /* border: 1px solid black; */
-}
-
-.restaurants-container img{
-  width: 50px;
+.map-marker-details{
+  text-decoration: underline;
 }

@@ -1,11 +1,10 @@
 import React from "react";
-import Restaurants from "../Components/Restaurants";
+import Map from "../Components/Map";
 
 const RestaurantView = () => {
   return(
     <div>
-      <h1>Participating Restaurants</h1>
-      <Restaurants />
+      <Map />
     </div>
   )
 }
