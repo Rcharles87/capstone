@@ -34,49 +34,58 @@ const getCurrentCart = async (customer_id) => {
 
 const getPreviousCarts = async (customer_id) => {
   try {
-    const previousCarts = await db.any("SELECT * FROM carts WHERE customer_id=$1 AND is_active=false", customer_id);
-    // console.log(previousCarts);
-    const allCartsDetailsArr = []
-    for (let previousCart of previousCarts){
-        const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", previousCart.id);
-        // console.log(cartDetail)
-          const productsArr = [];
-          const restaurantsArr = [];
-    for (let Detail of cartDetail) {
-      let productName = await db.one(
-        "SELECT * FROM products WHERE id=$1", Detail.products_id
+    const previousCarts = await db.any(
+      "SELECT * FROM carts WHERE customer_id=$1 AND is_active=false",
+      customer_id
+    );
+
+    const allCartsDetailsArr = [];
+
+    for (let previousCart of previousCarts) {
+      const cartDetail = await db.any(
+        "SELECT * FROM order_details WHERE carts_id=$1",
+        previousCart.id
       );
-      productsArr.push(productName);
+
+      const productsArr = [];
+
+      for (let detail of cartDetail) {
+        let product = await db.one(
+          "SELECT * FROM products WHERE id=$1",
+          detail.products_id
+        );
+        productsArr.push({...product, quantity:detail.quantity});
+      }
+
+      const restaurantsArr = [];
+      for (let product of productsArr) {
+        let restaurantname = await db.one(
+          "SELECT name FROM restaurants WHERE id=$1",
+          product.restaurant_id
+        );
+        restaurantsArr.push(restaurantname);
+      }
+
+      allCartsDetailsArr.push({
+        orderNum: previousCart.id,
+        items: productsArr.map((item)=> ({
+          name: item.name,
+          id: item.id,
+          quantity: item.quantity
+        })),
+        restaurants: restaurantsArr[0].name,
+      });
+
     }
-    for (let product of productsArr){
-      console.log(productsArr)
-      let restaurantname = await db.one(
-        "SELECT name FROM restaurants WHERE id=$1", product.restaurant_id);
-        restaurantsArr.push(restaurantname)
-    }
-     let newCart = cartDetail.map((el, index) => {
-      return {
-        orderNum:el.carts_id,
-        quantity: el.quantity,
-        name: productsArr[index].name,
-        restaurant: restaurantsArr[index].name
-      };
-    });
-    allCartsDetailsArr.push(newCart)
-    }
+    console.log(allCartsDetailsArr)
 
-
-
-
-
-
+   
 
     // const previousCarts = await db.any(
     //   "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
     //   customer_id
     // );
     return allCartsDetailsArr;
-
   } catch (err) {
     return err;
   }
