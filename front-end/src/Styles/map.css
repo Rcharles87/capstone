@@ -1,0 +1,18 @@
+.map-container{
+  text-align: center;
+}
+
+.map{
+  margin: 0px;
+  padding-bottom: 260px;
+  height: 500px;
+  text-align: center;
+}
+
+#map-heading{
+  text-align: center;
+}
+
+.map-marker-details{
+  text-decoration: underline;
+}

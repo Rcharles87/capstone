@@ -13,7 +13,7 @@ import Cart from './Pages/Cart';
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import UserView from './Pages/UserView';
-import RestaurantView from './Pages/RestaurantView';
+import RestaurantLocator from './Pages/RestaurantLocator.js';
 
 
 
@@ -30,7 +30,7 @@ function App() {
         <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />
-        <Route path='/restaurants' element={<RestaurantView/>} />
+        <Route path='/restaurant-locator' element={<RestaurantLocator/>} />
 
       </Routes>
      <Footer />
