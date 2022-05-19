@@ -1,14 +1,13 @@
 .restaurant-div-1{
   margin: 70px;
-  padding: 100px;
-  margin-bottom: 100px;
+  padding: 80px;
   height: 500px;
   text-align: center;
-    border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
-.restaurants-container{
-  border: 1px solid black;
+.restaurants-list-container{
+  /* border: 1px solid black; */
 }
 
 .restaurants-container img{
