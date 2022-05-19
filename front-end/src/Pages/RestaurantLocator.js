@@ -1,11 +1,11 @@
 import React from "react";
 import Map from "../Components/Map";
 
-const RestaurantView = () => {
+const RestaurantLocator = () => {
   return(
     <div>
       <Map />
     </div>
   )
 }
-export default RestaurantView;
+export default RestaurantLocator;

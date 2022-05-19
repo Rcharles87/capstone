@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import "../Styles/restaurantView.css"
+import "../Styles/map.css"
 import 'leaflet/dist/leaflet.css';
 import markerIconPng from "leaflet/dist/images/marker-icon.png"
 import {Icon} from 'leaflet'
@@ -31,10 +31,14 @@ function Map(){
             <Link style={{ textDecoration: 'none', color: 'black' }} to="/" >Order Now</Link>
           </div>
         )
-      }
+      };
   
   return(
     <div  className="map-container">
+      
+      <h4 id="map-heading">Restaurant Locator</h4>
+      <p>Find a participating retailer near you (must be eligible)</p>
+
       <MapContainer className="map" center={[40.726424, -73.908822]} zoom={12} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

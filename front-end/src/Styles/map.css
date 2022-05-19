@@ -1,11 +1,15 @@
 .map-container{
-  margin: 50px;
+  text-align: center;
 }
 
 .map{
-  margin: 70px;
-  padding: 80px;
+  margin: 0px;
+  padding-bottom: 260px;
   height: 500px;
+  text-align: center;
+}
+
+#map-heading{
   text-align: center;
 }
 
