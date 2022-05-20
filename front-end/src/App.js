@@ -15,6 +15,7 @@ import Signup from './Pages/Signup';
 import UserView from './Pages/UserView';
 import RestaurantLocator from './Pages/RestaurantLocator.js';
 import FourOFour from './Pages/Four0Four';
+import RestaurantSearch from './Pages/RestaurantSearch.js'
 
 
 
@@ -33,7 +34,7 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurant-locator' element={<RestaurantLocator/>} />
-
+        <Route path='/restaurants' element={<RestaurantSearch/>}/>
       </Routes>
      <Footer />
     </div>
