@@ -12,7 +12,7 @@ function Home() {
   return (
     <main>
       <div id="fast-food-img">
-        <div id="fast-food-text">Meals 4 NYC</div>
+        {/* <div id="fast-food-text">Meals 4 NYC</div> */}
       </div>
       <div id="main-content">
         <div id="sign-up">

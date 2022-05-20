@@ -1,9 +1,10 @@
-nav {
+
+
+.nav-container {
     display: flex;
+    background-color: rgba(46, 67, 106, 0.672);
     justify-content: space-between;
-    background-color: #23395b;
     padding: 10px;
-    margin-bottom: 0;
     z-index: 7;
 }
 
