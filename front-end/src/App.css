@@ -1,9 +1,11 @@
 body {
     width: 100%;
     margin: 0;
+    position: relative;
+    min-height: 100vh;
 }
 
 .main {
-    z-index: auto;
+    padding-bottom: 3.7rem;
 }
 
