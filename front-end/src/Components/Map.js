@@ -39,7 +39,7 @@ function Map(){
       <h4 id="map-heading">Restaurant Locator</h4>
       <p>Find a participating retailer near you (must be eligible)</p>
 
-      <MapContainer className="map" center={[40.756211, -73.923964]} zoom={14} scrollWheelZoom={true}>
+      <MapContainer className="map" center={[40.756211, -73.923964]} zoom={13} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
