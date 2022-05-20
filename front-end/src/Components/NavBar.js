@@ -7,6 +7,7 @@ function NavBar({ setLoginText }) {
     event.preventDefault();
     window.localStorage.clear();
     setLoginText(false);
+    
   };
 
   let text = localStorage.getItem("userID") ? (

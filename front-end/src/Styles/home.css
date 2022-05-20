@@ -27,6 +27,9 @@
 }
 
 #sign-up {
+    display: grid;
+    align-items: center;
+    justify-items: center;
     border: 1px solid red;
     width: 100%;
     grid-area: signup;
@@ -38,6 +41,9 @@
 }
 
 #faq {
+    display: grid;
+    align-items: center;
+    justify-items: center;
     border: 1px solid red;
     width: 100%;
     grid-area: faq;

@@ -1,9 +1,10 @@
 nav {
-    /* border: 1px solid gold; */
     display: flex;
     justify-content: space-between;
     background-color: #23395b;
     padding: 10px;
+    margin-bottom: 0;
+    z-index: 7;
 }
 
 .home-logo {
