@@ -29,7 +29,9 @@
 }
 
 #sign-up {
-    /* border: 1px solid red; */
+    display: grid;
+    align-items: center;
+    justify-items: center;
     width: 100%;
     grid-area: signup;
   
@@ -40,7 +42,9 @@
 }
 
 #faq {
-    /* border: 1px solid red; */
+    display: grid;
+    align-items: center;
+    justify-items: center;
     width: 100%;
     grid-area: faq;
 }
