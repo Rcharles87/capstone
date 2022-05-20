@@ -28,9 +28,9 @@ const handleSubmit = (event) => {
 }
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
-      <label htmlFor="username">Username</label>
+      <label htmlFor="username">Username:</label>
             <input
                 id="username"
                 value={login.username}
@@ -38,7 +38,7 @@ const handleSubmit = (event) => {
                 onChange={handleTextChange}
                 placeholder="Please enter a username"
             />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password:</label>
             <input
                 id="password"
                 value={login.password}
@@ -46,11 +46,9 @@ const handleSubmit = (event) => {
                 onChange={handleTextChange}
                 placeholder="Please enter a password"
             />
-            <button>Submit</button>
+            <button className="submit-btn">Submit</button>
       </form>
-
-
-        <Link to="/signup">Click here to signup</Link>
+      <Link to="/signup">Click here to signup</Link>
     </div>
   );
 };
