@@ -1,9 +1,13 @@
 #fast-food-img {
-    /* border: 3px solid red; */
-    height: 500px;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: -1;
     background-image: url("../assets/fast_food.jpeg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
+    height: 500px;
+
 }
 
 #fast-food-text {
@@ -22,6 +26,7 @@
     "maintext img1"
     "img2 maintext2"
     ;
+    margin-top: 425px;
 }
 
 #main-content img{

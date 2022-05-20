@@ -1,8 +1,8 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../Styles/previousCarts.css";
-import PreviousCart from "./PreviousCart";
+// import PreviousCart from "./PreviousCart";
 const API = process.env.REACT_APP_API_URL;
 
 function PreviousCarts() {
