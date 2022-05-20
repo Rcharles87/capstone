@@ -20,11 +20,13 @@ nav {
 
 .cart div{
     margin: none;
-
+    display: flex;
+    align-items: center
 }
 
 .profile-logout-container a {
     margin: 0px 15px 0px 0px;
+    
 }
 
 .login-container {
