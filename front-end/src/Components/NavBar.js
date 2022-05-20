@@ -13,6 +13,7 @@ function NavBar({ setLoginText }) {
     navigate('/');
   };
 
+  
   let text = localStorage.getItem("userID") ? (
     <div className="profile-logout-container">
       <Link to="/" onClick={handleLogout}>Logout</Link>
