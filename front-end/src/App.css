@@ -1,0 +1,9 @@
+body {
+    width: 100%;
+    margin: 0;
+}
+
+.main {
+    z-index: auto;
+}
+

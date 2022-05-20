@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "../Styles/forms.css"
 
 const API= process.env.REACT_APP_API_URL;
 
@@ -25,9 +26,9 @@ function Signup() {
     }
 
     return (
-        <div>
+        <div className="form-container">
             <form onSubmit={handleSubmit}>
-            <label htmlFor="first name">First Name</label>
+            <label htmlFor="first name">First Name:</label>
             <input
                 id="Fname"
                 value={signUp.Fname}
@@ -35,7 +36,7 @@ function Signup() {
                 onChange={handleTextChange}
                 placeholder="Please enter first name"
             />
-            <label htmlFor="last name">Last Name</label>
+            <label htmlFor="last name">Last Name:</label>
             <input
                 id="Lname"
                 value={signUp.Lname}
@@ -43,7 +44,7 @@ function Signup() {
                 onChange={handleTextChange}
                 placeholder="Please enter last name"
             />
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Username:</label>
             <input
                 id="username"
                 value={signUp.username}
@@ -51,7 +52,7 @@ function Signup() {
                 onChange={handleTextChange}
                 placeholder="Please enter a username"
             />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password:</label>
             <input
                 id="password"
                 value={signUp.password}
@@ -59,7 +60,7 @@ function Signup() {
                 onChange={handleTextChange}
                 placeholder="Please enter a password"
             />
-            <button>Submit</button>
+            <button className="submit-btn">Submit</button>
             </form>
         </div>
     )
