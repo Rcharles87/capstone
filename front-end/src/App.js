@@ -14,6 +14,7 @@ import Login from './Pages/Login';
 import Signup from './Pages/Signup';
 import UserView from './Pages/UserView';
 import RestaurantLocator from './Pages/RestaurantLocator.js';
+import FourOFour from './Pages/Four0Four';
 
 
 
@@ -25,6 +26,7 @@ function App() {
     <div className="main">
       <NavBar  setLoginText={setLoginText}/>
       <Routes>
+        <Route path="*" element={<FourOFour />} />
         <Route path="/" element={<Home/>}/>
         <Route path="/carts" element={<Cart/>} />
         <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
