@@ -1,0 +1,15 @@
+.uv-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    'side . '
+    'side main';
+}
+.up-container{
+    grid-area: main;
+}
+.sb-container{
+    position: left 100;
+    grid-area: side;
+}
+
