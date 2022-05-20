@@ -1,12 +1,17 @@
 import React from 'react'
 import UserProfile from '../Components/PreviousCarts'
-import UserSideBar from '../Components/UserSideBar';
+import SideBar from '../Components/SideBar';
+import '../Styles/userView.css'
 
 function UserView() {
   return (
-    <div>
-      <UserProfile/> 
-      <UserSideBar/>
+    <div className='uv-container'>
+      <div className='up-container'>
+        <UserProfile/> 
+      </div>
+      <div className='sb-container'>
+        <SideBar/>
+      </div>
     </div>
   )
 }
