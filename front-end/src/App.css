@@ -9,3 +9,29 @@ body {
     padding-bottom: 3.7rem;
 }
 
+
+/* nav css */
+/* 
+display: flex;
+justify-content: space-between;
+background-color: #23395b;
+padding: 10px;
+margin-bottom: 425px;
+z-index: 7;
+opacity: .50; */
+
+/* ----------------- img css */
+    /* border: 3px solid red; */
+    /* top: 0;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+    height: 500px;
+    background-image: url(http://localhost:3000/static/media/fast_food.1b6130e….jpeg);
+    background-repeat: no-repeat;
+    background-size: auto; */
+
+
+
+
+

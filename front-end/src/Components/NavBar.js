@@ -30,16 +30,20 @@ function NavBar({ setLoginText }) {
 
   return (
     <nav>
+      <div className="nav-container">
+
       <div className="home-logo">
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
       </div>
+      <div id="fast-food-text">Meals 4 NYC</div>
 
       <div className="cart">
         <div>
           {text}
         </div>
+      </div>
       </div>
     </nav>
   );
