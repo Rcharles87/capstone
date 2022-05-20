@@ -1,0 +1,24 @@
+.uv-container{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'side wel wel'
+    'side wel wel'
+    'side main main'
+    'side main main';
+}
+
+.w-container{
+    grid-area: wel;
+}
+.up-container{
+    grid-area: main;
+    margin: 10px;
+}
+.sb-container{
+    grid-area: side;
+
+}
+

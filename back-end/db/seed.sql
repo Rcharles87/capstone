@@ -20,10 +20,14 @@ INSERT INTO restaurants (name, cuisine_type, add, lat, lon) VALUES
 ('Murrays Bagels', 'Baked Goods', '500 6th Ave New York, NY 10011', 40.7447814, -73.9985854 ),
 ('Sweet Green', 'Salads & fresh vegetables', '8 E 18th St, New York, NY 10003', 40.73805135, -73.9912353351445 ),
 ('Dig', 'Balanced Vegetable based dishes', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 ),
-('Mias Brooklyn Bakery', 'Baked Goods / Coffee Bar with Savory items', '139 Smith St, Brooklyn, NY 11201', 40.687061, -73.990199),
+('Mias Brooklyn Bakery', 'Baked Goods / Coffee Bar with Savory items', '139 Smith St, Brooklyn, NY 11201', 40.687061, -73.990199 ),
 ('Tamashi Ramen', 'Ramen', '2905 Broadway, Queens, NY 11106', 40.762628, -73.926692),
-('Blend LIC', 'Casual cafe & lounge serving dishes from various Latin cuisines', '47-04 Vernon Blvd, Long Island City, NY 11101', 40.745292, -73.953310);
-
+('Monikas Cafe Bar', 'Mediterranean Cafe', '32-90 36th St, Astoria, NY 11106', 40.75818, -73.92334 ),
+('Taco Tumba', 'Taqueria', '30-10 Steinway St, Queens, NY 11103', 40.76381, -73.91531 ),
+('Amylos Taverna','Greek', '3319 Broadway, Queens, NY 11106', 40.76123, -73.92277 ),
+('Belaire Diner', 'Greek and American Cuisine', '31-91 21st St, Queens, NY 11106', 40.76536, -73.93127 ),
+('Saffron', 'Indian Cuisine', '44-04 Broadway, Queens, NY 11103', 40.75762, -73.91567 ),
+('Cerasella', 'Pastry shop', '36-27 31st St, Queens, NY 11106', 40.75648, -73.93009 );
 
 INSERT INTO products (restaurant_id, name, quantity_in_stock ) VALUES
 (1, 'Vegan', 7),

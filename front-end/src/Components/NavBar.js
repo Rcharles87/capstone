@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../Styles/navBar.css";
 import logo from "../assets/dummy-logo.png";
 
+
 function NavBar({ setLoginText }) {
+  const navigate = useNavigate();
+
   const handleLogout = (event) => {
     event.preventDefault();
     window.localStorage.clear();
-    setLoginText(false);
+    setLoginText(false); 
+    navigate('/');
   };
 
   let text = localStorage.getItem("userID") ? (
@@ -14,11 +18,13 @@ function NavBar({ setLoginText }) {
       <Link to="/" onClick={handleLogout}>Logout</Link>
     
       <Link to="/carts/inactive">Profile</Link>
+
+          <Link to="/carts">Cart</Link>
+   
     </div>
   ) : (
     <div className="login-container">
       <Link to="/login">Login/Signup</Link>
-
     </div>
   );
 
@@ -33,9 +39,6 @@ function NavBar({ setLoginText }) {
       <div className="cart">
         <div>
           {text}
-        </div>
-        <div>
-          <Link to="/carts">Cart</Link>
         </div>
       </div>
     </nav>

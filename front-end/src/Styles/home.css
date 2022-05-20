@@ -1,7 +1,9 @@
 #fast-food-img {
-    border: 3px solid red;
+    /* border: 3px solid red; */
     height: 500px;
     background-image: url("../assets/fast_food.jpeg");
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
 #fast-food-text {
@@ -27,7 +29,9 @@
 }
 
 #sign-up {
-    border: 1px solid red;
+    display: grid;
+    align-items: center;
+    justify-items: center;
     width: 100%;
     grid-area: signup;
   
@@ -38,7 +42,9 @@
 }
 
 #faq {
-    border: 1px solid red;
+    display: grid;
+    align-items: center;
+    justify-items: center;
     width: 100%;
     grid-area: faq;
 }
@@ -48,27 +54,27 @@
 }
 
 #veggies-img {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* height: 200px; */
     background-size: cover;
     grid-area: img1;
 }
 
 #main-content-text {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     grid-area: maintext;
 }
 
 #veggies2-img {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* height: 200px; */
     background-size: cover;
     grid-area: img2;
 }
 
 #main-content-text2 {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     width: 100%;
     grid-area: maintext2;
 }
