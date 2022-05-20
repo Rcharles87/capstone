@@ -23,9 +23,8 @@ function PreviousCarts() {
   let previousOrders = oldCarts.map((cart) => {
     return (
       <div className="info-container" key={cart.orderNum}>
-          Order Number:{cart.orderNum}
+          <span> Order Number:{cart.orderNum} {cart.restaurants}</span>
           <br />
-          {cart.restaurants}
           {cart.items.map((products)=>{
               console.log(products)
               return(
@@ -40,7 +39,7 @@ function PreviousCarts() {
   
 
   return (
-    <div>
+    <div className="po-container">
       <h1>Previous Orders</h1>
       <div>{previousOrders}</div>
     </div>
