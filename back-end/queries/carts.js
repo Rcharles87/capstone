@@ -92,7 +92,6 @@ const getPreviousCarts = async (customer_id) => {
 };
 
 const updateCurrentCart = async (customer_id, updateInfo) => {
-  //** we may have to change the query because it does not account for a cart that has multiple orders*/
   try {
     //use customerID get customers active cart and save in a variable called "cart"
     const updatedCart = await db.one(
