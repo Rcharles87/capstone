@@ -1,0 +1,17 @@
+#fast-food-img {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    background-image: url("../assets/fast_food.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+
+}
+
+#fast-food-text {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}

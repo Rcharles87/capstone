@@ -38,7 +38,7 @@ function NavBar({ setLoginText }) {
           <img src={logo} alt="logo" />
         </Link>
       </div>
-      <div id="fast-food-text">Meals 4 NYC</div>
+      <div className="navbar-text">Meals 4 NYC</div>
 
       <div className="cart">
         <div>
