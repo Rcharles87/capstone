@@ -16,6 +16,12 @@
     width: 50px;
 }
 
+.navbar-text {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
 .cart {
     display: flex;
 }

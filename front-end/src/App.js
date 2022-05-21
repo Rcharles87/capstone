@@ -8,10 +8,10 @@ import Footer from './Components/Footer';
 
 //import of pages that are linked to components
 
-import Home from './Pages/Home';
-import Cart from './Pages/Cart';
-import Login from './Pages/Login';
-import Signup from './Pages/Signup';
+import Home from './Pages/HomePage';
+import CurrentCart from './Pages/CurrentCart';
+import Login from './Components/Login';
+import Signup from './Components/Signup';
 import UserView from './Pages/UserView';
 import RestaurantLocator from './Pages/RestaurantLocator.js';
 import FourOFour from './Pages/Four0Four';
@@ -29,7 +29,7 @@ function App() {
       <Routes>
         <Route path="*" element={<FourOFour />} />
         <Route path="/" element={<Home/>}/>
-        <Route path="/carts" element={<Cart/>} />
+        <Route path="/carts" element={<CurrentCart/>} />
         <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />
