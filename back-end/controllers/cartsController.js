@@ -38,5 +38,17 @@ carts.put("/:customer_id/active", async (req,res) =>{
     };
 });
 
+carts.post("/addToCart", async (req, res) => {
+    const {body} = req;
+    
+    //we need cartID, productID, RestaurantID
+    //does user have a cart? 
+        //if they do use it. if they dont --> create one
+    //verification steps **Note validatgion for meals from other restuarants (respond with an error, remove)
+    //update the cart to include what
+    //if they is any instock //if the person adds more than what is currently in stock
+    //if it is in stock then you should add it to the cart and update
+    
+})
 
 module.exports = carts;

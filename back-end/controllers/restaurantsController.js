@@ -1,6 +1,6 @@
 const express = require("express");
 const restaurants = express.Router();
-const { getAllRestaurants, getOneRestaurant } = require("../queries/restaurants.js")
+const { getAllRestaurants, getOneRestaurant } = require("../queries/restaurants.js");
 
 restaurants.get("/", async (req, res) => {
     try{
