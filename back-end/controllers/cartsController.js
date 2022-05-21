@@ -39,6 +39,8 @@ carts.put("/:customer_id/active", async (req,res) =>{
 });
 
 carts.post("/addToCart", async (req, res) => {
+    const {body} = req;
+    
     //we need cartID, productID, RestaurantID
     //does user have a cart? 
         //if they do use it. if they dont --> create one
