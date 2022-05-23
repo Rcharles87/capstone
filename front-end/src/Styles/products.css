@@ -1,0 +1,44 @@
+.products-container{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 50px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.individual-product{
+  margin: 100px;
+  text-align: left;
+  display: flex;
+}
+
+.dietary-restrictions{
+  display: flex;
+  height: 300px;
+}
+
+#product-image{
+  height: 350px;
+}
+
+#add-to-cart-btn{
+  background-color: #abcbac; /* Green */
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
+  text-align: center;
+  height: 50px;
+  margin: 80px;
+  font-size: 16px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+}
+
+#add-to-cart-btn:hover {
+  color: white;
+  background-color: #4CAF50; /* Green */
+  /* box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+}
+
+#dietary-sprite{
+  height: 25%;
+}

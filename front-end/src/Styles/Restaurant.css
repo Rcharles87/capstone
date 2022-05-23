@@ -1,0 +1,28 @@
+.restaurant-container{
+   background-color: rgba(255, 250, 243, 0.924);
+   border-radius: 15px;
+    margin:10px;
+    padding: 10px;
+    max-width: 300px;
+}
+
+.restLink{
+    text-decoration: none;
+    color: black;
+}
+
+.restaurant-data{
+    margin: 2px;
+    padding: 2px;
+}
+
+.r-name{
+    margin: 10px 0;
+} 
+
+/* .r-add{
+    
+}
+.r-type{
+    
+}  */

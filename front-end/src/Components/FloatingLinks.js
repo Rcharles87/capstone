@@ -1,20 +1,19 @@
+import React from 'react'
 import veggies from "../assets/veggies.jpg";
 import veggies2 from "../assets/veggies2.jpg";
-import fastfood from "../assets/fast_food.jpeg";
 import bagicon from "../assets/bag.png";
 import signupicon from "../assets/standing.png";
-import "../Styles/home.css";
+import"../Styles/floatingLinks.css"
+
 
 let sampleText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper tincidunt augue, eu rutrum nunc venenatis ut. Donec vel lacinia mi. Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum Praesent sodales tincidunt leo consequat aliquam.Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum.";
 
-function Home() {
+
+function FloatingLinks() {
   return (
-    <main>
-      <div id="fast-food-img">
-        <div id="fast-food-text">Meals 4 NYC</div>
-      </div>
-      <div id="main-content">
+    <div className='fc-container'>
+        <div id="main-content">
         <div id="sign-up">
           <img src={signupicon} alt="illustration of girl on laptop" />
         </div>
@@ -30,8 +29,9 @@ function Home() {
         </div>
         <div id="main-content-text2">{sampleText}</div>
       </div>
-    </main>
-  );
+
+    </div>
+  )
 }
 
-export default Home;
+export default FloatingLinks

@@ -13,6 +13,7 @@ function NavBar({ setLoginText }) {
     navigate('/');
   };
 
+  
   let text = localStorage.getItem("userID") ? (
     <div className="profile-logout-container">
       <Link to="/" onClick={handleLogout}>Logout</Link>
@@ -30,16 +31,24 @@ function NavBar({ setLoginText }) {
 
   return (
     <nav>
+      <div className="nav-container">
+
       <div className="home-logo">
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
+
+        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/`}>
+                <h4 className="nav-btns">Our Mission</h4>
+        </Link>
       </div>
+      {/* <div className="navbar-text">Meals 4 NYC</div> */}
 
       <div className="cart">
         <div>
           {text}
         </div>
+      </div>
       </div>
     </nav>
   );

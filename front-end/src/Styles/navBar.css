@@ -1,9 +1,13 @@
-nav {
+.nav-btns{
+    display: inline;
+    margin:100px;
+}
+
+.nav-container {
     display: flex;
+    background-color: rgba(46, 67, 106, 0.672);
     justify-content: space-between;
-    background-color: #23395b;
     padding: 10px;
-    margin-bottom: 0;
     z-index: 7;
 }
 
@@ -12,7 +16,14 @@ nav {
 }
 
 .home-logo img {
+    margin: 20px;
     width: 50px;
+}
+
+.navbar-text {
+    text-align: center;
+    color: white;
+    font-size: 50px;
 }
 
 .cart {

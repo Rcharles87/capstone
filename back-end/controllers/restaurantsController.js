@@ -1,6 +1,10 @@
 const express = require("express");
 const restaurants = express.Router();
-const { getAllRestaurants, getOneRestaurant } = require("../queries/restaurants.js")
+const { getAllRestaurants, getOneRestaurant } = require("../queries/restaurants.js");
+
+const restaurantsProductsController = require("./restaurantsProductsController")
+
+restaurants.use("/:restaurant_id/products", restaurantsProductsController);
 
 restaurants.get("/", async (req, res) => {
     try{
