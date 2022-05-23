@@ -1,0 +1,13 @@
+.products-container{
+  text-align: center;
+  border: 2px solid black;
+}
+
+.individual-product{
+  text-align: left;
+  display: flex;
+}
+
+#product-image{
+  height:150px;
+}

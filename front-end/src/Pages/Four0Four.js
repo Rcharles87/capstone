@@ -7,7 +7,7 @@ const FourOFour = () => {
             <div className="error-container">
             <h1>404 ERROR</h1>
             <p>Sorry, That page does not exist</p>
-            <img id="error-image" alt="404" src="" />
+            <img id="error-image" alt="404" src="https://i.imgur.com/JRd96AZ.png" />
             </div>
         </div>
     );

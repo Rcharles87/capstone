@@ -1,15 +1,14 @@
+import "../Styles/map.css";
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import "../Styles/map.css"
+import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css';
-import markerIconPng from "leaflet/dist/images/marker-icon.png"
-import {Icon} from 'leaflet'
-import {MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import markerIconPng from "leaflet/dist/images/marker-icon.png";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const API = process.env.REACT_APP_API_URL;
-console.log(API);
 
 function Map(){
   const [restaurants, setRestaurants] = useState([]);
@@ -25,10 +24,10 @@ function Map(){
   
       console.log(restaurants);
 
-      const linkToHome = () => {
+      const linkToRestaurant = () => {
         return(
           <div>
-            <Link style={{ textDecoration: 'none', color: 'black' }} to="/" >Order Now</Link>
+            <Link style={{ textDecoration: 'none', color: 'black' }} key={restaurants} to={`/restaurants`} >Order Now</Link>
           </div>
         )
       };
@@ -46,14 +45,14 @@ function Map(){
 
         {restaurants.map(restaurant => (
           <Marker 
-              key={restaurant.id}
+              key={restaurant.restaurant_id}
               position={[restaurant.lat, restaurant.lon]}
               icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
             <Popup>
                 <h1>{restaurant.name}</h1>
                 <p><em>{restaurant.cuisine_type}</em></p>
                 <p>{restaurant.add}</p>
-                <button>{linkToHome()}</button>
+                <button>{linkToRestaurant()}</button>
             </Popup>
           </Marker>
         ))}
