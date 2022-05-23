@@ -17,6 +17,7 @@ function Cart() {
         })
     }, [userID]);
 
+    console.log("carts",carts)
     const activeCart = carts.map((product)=>{
       return (
         <div>
