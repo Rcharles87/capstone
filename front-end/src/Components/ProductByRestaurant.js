@@ -30,16 +30,20 @@ console.log(productByRestaurant);
 
     return(
       <div className="products-container">
-          {productByRestaurant.map(product => (
-          <div className="individual-product">
+          {productByRestaurant.map((product, id) => (
+            <div className="individual-product">
             <img id="product-image" src="https://i.imgur.com/JRd96AZ.png"></img>
-              <Link style={{ textDecoration: 'none', color: 'black' }} to={`/carts`}>
+              <Link style={{ textDecoration: 'none', color: 'black' }} to={`/404`}>
                 <h1>{product.type}</h1>
                 <p>{product.description}</p>
-                <p>Portion: {product.portion}</p>
-                <p>Calories: {product.calories}</p>
-                <button onClick={AddToCart()}>Add To Cart</button>
+                <p>Portion: <b>{product.portion}</b></p>
+                <p>Calories: <b>{product.calories}</b></p>
+                <div className="dietary-restrictions">
+                  <img id="dietary-sprite" src="https://i.imgur.com/gqdeqpl.png"></img>
+                  <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg"></img>
+                </div>
               </Link>
+              <button id="add-to-cart-btn" onClick={AddToCart}>Add To Cart</button>
             </div>
         ))}
         <Map />

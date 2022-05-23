@@ -1,9 +1,9 @@
+import Map from "./Map";
 import React from "react";
 import axios from "axios";
 import "../Styles/products.css";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Map from "./Map";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -33,7 +33,6 @@ function Products(){
                 <b><em>{product.type}</em></b>
                 <p>Portion: {product.portion}</p>
                 <p>Calories: {product.calories}</p>
-                <button>Take me to this restaurant!</button>
               </Link>
             </div>
         ))}
