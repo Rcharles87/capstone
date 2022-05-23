@@ -18,6 +18,8 @@ import FourOFour from './Pages/Four0Four';
 import RestaurantSearch from './Pages/RestaurantSearch.js';
 import ProductsView from './Pages/ProductsView';
 import IndividualProduct from './Pages/IndividualProduct';
+import RestaurantSearch from './Pages/RestaurantSearch.js'
+import RestaurantShow from './Pages/RestaurantShow';
 
 
 function App() {
@@ -38,6 +40,7 @@ function App() {
         <Route path='/restaurants' element={<RestaurantSearch/>}/>
         <Route path='/products' element={<ProductsView/>}/>
         <Route path='/products/:restaurant_id' element={<IndividualProduct/>} />
+        <Route path='/restaurant/:id' element={<RestaurantShow/>} />
       </Routes>
      <Footer />
     </div>
