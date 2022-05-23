@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import "../Styles/products.css";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -32,15 +32,15 @@ console.log(productByRestaurant);
       <div className="products-container">
           {productByRestaurant.map((product, id) => (
             <div className="individual-product">
-            <img id="product-image" src="https://i.imgur.com/JRd96AZ.png"></img>
+            <img id="product-image" src="https://i.imgur.com/JRd96AZ.png" alt="cartoon-food"></img>
               <Link style={{ textDecoration: 'none', color: 'black' }} to={`/404`}>
                 <h1>{product.type}</h1>
                 <p>{product.description}</p>
                 <p>Portion: <b>{product.portion}</b></p>
                 <p>Calories: <b>{product.calories}</b></p>
                 <div className="dietary-restrictions">
-                  <img id="dietary-sprite" src="https://i.imgur.com/gqdeqpl.png"></img>
-                  <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg"></img>
+                  <img id="dietary-sprite" src="https://i.imgur.com/gqdeqpl.png" alt="diet-res"></img>
+                  <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg" alt="diet-res"></img>
                 </div>
               </Link>
               <button id="add-to-cart-btn" onClick={AddToCart}>Add To Cart</button>
