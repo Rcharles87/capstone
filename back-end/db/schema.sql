@@ -39,6 +39,9 @@ DROP TABLE IF EXISTS products;
 CREATE TABLE  products(
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    portion TEXT NOT NULL,
+    calories INTEGER,
     quantity_in_stock INTEGER,
     restaurant_id INTEGER REFERENCES restaurants (id)
     ON DELETE CASCADE

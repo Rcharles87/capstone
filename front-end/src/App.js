@@ -15,6 +15,9 @@ import Signup from './Components/Signup';
 import UserView from './Pages/UserView';
 import RestaurantLocator from './Pages/RestaurantLocator.js';
 import FourOFour from './Pages/Four0Four';
+import RestaurantSearch from './Pages/RestaurantSearch.js';
+import ProductsView from './Pages/ProductsView';
+import IndividualProduct from './Pages/IndividualProduct';
 import RestaurantSearch from './Pages/RestaurantSearch.js'
 import RestaurantShow from './Pages/RestaurantShow';
 
@@ -35,6 +38,8 @@ function App() {
         <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurant-locator' element={<RestaurantLocator/>} />
         <Route path='/restaurants' element={<RestaurantSearch/>}/>
+        <Route path='/products' element={<ProductsView/>}/>
+        <Route path='/products/:restaurant_id' element={<IndividualProduct/>} />
         <Route path='/restaurant/:id' element={<RestaurantShow/>} />
       </Routes>
      <Footer />
