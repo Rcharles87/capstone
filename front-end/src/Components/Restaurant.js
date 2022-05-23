@@ -1,7 +1,9 @@
-import React from 'react'
-import '../Styles/Restaurant.css'
+import React from 'react';
+import '../Styles/Restaurant.css';
+import { Link } from 'react-router-dom';
 
 function Restaurant( {singleRestaurant} ) {
+
   return (
     <div className='restaurant-container'>
         <div className='restaurant-data'>
@@ -14,6 +16,7 @@ function Restaurant( {singleRestaurant} ) {
             <div className='r-type'>
                 {singleRestaurant.cuisine_type}
             </div>
+            <button><Link to={`/restaurant/${singleRestaurant.id}`}>View</Link></button>
         </div>
     </div>
   )
