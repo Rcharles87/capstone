@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS products;
 
 CREATE TABLE  products(
     id SERIAL PRIMARY KEY,
-    type TEXT NOT NULL,
+    name TEXT NOT NULL,
     description TEXT NOT NULL,
     portion TEXT NOT NULL,
     calories INTEGER,
