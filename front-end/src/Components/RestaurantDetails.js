@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
-import restaurantStockImage from '../assets/restaurantStockImage.jpeg';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -16,16 +15,19 @@ function RestaurantDetails() {
             }).catch((err) => console.log(err))
     }, [id])
 
+    console.log(restaurant)
+
   return (
     <div>
         <div>
             <div>{restaurant.name}</div>
             <div>{restaurant.cuisine_type}</div>
             <div>{restaurant.add}</div>
-            <img style={{height:'200px'}} src={restaurantStockImage} alt='restaurant stock'/>
         </div>
+
+
         <div className='button-link'>
-            <Link to={`/restaurants`}>
+            <Link to={`/`}>
                 <button>Go Back</button>
             </Link>
         </div>

@@ -28,7 +28,7 @@ function App() {
       <NavBar  setLoginText={setLoginText}/>
       <Routes>
         <Route path="*" element={<FourOFour />} />
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home loginText={loginText}/>}/>
         <Route path="/carts" element={<CurrentCart/>} />
         <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
