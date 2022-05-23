@@ -19,6 +19,7 @@ function PreviousCarts() {
         console.log(err);
       });
   }, [userID]);
+  console.log(oldCarts)
 
   let previousOrders = oldCarts.map((cart) => {
     return (
@@ -26,7 +27,7 @@ function PreviousCarts() {
           <span> Order Number:{cart.orderNum} {cart.restaurants}</span>
           <br />
           {cart.items.map((products)=>{
-              console.log(products)
+              // console.log(products)
               return(
                   <div key={products.id}>
                       {products.name} Quantity: {products.quantity}

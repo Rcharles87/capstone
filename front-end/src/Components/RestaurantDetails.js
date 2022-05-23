@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import {Link, useParams} from "react-router-dom";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import ProductByRestaurant from "./ProductByRestaurant";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -15,7 +16,6 @@ function RestaurantDetails() {
             }).catch((err) => console.log(err))
     }, [id])
 
-    console.log(restaurant)
 
   return (
     <div>
@@ -24,8 +24,7 @@ function RestaurantDetails() {
             <div>{restaurant.cuisine_type}</div>
             <div>{restaurant.add}</div>
         </div>
-
-
+{<ProductByRestaurant id={id}/>}
         <div className='button-link'>
             <Link to={`/`}>
                 <button>Go Back</button>
