@@ -29,7 +29,7 @@ INSERT INTO restaurants (name, cuisine_type, add, lat, lon) VALUES
 ('Dig', 'Balanced Vegetable based dishes', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 ),
 ('Mias Brooklyn Bakery', 'Baked Goods / Coffee Bar with Savory items', '139 Smith St, Brooklyn, NY 11201', 40.687061, -73.990199 );
 
-INSERT INTO products (restaurant_id, type, description, portion, calories, quantity_in_stock ) VALUES
+INSERT INTO products (restaurant_id, name, description, portion, calories, quantity_in_stock ) VALUES
 (1, 'Vegan', 'Vibrant Greens with Quinoa', '8oz', 280, 7),
 (1, 'Gluten free', 'Croissants', '10oz', 231, 9),
 (1, 'Lactose free', 'Wild Rice with a side of steamed vegetables', '10oz', 170, 10),

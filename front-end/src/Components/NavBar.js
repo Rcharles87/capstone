@@ -44,9 +44,6 @@ function NavBar({ setLoginText }) {
         <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/restaurants`}>
                 <h4 className="nav-btns">Restaurants</h4>
         </Link>
-        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/restaurant-locator`}>
-                <h4 className="nav-btns">Locations</h4>
-        </Link>
         <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/`}>
                 <h4 className="nav-btns">Our Mission</h4>
         </Link>
