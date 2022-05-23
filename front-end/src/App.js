@@ -13,13 +13,12 @@ import CurrentCart from './Pages/CurrentCart';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
 import UserView from './Pages/UserView';
-import RestaurantLocator from './Pages/RestaurantLocator.js';
 import FourOFour from './Pages/Four0Four';
-import RestaurantSearch from './Pages/RestaurantSearch.js';
-import ProductsView from './Pages/ProductsView';
-import IndividualProduct from './Pages/IndividualProduct';
-import RestaurantSearch from './Pages/RestaurantSearch.js'
-import RestaurantShow from './Pages/RestaurantShow';
+import Map from './Components/Map';
+import Restaurants from './Components/Restaurants';
+import RestaurantDetails from './Components/RestaurantDetails';
+import Products from './Components/Products';
+import ProductByRestaurant from './Components/ProductByRestaurant';
 
 
 function App() {
@@ -31,16 +30,16 @@ function App() {
       <NavBar  setLoginText={setLoginText}/>
       <Routes>
         <Route path="*" element={<FourOFour />} />
-        <Route path="/" element={<Home/>}/>
+        <Route path="/" element={<Home loginText={loginText}/>}/>
         <Route path="/carts" element={<CurrentCart/>} />
         <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />
-        <Route path='/restaurant-locator' element={<RestaurantLocator/>} />
-        <Route path='/restaurants' element={<RestaurantSearch/>}/>
-        <Route path='/products' element={<ProductsView/>}/>
-        <Route path='/products/:restaurant_id' element={<IndividualProduct/>} />
-        <Route path='/restaurant/:id' element={<RestaurantShow/>} />
+        <Route path='/restaurant-locator' element={<Map/>} />
+        <Route path='/restaurants' element={<Restaurants/>}/>
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/products/:restaurant_id' element={<ProductByRestaurant/>} />
+        <Route path='/restaurant/:id' element={<RestaurantDetails/>} />
       </Routes>
      <Footer />
     </div>

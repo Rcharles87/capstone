@@ -23,7 +23,7 @@ const handleSubmit = (event) => {
     .then((res) =>{
       localStorage.setItem("userID", res.data.id)
       setLoginText(true)
-      navigate("/carts/inactive")
+      navigate("/")
     })
 }
 

@@ -3,12 +3,12 @@ import React from "react";
 import axios from "axios";
 import "../Styles/products.css";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
 function Products(){
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
   const [products, setProducts ] = useState([]);  
   
   useEffect(() => {
@@ -27,7 +27,7 @@ function Products(){
       <div className="products-container">
         {products.map((product, id) => (
           <div className="individual-product">
-            <img id="product-image" src="https://i.imgur.com/JRd96AZ.png"></img>
+            <img id="product-image" src="https://i.imgur.com/JRd96AZ.png" alt="cartoon-food"></img>
               <Link style={{ textDecoration: 'none', color: 'black' }} key={product.restaurant_id} to={`/products/${product.restaurant_id}`}>
                 <h3>{product.description}</h3>
                 <b><em>{product.type}</em></b>
