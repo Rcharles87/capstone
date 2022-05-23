@@ -37,8 +37,21 @@ function NavBar({ setLoginText }) {
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
+
+        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/products`}>
+                <h4 className="nav-btns">Products</h4>
+        </Link>
+        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/restaurants`}>
+                <h4 className="nav-btns">Restaurants</h4>
+        </Link>
+        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/restaurant-locator`}>
+                <h4 className="nav-btns">Locations</h4>
+        </Link>
+        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/`}>
+                <h4 className="nav-btns">Our Mission</h4>
+        </Link>
       </div>
-      <div className="navbar-text">Meals 4 NYC</div>
+      {/* <div className="navbar-text">Meals 4 NYC</div> */}
 
       <div className="cart">
         <div>

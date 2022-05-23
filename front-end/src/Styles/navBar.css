@@ -1,4 +1,7 @@
-
+.nav-btns{
+    display: inline;
+    margin:100px;
+}
 
 .nav-container {
     display: flex;
@@ -13,6 +16,7 @@
 }
 
 .home-logo img {
+    margin: 20px;
     width: 50px;
 }
 
