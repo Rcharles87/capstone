@@ -17,8 +17,8 @@ import FourOFour from './Pages/Four0Four';
 import Map from './Components/Map';
 import Restaurants from './Components/Restaurants';
 import RestaurantDetails from './Components/RestaurantDetails';
-import Products from './Components/Products';
 import ProductByRestaurant from './Components/ProductByRestaurant';
+import PreviousCart from './Components/PreviousCart';
 
 
 function App() {
@@ -37,7 +37,8 @@ function App() {
         <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurant-locator' element={<Map/>} />
         <Route path='/restaurants' element={<Restaurants/>}/>
-        <Route path='/products' element={<Products/>}/>
+        {/* <Route path='/carts/inactive/:id' element={<PreviousCart/>}/> */}
+        {/* <Route path='/products' element={<Products/>}/> */}
         <Route path='/products/:restaurant_id' element={<ProductByRestaurant/>} />
         <Route path='/restaurant/:id' element={<RestaurantDetails/>} />
       </Routes>

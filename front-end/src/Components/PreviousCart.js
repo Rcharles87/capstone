@@ -1,10 +1,18 @@
 import React from 'react'
 
-function PreviousCart() {
-
+function PreviousCart({cart}) {
+console.log(cart)
 
   return (
-    <div>null</div>
+    <div>
+          {/* {cart.map((products)=>{
+              return(
+                  <div>
+                      {products.name} Quantity: {products.quantity}
+                  </div>
+              )
+          })} */}
+    </div>
   )
 }
 
