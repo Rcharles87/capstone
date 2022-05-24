@@ -9,6 +9,15 @@ const getAllCustomers = async () => {
     };
 };
 
+const getOneCustomer = async (id) => {
+    try {
+        const oneCustomer = await db.one("SELECT * FROM customers WHERE id=$1", id);
+        return oneCustomer
+    } catch (err) {
+        return err
+    }
+}
+
 const createCustomer = async (customer) => {
     try{
         const newCustomer = await db.one("INSERT INTO customers(Fname, Lname, username, password) VALUES($1, $2, $3, $4) RETURNING *",
@@ -31,4 +40,4 @@ const updateCustomer = async (id, customer) => {
 
  
 
-module.exports = { getAllCustomers, createCustomer, updateCustomer};
+module.exports = { getAllCustomers, getOneCustomer, createCustomer, updateCustomer};
