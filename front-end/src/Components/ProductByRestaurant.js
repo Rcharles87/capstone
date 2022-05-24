@@ -12,6 +12,7 @@ function ProductByRestaurant({id}){
   const [productByRestaurant, setProductByRestaurant ] = useState([]);
   // const { restaurant_id } = useParams();
   console.log(productByRestaurant)
+  const cartId =localStorage.getItem("userID")
 
 useEffect(() => {
   axios.get(`${API}/restaurants/${id}/products`)
@@ -27,7 +28,7 @@ useEffect(() => {
 console.log(productByRestaurant);
 
     const AddToCart = () => {
-      console.log("AddToCart");
+      console.log()
     }
 
     return(

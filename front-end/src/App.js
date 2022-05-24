@@ -18,12 +18,13 @@ import Map from './Components/Map';
 import Restaurants from './Components/Restaurants';
 import RestaurantDetails from './Components/RestaurantDetails';
 import ProductByRestaurant from './Components/ProductByRestaurant';
-import PreviousCart from './Components/PreviousCart';
+// import PreviousCart from './Components/PreviousCart';
 
 
 function App() {
 
   const [loginText, setLoginText] = useState(false);
+  const [carts, setCarts] = useState([]);
 
   return (
     <div className="main">
@@ -31,8 +32,8 @@ function App() {
       <Routes>
         <Route path="*" element={<FourOFour />} />
         <Route path="/" element={<Home loginText={loginText}/>}/>
-        <Route path="/carts" element={<CurrentCart/>} />
-        <Route path='/login' element={<Login setLoginText={setLoginText}/>} />
+        <Route path="/carts" element={<CurrentCart setCarts={setCarts} carts={carts}/>} />
+        <Route path='/login' element={<Login setLoginText={setLoginText} carts={carts}/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurant-locator' element={<Map/>} />

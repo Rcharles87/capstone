@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const API= process.env.REACT_APP_API_URL;
 
-function Login({setLoginText}) {
-
+function Login({setLoginText, carts}) {
+// console.log("YOOO",carts)
   let navigate = useNavigate();
   const [login, setLogin] = useState({
     username:"",
@@ -17,11 +17,15 @@ const handleTextChange = (event) => {
     setLogin({...login, [event.target.id]: event.target.value});
 };
 
+const cartId = carts.map((cart) => cart.orderNumber)
+
 const handleSubmit = (event) => {
     event.preventDefault();
     axios.post(`${API}/auth/signin`, login)
     .then((res) =>{
-      localStorage.setItem("userID", res.data.id)
+      localStorage.setItem("cartID", cartId)
+      localStorage.setItem("userID", res.data.id) 
+      
       setLoginText(true)
       navigate("/")
     })
