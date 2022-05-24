@@ -22,7 +22,7 @@ function Map(){
         .catch((c) => console.warn("catch", c))
   }, []);
   
-      console.log(restaurants);
+      // console.log(restaurants);
 
       const linkToRestaurant = () => {
         return(

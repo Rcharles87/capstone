@@ -10,7 +10,6 @@ function Cart() {
     useEffect(()=>{
         axios.get(`${API}/carts/${userID}/active`)
         .then((res)=>{
-          console.log(res.data)
            setCarts(res.data);
         }).catch((err)=>{
             console.log(err);
