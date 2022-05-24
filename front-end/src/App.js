@@ -33,7 +33,7 @@ function App() {
         <Route path="*" element={<FourOFour />} />
         <Route path="/" element={<Home loginText={loginText}/>}/>
         <Route path="/carts" element={<CurrentCart setCarts={setCarts} carts={carts}/>} />
-        <Route path='/login' element={<Login setLoginText={setLoginText} carts={carts}/>} />
+        <Route path='/login' element={<Login setLoginText={setLoginText} setCarts={setCarts} carts={carts}/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurant-locator' element={<Map/>} />

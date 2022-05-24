@@ -7,7 +7,6 @@ auth.post("/signup", async(req, res) => {
     const { body } = req;
     try{
         const createdCustomer = await createCustomer(body);
-        console.log("controllers", createdCustomer)
         if(createdCustomer.id){
             res.status(200).json(createdCustomer);
         }else{

@@ -134,7 +134,7 @@ const updateCurrentCart = async (customer_id, updateInfo) => {
     const updatedCart = await db.one(
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       customer_id
-    );
+    ); //variable is currentActiveCart
 
     // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr
     const updatedOrderDetails = await db.one(

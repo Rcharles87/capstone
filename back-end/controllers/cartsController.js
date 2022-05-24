@@ -39,14 +39,17 @@ carts.put("/:customer_id/active", async (req,res) =>{
 });
 
 carts.post("/addToCart", async (req, res) => {
-    const {body} = req;
+    const {body} = req;// send it in the body //we need body.productID, body.userID, 
+    console.log("RAE LOOK HERE", body)
     
-    //we need cartID, productID, RestaurantID
-    //does user have a cart? 
-        //if they do use it. if they dont --> create one
+    res.status(200).json({status: "success"})
+    //does user have a cart? use body.restaurantID, body.cartID,  (ID of an active cart)
+        //if they do use it. 
+            //if they dont --> create one
     //verification steps **Note validatgion for meals from other restuarants (respond with an error, remove)
-    //update the cart to include what
-    //if they is any instock //if the person adds more than what is currently in stock
+    //validation: contd if they is any instock //if the person adds more than what is currently in stock
+    //update the cart to include what act of adding the prod into the cart, association of product to the cart
+    
     //if it is in stock then you should add it to the cart and update
     
 })

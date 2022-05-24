@@ -1,11 +1,10 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const API= process.env.REACT_APP_API_URL;
 
-function Login({setLoginText, carts}) {
-// console.log("YOOO",carts)
+function Login({setLoginText, carts, setCarts}) {
   let navigate = useNavigate();
   const [login, setLogin] = useState({
     username:"",
