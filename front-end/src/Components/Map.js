@@ -35,6 +35,7 @@ function Map(){
   return(
     <div  className="map-container">
       
+      
       <h4 id="map-heading">Restaurant Locator</h4>
       <p>Find a participating retailer near you (must be eligible)</p>
 
