@@ -1,6 +1,6 @@
 const express = require("express");
 const customers = express.Router();
-const {getAllCustomers, createCustomer, updateCustomer} = require("../queries/customers.js")
+const {getAllCustomers, getOneCustomer,  createCustomer, updateCustomer} = require("../queries/customers.js")
 
 customers.get("/", async (req, res) => {
     try{
@@ -8,6 +8,17 @@ customers.get("/", async (req, res) => {
         res.status(200).json(allCustomers)
     }catch(err){
         return err;
+    }
+})
+
+customers.get("/:id", async (req,res) =>{
+    const {id} = req.params
+    try {
+        const oneCustomer = await getOneCustomer(id);
+        res.status(200).json(oneCustomer)
+        
+    } catch (err) {
+        return err
     }
 })
 
