@@ -4,7 +4,15 @@ import '../Styles/sideBar.css';
 function SideBar() {
   return (
     <div className='sideBar-container'>
-      <h3> hiii</h3>
+      <div className='sideBar-content'>
+    <ul>
+      <li>Account Info</li>
+      <li>Orders</li>
+      <li>Update Account</li>
+      <li>Settings</li>
+      <li>Help</li>
+    </ul>
+      </div>
     </div>
   )
 }
