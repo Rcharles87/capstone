@@ -1,6 +1,6 @@
 const express = require("express");
 const customers = express.Router();
-const {getAllCustomers, createCustomer, updateCustomer, getCurrentCustomerCart, getCustomersPreviousOrder} = require("../queries/customers.js")
+const {getAllCustomers, createCustomer, updateCustomer} = require("../queries/customers.js")
 
 customers.get("/", async (req, res) => {
     try{
@@ -25,25 +25,6 @@ customers.post("/", async(req, res) => {
     }
 })
 
-customers.get("/:id", async(req, res) => {
-    const { id } = req.params;
-    const { show } = req.query;
-    try{
-        if(show === 'active'){
-            const currentCustomerCart = await getCurrentCustomerCart(id);
-            if(currentCustomerCart.id){
-                res.status(200).json(currentCustomerCart);
-            }
-        }else if (show === 'inactive'){
-            const customerPreviousOrders = await getCustomersPreviousOrder(id); 
-            if(customerPreviousOrders.length > 0){
-                res.status(200).json(customerPreviousOrders)
-            }
-        }
-    }catch(err){    
-        return err;
-    }
-})
 
 customers.put("/:id", async (req, res) => {
     const {id} = req.params;
