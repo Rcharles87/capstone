@@ -1,0 +1,18 @@
+.loggedInDisplay-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "fil . ." 
+    "fil rest rest" 
+    "fil rest rest";
+}
+
+.f-container{
+    grid-area: fil;
+}
+
+.r-container{
+    grid-area: rest;
+    place-content: center/center;
+}
