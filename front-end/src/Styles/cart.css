@@ -1,0 +1,13 @@
+.cart-container{
+    display: grid;
+}
+
+#active-cart{
+   
+    border: solid blue 2px;
+    grid-template-columns: 2 1fr ;
+}
+
+#food-icon{
+    width: 150px;
+}
