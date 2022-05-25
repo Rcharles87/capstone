@@ -128,28 +128,30 @@ const getPreviousCarts = async (customer_id) => {
   }
 };
 
-const updateCurrentCart = async (customer_id, updateInfo) => {
+const updateCurrentCart = async (body) => {
   try {
     //use customerID get customers active cart and save in a variable called "cart"
     const updatedCart = await db.one(
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
-      customer_id
-    );
-
+      body.userID
+    ); //variable is currentActiveCart
+    console.log(updatedCart)
     // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr
     const updatedOrderDetails = await db.one(
-      "UPDATE order_details SET quantity=$1 WHERE carts_id=$2 RETURNING *",
-      [updateInfo.quantity, updatedCart.customer_id]
+      "INSERT INTO order_details (carts_id, products_id, quantity) VALUES ($1, $2, $3) RETURNING *",
+      [updatedCart.id, body.productID, 1]
     );
-
-    let updatedProduct = await db.one(
-      "SELECT name FROM products WHERE id=$1",
-      updatedOrderDetails.products_id
-    );
-    return {
-      quantity: updateInfo.quantity,
-      name: updatedProduct.name,
-    };
+    
+    console.log("TRIGGGER",updatedOrderDetails)
+    return updatedOrderDetails;
+    // let updatedProduct = await db.one(
+    //   "SELECT name FROM products WHERE id=$1",
+    //   updatedOrderDetails.products_id
+    // );
+    // return {
+    //   quantity: updateInfo.quantity,
+    //   name: updatedProduct.name,
+    // };
   } catch (err) {
     return err;
   }

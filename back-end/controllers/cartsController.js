@@ -1,7 +1,7 @@
 const express = require("express");
 const carts = express.Router();
 const { getCurrentCart, getPreviousCarts, updateCurrentCart } = require("../queries/carts");
-
+const validationAddToCart = require("../validations/cartValidation")
 
 carts.get("/:customer_id/active", async (req, res) =>{
     const { customer_id } = req.params;
@@ -38,17 +38,29 @@ carts.put("/:customer_id/active", async (req,res) =>{
     };
 });
 
-carts.post("/addToCart", async (req, res) => {
-    const {body} = req;
+carts.post("/addToCart", validationAddToCart,  async (req, res) => {
+    const { body } = req;// send it in the body //we need body.productID, body.userID, 
+    console.log(body);
+    try{
+        const updatedCart = await updateCurrentCart(body);
+        console.log(updatedCart);
+        res.status(200).json({status: "success", payload: updatedCart})
+    }catch(err){
+        return err;
+    }
     
-    //we need cartID, productID, RestaurantID
-    //does user have a cart? 
-        //if they do use it. if they dont --> create one
+    //does user have a cart? use body.restaurantID, body.cartID,  (ID of an active cart)
+        //if they do use it. 
+            //if they dont --> create one
     //verification steps **Note validatgion for meals from other restuarants (respond with an error, remove)
-    //update the cart to include what
-    //if they is any instock //if the person adds more than what is currently in stock
-    //if it is in stock then you should add it to the cart and update
+    //validation: contd if they is any instock //if the person adds more than what is currently in stock
+    //update the cart to include what act of adding the prod into the cart, association of product to the cart
     
+    //if it is in stock then you should add it to the cart and update
+})
+
+carts.delete("/deleteItem", async (req, res) => {
+
 })
 
 module.exports = carts;

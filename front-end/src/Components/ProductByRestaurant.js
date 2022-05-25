@@ -12,7 +12,7 @@ function ProductByRestaurant({id}){
   const [productByRestaurant, setProductByRestaurant ] = useState([]);
   // const { restaurant_id } = useParams();
   console.log(productByRestaurant)
-  const cartId =localStorage.getItem("userID")
+  const userId = localStorage.getItem("userID")
 
 useEffect(() => {
   axios.get(`${API}/restaurants/${id}/products`)
@@ -25,11 +25,23 @@ useEffect(() => {
   .catch((c) => console.warn("catch", c))
 }, [id])
 
-console.log(productByRestaurant);
+  console.log(productByRestaurant);
+  
+  const handleAddToCart = (product) => {
+    const resInfo = {
+      userID: +userId,
+      productID: product.id,
+      restaurantID: product.restaurant_id
+    };
 
-    const AddToCart = () => {
-      console.log()
-    }
+    axios.post(`${API}/carts/addToCart`, resInfo)
+      .then(
+        () => {
+          console.log('api')
+        },
+        (err) => console.error(err)
+      ).catch((err) => console.warn("catch err", err))
+  }
 
     return(
       <div className="products-container">
@@ -46,7 +58,7 @@ console.log(productByRestaurant);
                   <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg" alt="diet-res"></img>
                 </div>
               </Link>
-              <button id="add-to-cart-btn" onClick={AddToCart}>Add To Cart</button>
+              <button id="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
             </div>
         ))}
         {/* <Map /> */}
