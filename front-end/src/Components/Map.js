@@ -22,7 +22,7 @@ function Map(){
         .catch((c) => console.warn("catch", c))
   }, []);
   
-      console.log(restaurants);
+      // console.log(restaurants);
 
       const linkToRestaurant = () => {
         return(
@@ -34,6 +34,7 @@ function Map(){
   
   return(
     <div  className="map-container">
+      
       
       <h4 id="map-heading">Restaurant Locator</h4>
       <p>Find a participating retailer near you (must be eligible)</p>

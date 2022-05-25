@@ -1,4 +1,5 @@
 .welcome-container {
     border: 1px solid green;
     height: 250px;
+    text-align: center;
 }

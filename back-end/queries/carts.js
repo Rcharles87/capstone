@@ -6,27 +6,64 @@ const getCurrentCart = async (customer_id) => {
     // const cart = await db.one("SELECT * FROM carts WHERE customer_id=$1 AND is_active=true", customer_id);
     //use cart.id to get all order_details associated with carts_id and save in a variable "orderDetailsArr"
 
-    const cartDetailsArr = await db.any(
-      "SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=$1 AND is_active=TRUE)",
+    // const cartDetailsArr = await db.any(
+    //   "SELECT * FROM order_details WHERE carts_id=(SELECT id FROM carts WHERE customer_id=$1 AND is_active=TRUE)",
+    //   customer_id
+    // );
+
+    // const productsArr = [];
+    //loop through "orderDetailsArr" create a query for each element and match products_id to id in the Products table
+    // for (let cartDetail of cartDetailsArr) {
+    //   let productName = await db.one(
+    //     "SELECT name FROM products WHERE id=$1",
+    //     cartDetail.products_id
+    //   );
+    //   productsArr.push(productName.name);
+    // }
+    //choose needed info & return into an array of objects
+    // return cartDetailsArr.map((el, index) => {
+    //   return {
+    //     quantity: el.quantity,
+    //     name: productsArr[index],
+    //   };
+    // });
+
+    const currentCart = await db.any(
+      "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       customer_id
     );
 
-    const productsArr = [];
-    //loop through "orderDetailsArr" create a query for each element and match products_id to id in the Products table
-    for (let cartDetail of cartDetailsArr) {
-      let productName = await db.one(
-        "SELECT name FROM products WHERE id=$1",
-        cartDetail.products_id
-      );
-      productsArr.push(productName.name);
-    }
-    //choose needed info & return into an array of objects
-    return cartDetailsArr.map((el, index) => {
-      return {
-        quantity: el.quantity,
-        name: productsArr[index],
+    const currentCartDetailArr = [];
+
+    for(let cart of currentCart){
+      const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
+
+      const productsArr = [];
+
+      for(let detail of cartDetail){
+        let product = await db.one("SELECT * FROM products WHERE id=$1", detail.products_id);
+        productsArr.push({...product, quantity:detail.quantity});
       };
-    });
+
+      const restaurantsArr =[];
+
+      for(let product of productsArr){
+        let restaurantName = await db.one("SELECT name FROM restaurants WHERE id=$1", product.restaurant_id);
+        restaurantsArr.push(restaurantName);
+      };
+
+      currentCartDetailArr.push({
+        orderNumber: cart.id,
+        items: productsArr.map((item)=>({
+          name: item.name,
+          id: item.id,
+          quantity: item.quantity
+        })),
+        restaurant: restaurantsArr[0].name
+      });
+    };
+
+    return currentCartDetailArr;
   } catch (err) {
     return err;
   }
@@ -91,28 +128,30 @@ const getPreviousCarts = async (customer_id) => {
   }
 };
 
-const updateCurrentCart = async (customer_id, updateInfo) => {
+const updateCurrentCart = async (body) => {
   try {
     //use customerID get customers active cart and save in a variable called "cart"
     const updatedCart = await db.one(
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
-      customer_id
-    );
-
+      body.userID
+    ); //variable is currentActiveCart
+    console.log(updatedCart)
     // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr
     const updatedOrderDetails = await db.one(
-      "UPDATE order_details SET quantity=$1 WHERE carts_id=$2 RETURNING *",
-      [updateInfo.quantity, updatedCart.customer_id]
+      "INSERT INTO order_details (carts_id, products_id, quantity) VALUES ($1, $2, $3) RETURNING *",
+      [updatedCart.id, body.productID, 1]
     );
-
-    let updatedProduct = await db.one(
-      "SELECT name FROM products WHERE id=$1",
-      updatedOrderDetails.products_id
-    );
-    return {
-      quantity: updateInfo.quantity,
-      name: updatedProduct.name,
-    };
+    
+    console.log("TRIGGGER",updatedOrderDetails)
+    return updatedOrderDetails;
+    // let updatedProduct = await db.one(
+    //   "SELECT name FROM products WHERE id=$1",
+    //   updatedOrderDetails.products_id
+    // );
+    // return {
+    //   quantity: updateInfo.quantity,
+    //   name: updatedProduct.name,
+    // };
   } catch (err) {
     return err;
   }

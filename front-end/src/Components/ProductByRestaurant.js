@@ -1,32 +1,47 @@
-import Map from "./Map";
+// import Map from "./Map";
 import React from "react";
 import axios from "axios";
 import "../Styles/products.css";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function ProductByRestaurant(){
+function ProductByRestaurant({id}){
   
   const [productByRestaurant, setProductByRestaurant ] = useState([]);
-  const { restaurant_id } = useParams();
+  // const { restaurant_id } = useParams();
+  console.log(productByRestaurant)
+  const userId = localStorage.getItem("userID")
 
 useEffect(() => {
-  axios.get(`${API}/products/${restaurant_id}`)
+  axios.get(`${API}/restaurants/${id}/products`)
   .then((res) => {
+    console.log("trigger",res.data)
     setProductByRestaurant(res.data);
 },
 (error) => console.log("get", error)
 )
   .catch((c) => console.warn("catch", c))
-}, [restaurant_id])
+}, [id])
 
-console.log(productByRestaurant);
+  console.log(productByRestaurant);
+  
+  const handleAddToCart = (product) => {
+    const resInfo = {
+      userID: +userId,
+      productID: product.id,
+      restaurantID: product.restaurant_id
+    };
 
-    const AddToCart = () => {
-      console.log("AddToCart");
-    }
+    axios.post(`${API}/carts/addToCart`, resInfo)
+      .then(
+        () => {
+          console.log('api')
+        },
+        (err) => console.error(err)
+      ).catch((err) => console.warn("catch err", err))
+  }
 
     return(
       <div className="products-container">
@@ -34,8 +49,8 @@ console.log(productByRestaurant);
             <div className="individual-product">
             <img id="product-image" src="https://i.imgur.com/JRd96AZ.png" alt="cartoon-food"></img>
               <Link style={{ textDecoration: 'none', color: 'black' }} to={`/404`}>
-                <h1>{product.type}</h1>
-                <p>{product.description}</p>
+                <h1>{product.name}</h1>
+                {/* <p>{product.description}</p> */}
                 <p>Portion: <b>{product.portion}</b></p>
                 <p>Calories: <b>{product.calories}</b></p>
                 <div className="dietary-restrictions">
@@ -43,10 +58,10 @@ console.log(productByRestaurant);
                   <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg" alt="diet-res"></img>
                 </div>
               </Link>
-              <button id="add-to-cart-btn" onClick={AddToCart}>Add To Cart</button>
+              <button id="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
             </div>
         ))}
-        <Map />
+        {/* <Map /> */}
       </div>
     )
 };
