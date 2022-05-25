@@ -1,13 +1,45 @@
-.cart-container{
+.active-cart{
     display: grid;
+    border: solid blue 2px;
+    width: 50vw;
+    grid-template-areas:
+        "restaurant-name restaurant-name "
+        "food-icon order";
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    
 }
 
-#active-cart{
+/* #active-cart{
    
-    border: solid blue 2px;
-    grid-template-columns: 2 1fr ;
+} */
+
+#restaurant-name{
+    font-size:xx-large;
+    font-weight: 300;
+    grid-area: restaurant-name;
+    text-align: center;
 }
 
 #food-icon{
+    grid-area: food-icon;
+    align-self: center;
+    
+}
+
+#food-img {
+    display: grid;
     width: 150px;
+    
+}
+
+
+#order-details{
+    grid-area: order;
+    align-self: center;
+}
+
+.cart-container{
+    display: flex;
+    border: solid red 1px;
+    justify-content: center;
 }
