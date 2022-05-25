@@ -4,6 +4,7 @@ import Splash from "../Components/Splash";
 import Restaurants from "../Components/Restaurants";
 import Map from "../Components/Map";
 import { useState } from "react";
+import FilterBar from "../Components/FilterBar";
 
 function Home({ loginText }) {
   const [isChecked, SetIsChecked] = useState(false);
@@ -35,9 +36,15 @@ function Home({ loginText }) {
             </div>
 
           ):(
-            <div>
+            <div className="loggedInDisplay-container">
+              <div className="f-container">
+                <FilterBar />
+              </div>
 
-            <Restaurants />
+              <div className="r-container"> 
+                <Restaurants />
+              </div>
+              
             </div>
           )}
 
