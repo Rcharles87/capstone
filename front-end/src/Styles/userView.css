@@ -16,9 +16,13 @@
 .up-container{
     grid-area: main;
     margin: 10px;
+    border: 5px solid #2f5374;
+    height: 70vh;
+    width: 65vw;
+    border-style: solid;
+    background-color: rgb(242, 239, 235);
 }
 .sb-container{
     grid-area: side;
-
 }
 

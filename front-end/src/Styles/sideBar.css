@@ -1,6 +1,7 @@
 .sideBar-container{
     display: grid;
    height: 100%;
+   width: 20vw;
    background-color: rgba(234, 234, 234, 0.885);
 }
 
@@ -10,10 +11,11 @@
 
 .sideBar-content li {
     display: grid;
-
+    grid-template-columns: repeat(2, 1fr);
     list-style: none;
     border: 1px solid red;
     background-color: rgb(220, 220, 220);
-   padding: 10px;
-   margin: 3px 0;
+    padding: 10px;
+    margin: 3px 0;
+    justify-items: center;
 }

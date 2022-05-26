@@ -1,7 +1,7 @@
-import axios from 'axios'
-import React from 'react'
-import { useState, useEffect } from 'react'
-import "../Styles/welcome.css"
+import axios from 'axios';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import "../Styles/welcome.css";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -19,10 +19,20 @@ function Welcome() {
     })
 
   },[userId])
-  
+
+  const welcomeArrMessage = [
+    "Say hello to your little profile 🔫  ",
+    "Hey there pal! 😛",
+    "Sup!",
+    "We're happy to see you again 😆 ",
+    "Welcome, ready to order? 👀",
+  ]
+
+  const welcomeMessageRandom = welcomeArrMessage[Math.floor(Math.random() * welcomeArrMessage.length)]
+
   return (
     <div className='welcome-container'>
-      <h1>Welcome {userName.fname}</h1>
+      <h1>{welcomeMessageRandom} {userName.fname}</h1>
       </div>
   )
 }
