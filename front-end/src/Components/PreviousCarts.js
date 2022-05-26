@@ -19,21 +19,23 @@ function PreviousCarts() {
         console.log(err);
       });
   }, [userID]);
-  console.log(oldCarts)
+  console.log("trigger",oldCarts)
 
   let previousOrders = oldCarts.map((cart) => {
     return (
       <div className="info-container" key={cart.orderNum}>
-          <span> Order Number:{cart.orderNum} {cart.restaurants}</span>
-          <br />
+          <div> <h3>Restaurant: {cart.restaurants} </h3></div>
+          
           {cart.items.map((products)=>{
               // console.log(products)
               return(
                   <div key={products.id}>
-                      {products.name} Quantity: {products.quantity}
+                      <div className="info-name">Meal Type: {products.name}</div>
+                      <div className="info-quantity">Quantity: {products.quantity}</div>
                   </div>
               )
           })}
+          <hr className="hr5"/>
       </div>
     );
   });
@@ -42,7 +44,13 @@ function PreviousCarts() {
   return (
     <div className="po-container">
       <h1>Previous Orders</h1>
-      <div>{previousOrders}</div>
+      <hr/>
+      {oldCarts.length < 1 ? (
+        <div className="noCurrentOrder-text">
+          you have no current orders
+        </div>) : (
+          <div>{previousOrders}</div>
+        )}
     </div>
   );
 }
