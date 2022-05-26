@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Styles/forms.css"
 
 const API= process.env.REACT_APP_API_URL;
 
 function Signup() {
+    let navigate = useNavigate();
     const [signUp, setSignUp] = useState({
         Fname:"",
         Lname:"",
@@ -22,6 +24,7 @@ function Signup() {
         axios.post(`${API}/auth/signup`, signUp)
         .then((res) =>{
             localStorage.setItem("userID", res.data.id)
+            navigate("/login")
         })
     }
 
