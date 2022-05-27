@@ -157,4 +157,13 @@ const updateCurrentCart = async (body) => {
   }
 };
 
-module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart };
+const createNewCart = async (customer_id) => {
+  try{
+    const newCart = await db.one("INSERT INTO carts (customer_id, is_active) VALUES ($1, TRUE)",customer_id);
+    return newCart;
+  }catch(err){
+    console.log(err)
+  }
+}
+
+module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart, createNewCart };

@@ -1,7 +1,8 @@
 const express = require("express");
 const carts = express.Router();
 const { getCurrentCart, getPreviousCarts, updateCurrentCart } = require("../queries/carts");
-const validationAddToCart = require("../validations/cartValidation")
+const validationAddToCart = require("../validations/cartValidation");
+
 
 carts.get("/:customer_id/active", async (req, res) =>{
     const { customer_id } = req.params;
@@ -40,15 +41,12 @@ carts.put("/:customer_id/active", async (req,res) =>{
 
 carts.post("/addToCart", validationAddToCart,  async (req, res) => {
     const { body } = req;// send it in the body //we need body.productID, body.userID, 
-    console.log(body);
     try{
         const updatedCart = await updateCurrentCart(body);
-        console.log(updatedCart);
         res.status(200).json({status: "success", payload: updatedCart})
     }catch(err){
         return err;
     }
-    
     //does user have a cart? use body.restaurantID, body.cartID,  (ID of an active cart)
         //if they do use it. 
             //if they dont --> create one
