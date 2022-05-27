@@ -1,7 +1,7 @@
 .active-cart{
     /* display: grid; */
     border: solid blue 2px;
-    /* width: 50vw; */
+    margin-top: 5vh;
 }
 
 #restaurant-name{
@@ -27,6 +27,7 @@ flex: 1;
     display: flex;
     width: 100%;
     align-items: center;
+    margin-right: 10vw;
 }
 
 #order-num{
@@ -40,4 +41,8 @@ flex: 1;
     flex-direction: row;
     border: solid red 1px;
     justify-content: center;
+}
+
+button{
+    margin-top: 10px;
 }
