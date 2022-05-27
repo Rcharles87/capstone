@@ -23,19 +23,24 @@ function Cart({ carts, setCarts }) {
 
   const activeCart = carts.map((product) => {
     return (
-      <div>
-        <img
-          id="food-icon"
-          src={"https://i.imgur.com/JRd96AZ.png"}
-          alt="food icon"
-        />
-        <div>Order: #{product.orderNumber}</div>
-        <div>Restaurant: {product.restaurant}</div>
-        <div>
+      <div className="active-cart">
+        <div id="order-details">
+          <div id="restaurant-name">{product.restaurant}</div>
+          <div id="order-num">Order: #{product.orderNumber}</div>
           {product.items.map((item) => {
             return (
-              <div>
-                Meal: {item.name} {item.quantity}
+              <div id="single-meal">
+                <div id="meal-img">
+                  <img
+                    id="food-img"
+                    src={"https://i.imgur.com/JRd96AZ.png"}
+                    alt="food icon"
+                  />
+                </div>
+                <div id="meal-name">
+                  Meal Kit Type: {item.name}
+                  <div id="quantitiy">Quantity: {item.quantity} </div>
+                </div>
               </div>
             );
           })}
@@ -46,7 +51,10 @@ function Cart({ carts, setCarts }) {
 
   return (
     <div className="cart-container">
-      <div id="active-cart">{activeCart}</div>
+      <div>
+        {activeCart}
+        <button>Delete Current Order</button>
+      </div>
     </div>
   );
 }

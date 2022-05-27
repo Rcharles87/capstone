@@ -1,7 +1,7 @@
 .all-restaurants-container{
     /* border: 10px solid saddlebrown; */
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     justify-items: start;
     align-items: center;
