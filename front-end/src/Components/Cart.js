@@ -38,8 +38,9 @@ function Cart({ carts, setCarts }) {
                   />
                 </div>
                 <div id="meal-name">
-                  Meal Kit Type: {item.name}
+                  Meal Kit: {item.name}
                   <div id="quantitiy">Quantity: {item.quantity} </div>
+                  <button>Delete</button>
                 </div>
               </div>
             );
@@ -53,7 +54,7 @@ function Cart({ carts, setCarts }) {
     <div className="cart-container">
       <div>
         {activeCart}
-        <button>Delete Current Order</button>
+        <button>Delete Current Order</button> 
       </div>
     </div>
   );
