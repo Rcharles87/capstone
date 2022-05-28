@@ -1,23 +1,36 @@
+body{
+  border: 1px solid black;
+  margin:0;
+  padding: 0;
+}
+
 .products-container{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 50px;
-  text-align: center;
-}
-
-.individual-product{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
   margin: 100px;
-  text-align: left;
-  display: flex;
-  border: 2px solid black;
+  gap: 50px;
 }
 
-.dietary-restrictions{
-  display: flex;
-  height: 300px;
+.individual-product{ 
+  margin: 200px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin:0;
+  padding: 0;
 }
+
+.product-details{
+  text-align: left;
+}
+
 
 #product-image{
-  height: 350px;
+  height: 250px;
 }
 
 #add-to-cart-btn{
@@ -26,19 +39,35 @@
   color: rgb(255, 255, 255);
   padding: 15px 32px;
   text-align: center;
-  height: 50px;
-  margin: 80px;
+  height: 40px;
   font-size: 16px;
   border-radius: 8px;
   transition-duration: 0.2s;
+  line-height: 100%;
 }
 
 #add-to-cart-btn:hover {
   color: white;
   background-color: #4CAF50; /* Green */
-  /* box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
 }
 
+/* .dietary-restrictions{
+  align-items: center;
+  display: flex;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+} */
+
 #dietary-sprite{
-  height: 25%;
+  padding: 0;
+  margin:0;
+  height: 30px;
+}
+
+.restaurant-details{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border: 2px solid black;
 }

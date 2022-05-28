@@ -1,6 +1,7 @@
 import {Link, useParams} from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import "../Styles/products.css";
 import ProductByRestaurant from "./ProductByRestaurant";
 
 const API = process.env.REACT_APP_API_URL;
@@ -18,13 +19,13 @@ function RestaurantDetails() {
 
 
   return (
-    <div>
-        <div>
+    <div className="restaurant-products-container">
+        <div className="restaurant-details">
             <div>{restaurant.name}</div>
             <div>{restaurant.cuisine_type}</div>
             <div>{restaurant.add}</div>
         </div>
-{<ProductByRestaurant id={id}/>}
+            {<ProductByRestaurant id={id}/>}
         <div className='button-link'>
             <Link to={`/`}>
                 <button>Go Back</button>
