@@ -18,6 +18,16 @@ const validateActiveCart = async (customer_id) => {
     }
 }
 
+const validateMultipleRestaurants = async (body, activeCart) => {
+    try{
+        const activeCartDetailArr = await db.any("SELECT * FROM order_details WHERE id=$1", cart.id);
+        console.log(body, activeCart)
+    }catch(err){
+
+    }
+}
+
 module.exports ={
-    validateActiveCart
+    validateActiveCart,
+    validateMultipleRestaurants
 }
