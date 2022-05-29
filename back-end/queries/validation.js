@@ -74,7 +74,6 @@ const validateMultipleRestaurants = async (body, activeCart) => {
         //     },
         //   ]
 
-        
     }catch(err){
         return err;
     }
