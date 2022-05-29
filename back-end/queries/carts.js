@@ -157,4 +157,17 @@ const updateCurrentCart = async (body) => {
   }
 };
 
-module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart };
+const deleteProductFromCart = async (customer_id,products_id) => {
+  try{
+    const getActiveCart = await db.one(
+      "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
+      customer_id);
+
+      const deletedProduct = await db.one("DELETE FROM order_details WHERE products_id=$1 RETURNING *", products_id);
+      return deletedProduct
+  }catch(err) {
+    return err;
+  }
+};
+
+module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart, deleteProductFromCart };
