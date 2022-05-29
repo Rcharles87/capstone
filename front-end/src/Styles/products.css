@@ -11,8 +11,9 @@ body{
   grid-template-rows: 1fr;
   align-items: center;
   justify-content: center;
-  margin: 100px;
-  gap: 50px;
+  margin: 110px;
+  gap: 150px;
+  /* border: 2px solid black; */
 }
 
 .individual-product{ 
@@ -34,12 +35,12 @@ body{
 }
 
 #add-to-cart-btn{
-  background-color: #abcbac; /* Green */
+  background-color: rgb(91, 201, 203); /* Green */
   border: none;
   color: rgb(255, 255, 255);
   padding: 15px 32px;
   text-align: center;
-  height: 40px;
+  /* height: 40px; */
   font-size: 16px;
   border-radius: 8px;
   transition-duration: 0.2s;
@@ -66,8 +67,12 @@ body{
 }
 
 .restaurant-details{
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  border: 2px solid black;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  /* color: rgb(250, 250, 250); */
+  text-align: left;
+  /* margin-top: 100px; */
+  padding: 20px;
+  /* border: 2px solid black; */
+  background: lightblue url("https://st4.depositphotos.com/4177785/27354/v/1600/depositphotos_273546568-stock-illustration-food-vector-seamless-pattern-cuisine.jpg") no-repeat fixed center; 
 }
