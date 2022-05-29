@@ -1,7 +1,8 @@
 .restaurant-container{
-   background-color: rgba(255, 250, 243, 0.924);
-   border-radius: 15px;
-    margin: 20px;
+    color: white;
+    background-color: rgb(110, 217, 227);
+    border-radius: 15px;
+    margin: 50px;
     padding: 10px;
     /* max-width: 300px; */
 }
@@ -16,13 +17,19 @@
     padding: 2px;
 }
 
+.restaurant-data:hover{
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(27, 228, 255, 0.324), 0 12px 20px 0 rgba(124, 129, 130, 0.324);
+}
+
 .restaurant-name{
-    margin: 10px 0;
+    margin: 10px;
+
 } 
 
 .restaurant-address{
-    margin: 10px 0;
+    margin: 10px;
 }
 .restaurant-type{
-    margin: 10px 0;
+    margin: 10px;
 } 

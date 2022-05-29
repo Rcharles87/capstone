@@ -16,10 +16,7 @@ function RestaurantDetails() {
                 setRestaurant(res.data);
             }).catch((err) => console.log(err))
         }, [id])
-        
-        const goBack = () => {
-            navigate(-1)
-        }
+
         const navigate = useNavigate();
         
   return (
@@ -31,12 +28,10 @@ function RestaurantDetails() {
         </div>
             {<ProductByRestaurant id={id}/>}
         <div className='button-link'>
-            {/* <Link to={goBack}> */}
-                <button onClick={() => navigate(-1)}>Go Back</button>
+                <button id="back-btn" onClick={() => navigate(-1)}>Go Back</button>
         </div>
     </div>
   )
-  
-}
+};
 
 export default RestaurantDetails

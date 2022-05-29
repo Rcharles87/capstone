@@ -15,9 +15,9 @@ function Restaurant( {singleRestaurant} ) {
         <div className='restaurant-data'>
           <img style={{maxHeight:'200px'}} src={restaurantsImage} alt='restaurant stock'/>
             <div className='restaurant-name'>
-                <div>
+                <h3>
                   {singleRestaurant.name}
-                 </div>
+                 </h3>
             </div>
             <div className='restaurant-type'>
                 <div>

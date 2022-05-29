@@ -74,5 +74,18 @@ body{
   /* margin-top: 100px; */
   padding: 20px;
   /* border: 2px solid black; */
-  background: lightblue url("https://st4.depositphotos.com/4177785/27354/v/1600/depositphotos_273546568-stock-illustration-food-vector-seamless-pattern-cuisine.jpg") no-repeat fixed center; 
+  background: rgb(117, 208, 216) url("https://st4.depositphotos.com/4177785/27354/v/1600/depositphotos_273546568-stock-illustration-food-vector-seamless-pattern-cuisine.jpg") no-repeat fixed center; 
+}
+
+#back-btn{
+  background-color: rgb(91, 201, 203); /* Green */
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 5px 16px;
+  text-align: center;
+  /* height: 40px; */
+  font-size: 16px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  line-height: 100%;
 }
