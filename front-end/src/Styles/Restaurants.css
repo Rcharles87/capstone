@@ -1,5 +1,6 @@
 .all-restaurants-container{
     /* border: 10px solid saddlebrown; */
+    margin: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
