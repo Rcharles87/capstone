@@ -1,14 +1,16 @@
 #main-content {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    margin: 50px;
     /* border: 1px solid blue; */
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas:
     "signup faq"
     "maintext img1"
     "img2 maintext2"
     ;
-    /* margin-top: 425px; */
+    gap: 40px;
 }
 
 #main-content img{
