@@ -21,6 +21,18 @@ function Cart({ carts, setCarts }) {
       });
   }, [userID]);
 
+  const handleDelete = (item) => {
+    console.log("delete!", item)
+    axios.delete(`${API}/customers/${userID}/deleteItem`)
+    .then((res) => {
+      window.alert("The item has been removed")
+    })
+    .catch((err) =>{
+      console.log(err);
+    });
+  };
+
+
   const activeCart = carts.map((product) => {
     return (
       <div className="active-cart">
@@ -40,7 +52,7 @@ function Cart({ carts, setCarts }) {
                 <div id="meal-name">
                   Meal Kit: {item.name}
                   <div id="quantitiy">Quantity: {item.quantity} </div>
-                  <button>Delete</button>
+                  <button onClick={()=>handleDelete(item)}>Delete</button>
                 </div>
               </div>
             );

@@ -59,14 +59,14 @@ carts.post("/addToCart", validationAddToCart,  async (req, res) => {
     //if it is in stock then you should add it to the cart and update
 })
 
-carts.delete("/:products_id", async (req, res) => {
-    const { product_id } = req.params;
-    console.log("product_id~~", product_id)
+carts.delete("/deleteItem", async (req, res) => {
+    // const { product_id } = req.params;
+    console.log("req",req.params)
     try {
-        const deletedProduct = await deleteProductFromCart(product_id);
-            if(deletedProduct.product_id){
-                res.status(200).json(deletedProduct)
-            }
+        // const deletedProduct = await deleteProductFromCart(product_id);
+        //     if(deletedProduct.product_id){
+        //         res.status(200).json(deletedProduct)
+        //     }
     } catch (error) {
         
     };
