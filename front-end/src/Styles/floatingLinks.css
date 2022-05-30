@@ -8,7 +8,7 @@
     "maintext img1"
     "img2 maintext2"
     ;
-    margin-top: 425px;
+    /* margin-top: 425px; */
 }
 
 #main-content img{
@@ -49,7 +49,8 @@
 
 #main-content-text {
     /* border: 1px solid red; */
-    width: 100%;
+    margin: 100px;
+    max-width: 100%;
     grid-area: maintext;
 }
 
@@ -62,6 +63,7 @@
 
 #main-content-text2 {
     /* border: 1px solid red; */
-    width: 100%;
+    margin: 100px;
+    max-width: 100%;
     grid-area: maintext2;
 }
