@@ -13,7 +13,7 @@ function Restaurant( {singleRestaurant} ) {
             <Link className='restLink' to={`/restaurant/${singleRestaurant.id}`}>
 
         <div className='restaurant-data'>
-          <img style={{maxHeight:'200px'}} src={restaurantsImage} alt='restaurant stock'/>
+          <img className="restaurant-image" style={{maxHeight:'200px'}} src={restaurantsImage} alt='restaurant stock'/>
             <div className='restaurant-name'>
                 <h3>
                   {singleRestaurant.name}

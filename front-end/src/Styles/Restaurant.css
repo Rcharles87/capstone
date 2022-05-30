@@ -13,18 +13,23 @@
 }
 
 .restaurant-data{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 2px;
     padding: 2px;
 }
 
 .restaurant-data:hover{
+    color:white;
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(27, 228, 255, 0.324), 0 12px 20px 0 rgba(124, 129, 130, 0.324);
 }
 
+/* .restaurant-image:hover{
+    opacity: 0.5;
+} */
+
 .restaurant-name{
     margin: 10px;
-
 } 
 
 .restaurant-address{
