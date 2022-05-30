@@ -2,11 +2,8 @@ import React from 'react';
 import '../Styles/Restaurant.css';
 import { Link } from 'react-router-dom';
 
-
-
 import restaurantStockImage from '../assets/restaurantStockImage.jpeg';
-
-
+import restaurantsImage from '../assets/restaurantsImage.jpg';
 
 function Restaurant( {singleRestaurant} ) {
 
@@ -16,13 +13,21 @@ function Restaurant( {singleRestaurant} ) {
             <Link className='restLink' to={`/restaurant/${singleRestaurant.id}`}>
 
         <div className='restaurant-data'>
-        <img style={{maxHeight:'200px'}} src={restaurantStockImage} alt='restaurant stock'/>
-
-            <div className='r-name'>
-               <span> {singleRestaurant.name} ({singleRestaurant.add})</span>
+          <img className="restaurant-image" style={{maxHeight:'200px'}} src={restaurantsImage} alt='restaurant stock'/>
+            <div className='restaurant-name'>
+                <h3>
+                  {singleRestaurant.name}
+                 </h3>
             </div>
-            <div className='r-type'>
-                {singleRestaurant.cuisine_type}
+            <div className='restaurant-type'>
+                <div>
+                  {singleRestaurant.cuisine_type}
+                </div>
+            </div>
+            <div className='restaurant-address'>
+                <div>
+                  {singleRestaurant.add}
+                </div>
             </div>
            
         </div>
