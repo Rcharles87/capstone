@@ -3,6 +3,7 @@ import veggies from "../assets/veggies.jpg";
 import veggies2 from "../assets/veggies2.jpg";
 import bagicon from "../assets/bag.png";
 import signupicon from "../assets/standing.png";
+import {Link} from 'react-router-dom'
 import"../Styles/floatingLinks.css"
 import Slideshow from "../Components/Slideshow.js"
 
@@ -17,12 +18,21 @@ function FloatingLinks() {
         <div id="main-content">
         <div id="sign-up">
           <img src={signupicon} alt="illustration of girl on laptop" />
-          <h1>Sign Up</h1>
+          <Link to="/signup">
+          <h3>Dont make it a tuff decision <br /> signup today!!!</h3>
+          </Link>
         </div>
         <div id="faq">
           <img src={bagicon} alt="illustration of green recycle bag" />
-          <h1>Faq</h1>
+          <Link to="faq">
+            <h3>Check out our faq's,<br />find out more about food waste,<br /> and how you can help</h3>
+          </Link>
+          {/* <h1>Sign Up</h1> */}
         </div>
+        {/* <div id="faq">
+          <img src={bagicon} alt="illustration of green recycle bag" />
+          <h1>Faq</h1>
+        </div> */}
         <div id="veggies-img">
           <img src={veggies} alt="vegetables in a basket" />
         </div>
