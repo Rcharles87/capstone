@@ -1,6 +1,6 @@
 const express = require("express");
 const carts = express.Router();
-const { getCurrentCart, getPreviousCarts, updateCurrentCart } = require("../queries/carts");
+const { getCurrentCart, getPreviousCarts, updateCurrentCart, deleteProductFromCart } = require("../queries/carts");
 const validationAddToCart = require("../validations/cartValidation")
 
 carts.get("/:customer_id/active", async (req, res) =>{
@@ -60,7 +60,16 @@ carts.post("/addToCart", validationAddToCart,  async (req, res) => {
 })
 
 carts.delete("/deleteItem", async (req, res) => {
-
-})
+    // const { product_id } = req.params;
+    console.log("req",req.params)
+    try {
+        // const deletedProduct = await deleteProductFromCart(product_id);
+        //     if(deletedProduct.product_id){
+        //         res.status(200).json(deletedProduct)
+        //     }
+    } catch (error) {
+        
+    };
+});
 
 module.exports = carts;
