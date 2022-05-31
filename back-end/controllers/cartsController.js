@@ -56,8 +56,5 @@ carts.post("/addToCart", validationAddToCart,  async (req, res) => {
     
 })
 
-carts.delete("/deleteItem", async (req, res) => {
-
-})
 
 module.exports = carts;
