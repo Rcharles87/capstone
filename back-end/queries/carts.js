@@ -157,6 +157,7 @@ const updateCurrentCart = async (body) => {
   }
 };
 
+<<<<<<< HEAD
 const createNewCart = async (customer_id) => {
   try{
     const newCart = await db.one("INSERT INTO carts (customer_id, is_active) VALUES ($1, TRUE) RETURNING *",customer_id);
@@ -167,3 +168,19 @@ const createNewCart = async (customer_id) => {
 }
 
 module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart, createNewCart };
+=======
+const deleteProductFromCart = async (customer_id,products_id) => {
+  try{
+    const getActiveCart = await db.one(
+      "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
+      customer_id);
+
+      const deletedProduct = await db.one("DELETE FROM order_details WHERE products_id=$1 RETURNING *", products_id);
+      return deletedProduct
+  }catch(err) {
+    return err;
+  }
+};
+
+module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart, deleteProductFromCart };
+>>>>>>> 63633044dbb2ee12ed96dbbe1ee893d83d40372d

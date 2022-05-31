@@ -1,8 +1,13 @@
 const express = require("express");
 const carts = express.Router();
+<<<<<<< HEAD
 const { getCurrentCart, getPreviousCarts, updateCurrentCart } = require("../queries/carts");
 const validationAddToCart = require("../validations/cartValidation");
 
+=======
+const { getCurrentCart, getPreviousCarts, updateCurrentCart, deleteProductFromCart } = require("../queries/carts");
+const validationAddToCart = require("../validations/cartValidation")
+>>>>>>> 63633044dbb2ee12ed96dbbe1ee893d83d40372d
 
 carts.get("/:customer_id/active", async (req, res) =>{
     const { customer_id } = req.params;
@@ -56,5 +61,17 @@ carts.post("/addToCart", validationAddToCart,  async (req, res) => {
     
 })
 
+carts.delete("/deleteItem", async (req, res) => {
+    // const { product_id } = req.params;
+    console.log("req",req.params)
+    try {
+        // const deletedProduct = await deleteProductFromCart(product_id);
+        //     if(deletedProduct.product_id){
+        //         res.status(200).json(deletedProduct)
+        //     }
+    } catch (error) {
+        
+    };
+});
 
 module.exports = carts;

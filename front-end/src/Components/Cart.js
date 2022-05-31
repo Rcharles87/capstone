@@ -1,5 +1,7 @@
 import "../Styles/cart.css";
 import axios from "axios";
+import CancelIcon from '@mui/icons-material/Cancel';
+import food_container from "../assets/food_container.png"
 import { useState, useEffect } from "react";
 
 const API = process.env.REACT_APP_API_URL;
@@ -21,27 +23,41 @@ function Cart({ carts, setCarts }) {
       });
   }, [userID]);
 
+  const handleDelete = (item) => {
+    console.log("delete!", item)
+    axios.delete(`${API}/customers/${userID}/deleteItem`)
+    .then((res) => {
+      window.alert("The item has been removed")
+    })
+    .catch((err) =>{
+      console.log(err);
+    });
+  };
+
+
   const activeCart = carts.map((product) => {
     return (
-      <div className="active-cart">
+      <div key={product.orderNumber} className="active-cart">
         <div id="order-details">
           <div id="restaurant-name">{product.restaurant}</div>
           <div id="order-num">Order: #{product.orderNumber}</div>
           {product.items.map((item) => {
             return (
-              <div id="single-meal">
+              <div key={item.id} id="single-meal">
+                <button><CancelIcon/></button>
                 <div id="meal-img">
                   <img
                     id="food-img"
-                    src={"https://i.imgur.com/JRd96AZ.png"}
+                    src={food_container}
                     alt="food icon"
                   />
                 </div>
                 <div id="meal-name">
                   Meal Kit: {item.name}
                   <div id="quantitiy">Quantity: {item.quantity} </div>
-                  <button>Delete</button>
+                  <button onClick={()=>handleDelete(item)}>Delete</button>
                 </div>
+                <hr />
               </div>
             );
           })}
