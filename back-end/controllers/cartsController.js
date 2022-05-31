@@ -55,7 +55,7 @@ carts.post("/addToCart", validationAddToCart,  async (req, res) => {
     
 })
 
-carts.delete("/deleteItem", async (req, res) => {
+carts.delete("/:id", async (req, res) => {
     // const { product_id } = req.params;
     console.log("req",req.params)
     try {
