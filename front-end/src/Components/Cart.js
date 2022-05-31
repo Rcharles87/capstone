@@ -1,5 +1,7 @@
 import "../Styles/cart.css";
 import axios from "axios";
+import CancelIcon from '@mui/icons-material/Cancel';
+import food_container from "../assets/food_container.png"
 import { useState, useEffect } from "react";
 
 const API = process.env.REACT_APP_API_URL;
@@ -35,17 +37,18 @@ function Cart({ carts, setCarts }) {
 
   const activeCart = carts.map((product) => {
     return (
-      <div className="active-cart">
+      <div key={product.orderNumber} className="active-cart">
         <div id="order-details">
           <div id="restaurant-name">{product.restaurant}</div>
           <div id="order-num">Order: #{product.orderNumber}</div>
           {product.items.map((item) => {
             return (
-              <div id="single-meal">
+              <div key={item.id} id="single-meal">
+                <button><CancelIcon/></button>
                 <div id="meal-img">
                   <img
                     id="food-img"
-                    src={"https://i.imgur.com/JRd96AZ.png"}
+                    src={food_container}
                     alt="food icon"
                   />
                 </div>
@@ -54,6 +57,7 @@ function Cart({ carts, setCarts }) {
                   <div id="quantitiy">Quantity: {item.quantity} </div>
                   <button onClick={()=>handleDelete(item)}>Delete</button>
                 </div>
+                <hr />
               </div>
             );
           })}
