@@ -54,7 +54,6 @@ carts.post("/addToCart", validationAddToCart,  async (req, res) => {
     //validation: contd if they is any instock //if the person adds more than what is currently in stock
     //update the cart to include what act of adding the prod into the cart, association of product to the cart
     
-    //if it is in stock then you should add it to the cart and update
 })
 
 carts.delete("/deleteItem", async (req, res) => {

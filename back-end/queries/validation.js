@@ -19,8 +19,6 @@ const validateActiveCart = async (customer_id) => {
 }
 
 const validateMultipleRestaurants = async (body, activeCart) => {
-    // console.log("inside the second validation function", body, activeCart)
-    console.log("active",activeCart[0].id)
     try{
         const activeCart_id = activeCart[0].id
         const activeOrderDetailsArr = await db.any("SELECT * FROM order_details WHERE carts_id=$1", activeCart_id)   
@@ -38,12 +36,11 @@ const validateMultipleRestaurants = async (body, activeCart) => {
         //     { carts_id: 2, products_id: 2, quantity: 1 }
         //   ]
         const productsArr = [];
-        // console.log("AYOO ",activeOrderDetailsArr)
         for(let productDetail of activeOrderDetailsArr){
             const productInfo = await db.one("SELECT * FROM products WHERE id=$1", productDetail.products_id);
-            productsArr.push(productInfo)
+            productsArr.push(productInfo.restaurant_id)
         }
-        // console.log("CONSOLE",productsArr)
+
         // [
         //     {
         //       id: 3,
@@ -74,12 +71,24 @@ const validateMultipleRestaurants = async (body, activeCart) => {
         //     },
         //   ]
 
+        //if the order Details already contains 
+        if(productsArr.includes(body.restaurantID)){
+            return true;
+        }else{
+            return false;
+        }
     }catch(err){
+        console.log("multiple cart query failed", err)
         return err;
     }
 }
 
+const validateInStock = async () => {
+
+}
+
 module.exports ={
     validateActiveCart,
-    validateMultipleRestaurants
+    validateMultipleRestaurants,
+    validateInStock
 }
