@@ -1,13 +1,7 @@
 const express = require("express");
 const carts = express.Router();
-<<<<<<< HEAD
-const { getCurrentCart, getPreviousCarts, updateCurrentCart } = require("../queries/carts");
-const validationAddToCart = require("../validations/cartValidation");
-
-=======
 const { getCurrentCart, getPreviousCarts, updateCurrentCart, deleteProductFromCart } = require("../queries/carts");
 const validationAddToCart = require("../validations/cartValidation")
->>>>>>> 63633044dbb2ee12ed96dbbe1ee893d83d40372d
 
 carts.get("/:customer_id/active", async (req, res) =>{
     const { customer_id } = req.params;
