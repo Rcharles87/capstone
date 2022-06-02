@@ -73,28 +73,25 @@ function Cart({ carts, setCarts }) {
     })
   }
 
-
   const activeCart = carts?.map((product) => {
     return (
       <div key={product.orderNumber} className="active-cart">
         <div id="order-details">
-          <div id="restaurant-name">{product.restaurant}</div>
           <div id="order-num">Order: #{product.orderNumber}</div>
+          
           {product.items.map((item) => {
+            console.log(item);
             return (
-              <div key={item.id} id="single-meal">
+              <div key={item.id} className="meal-container">
                 <button><CancelIcon/></button>
-                <div id="meal-img">
-                  <img
-                    id="food-img"
-                    src={food_container}
-                    alt="food icon"
-                  />
-                </div>
-                <div id="meal-name">
-                  Meal Kit: {item.name}
-                  <div id="quantitiy">Quantity: {item.quantity} </div>
-                  <button onClick={()=>handleDelete(item)}>Delete</button>
+                  <img id="food-img" src={food_container} alt="food icon"/>
+                <div className="restaurant-name"><b>{product.restaurant}</b></div>
+                <div className="meal-details">
+                  <p><b>Dietary Restriction: </b>{item.name}</p>
+                  <div id="quantity">
+                    <b>Quantity:</b> <input type="number" id="quantity" name="quantity" min="1" max={item.quantity}/>
+                  </div>
+                  <button id="delete-item-btn" onClick={()=>handleDelete(item)}>Delete</button>
                 </div>
                 <hr />
               </div>
@@ -132,11 +129,12 @@ function Cart({ carts, setCarts }) {
               </div>
           </div> */}
           
-          <Link to="/"> Start your order </Link>
+          <Link to="/restaurants"> Start your order </Link>
           </div>
           ): (
-           <div>{activeCart}
-           <button onClick={handleCheckout}>Checkout Current Order</button> </div>
+           <div className="active-cart-check">{activeCart}
+           <button className="checkout-btn" onClick={handleCheckout}>Checkout</button> 
+           </div>
         )}
         
         
