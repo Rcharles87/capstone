@@ -10,9 +10,9 @@ function FbDietary() {
     "Gluten-Free"
   ];
 
-  const dietOptionsMap = dietOptions.map((option) => {
+  const dietOptionsMap = dietOptions.map((option, index) => {
     return (
-      <div className='button-container'>
+      <div key={index} className='button-container'>
         <button>{option}</button>
       </div>
     )

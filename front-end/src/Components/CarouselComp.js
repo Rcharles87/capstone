@@ -30,9 +30,9 @@ function CarouselComp() {
         }
     ];
 
-    const carouselOptionsArray = carouselOptions.map((option) => {
+    const carouselOptionsArray = carouselOptions.map((option, index) => {
         return (
-            <div className='ad-container'>
+            <div key={index} className='ad-container'>
                 <div className='adText-container'>
                     <h2>
                         {option.headline}

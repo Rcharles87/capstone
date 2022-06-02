@@ -16,6 +16,7 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 2px;
     padding: 2px;
+    text-align: center;
 }
 
 .restaurant-data:hover{
@@ -40,5 +41,5 @@
 } 
 
 .restaurant-image{
-    max-height: 20vw;
+    max-height: 15vw;
 }

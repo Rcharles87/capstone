@@ -7,11 +7,11 @@ const validationAddToCart = require("../validations/cartValidation")
 
 carts.get("/:customer_id/active", async (req, res) =>{
     const { customer_id } = req.params;
-    console.log("this route is being accessed",customer_id)
+    // console.log("this route is being accessed",customer_id)
     // console.log("get Current cart")
     try{
         const productsInOrder = await getCurrentCart(customer_id);
-        console.log("line 14 products in order",productsInOrder)
+        // console.log("line 14 products in order",productsInOrder)
         // [ { orderNumber: 21, items: [], restaurant: undefined } ]
         if(productsInOrder){
             res.status(200).json(productsInOrder)
@@ -19,7 +19,7 @@ carts.get("/:customer_id/active", async (req, res) =>{
             res.status(410).json({error: "Please add items to cart"})
         }
     }catch(err){
-        return err
+        console.log(err)
     }
 });
 
@@ -33,20 +33,20 @@ carts.get("/:customer_id/inactive", async (req, res) => {
     };
 });
 
-carts.put("/:customer_id/active", async (req,res) =>{
-    const { customer_id } = req.params;
-    const { body } = req;
-    try{
-        const updatedCart = await updateCurrentCart(body);
-        if(updatedCart.name){
-            res.status(200).json(updatedCart);
-        } else {
-            res.status(500).json({error: "Controller can not update cart"});
-        };
-    }catch(err){
-        return err;
-    };
-});
+// carts.put("/:customer_id/active", async (req,res) =>{
+//     const { customer_id } = req.params;
+//     const { body } = req;
+//     try{
+//         const updatedCart = await updateCurrentCart(body);
+//         if(updatedCart.name){
+//             res.status(200).json(updatedCart);
+//         } else {
+//             res.status(500).json({error: "Controller can not update cart"});
+//         };
+//     }catch(err){
+//         return err;
+//     };
+// });
 
 carts.post("/addToCart", async (req, res) => {
     const { body } = req;// send it in the body //we need body.productID, body.userID, 
@@ -54,7 +54,7 @@ carts.post("/addToCart", async (req, res) => {
         const updatedCart = await updateCurrentCart(body);
         res.status(200).json({status: "success", payload: updatedCart})
     }catch(err){
-        return err;
+        console.log(err);
     }
     //does user have a cart? use body.restaurantID, body.cartID,  (ID of an active cart)
         //if they do use it. 
