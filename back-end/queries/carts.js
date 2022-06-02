@@ -32,37 +32,51 @@ const getCurrentCart = async (customer_id) => {
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       customer_id
     );
+    console.log("func is getting cart",currentCart)// it is getting cart
 
-    const currentCartDetailArr = [];
+    if(currentCart.length < 1 ){ //if no active carts create one and return that
+      let newCart = createNewCart(customer_id); //
+      return newCart;
+    }
+    const currentCartDetailArr = []; //? 
+
+
+    // [ { id: 21, is_active: true, customer_id: 2 } ]
 
     for(let cart of currentCart){
+  
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
-
+      console.log("trigger getting curr cart",cartDetail);
       const productsArr = [];
-      
-      for(let detail of cartDetail){
-        let product = await db.one("SELECT * FROM products WHERE id=$1", detail.products_id);
-        productsArr.push({...product, quantity:detail.quantity});
-      };
-
-      const restaurantsArr =[];
-
-      for(let product of productsArr){
-        let restaurantName = await db.one("SELECT name FROM restaurants WHERE id=$1", product.restaurant_id);
-        restaurantsArr.push(restaurantName);
-      };
-
-      currentCartDetailArr.push({
-        orderNumber: cart.id,
-        items: productsArr.map((item)=>({
-          name: item.name,
-          id: item.id,
-          quantity: item.quantity
-        })),
-        restaurant: restaurantsArr[0].name
-      });
+      console.log(cartDetail);
+      if(cartDetail.length >= 1){
+        for(let detail of cartDetail){
+          let product = await db.one("SELECT * FROM products WHERE id=$1", detail.products_id);
+          productsArr.push({...product, quantity:detail.quantity});
+        };
+  
+        const restaurantsArr =[];
+  
+        for(let product of productsArr){
+          let restaurantName = await db.one("SELECT name FROM restaurants WHERE id=$1", product.restaurant_id);
+          restaurantsArr.push(restaurantName);
+        };
+  
+        currentCartDetailArr.push({
+          orderNumber: cart.id,
+          items: productsArr.map((item)=>({
+            name: item.name,
+            id: item.id,
+            quantity: item.quantity
+          })),
+          restaurant: restaurantsArr[0]?.name
+        });
+      }else{
+        console.log("Hey no items for u")
+        return {Error: "Please add items to cart"}
+      }
     };
-    
+    // console.log(currentCartDetailArr)
     return currentCartDetailArr;
   } catch (err) {
     return err;
@@ -102,7 +116,7 @@ const getPreviousCarts = async (customer_id) => {
         );
         restaurantsArr.push(restaurantname);
       }
-
+      // console.log("trigger",productsArr)
       allCartsDetailsArr.push({
         orderNum: previousCart.id,
         items: productsArr.map((item)=> ({
@@ -114,10 +128,7 @@ const getPreviousCarts = async (customer_id) => {
       });
 
     }
-    console.log(allCartsDetailsArr)
-
-   
-
+    // console.log(allCartsDetailsArr)
     // const previousCarts = await db.any(
     //   "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
     //   customer_id
@@ -131,18 +142,21 @@ const getPreviousCarts = async (customer_id) => {
 const updateCurrentCart = async (body) => {
   try {
     //use customerID get customers active cart and save in a variable called "cart"
-    const updatedCart = await db.one(
+    const updatedCart = await db.any(
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       body.userID
-    ); //variable is currentActiveCart
-    console.log(updatedCart)
+    ); 
+    // console.log("Carts.js line 142",updatedCart)
+    // console.log("Ad")
+    //variable is currentActiveCart
+    // console.log(updatedCart)
     // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr
     const updatedOrderDetails = await db.one(
       "INSERT INTO order_details (carts_id, products_id, quantity) VALUES ($1, $2, $3) RETURNING *",
       [updatedCart.id, body.productID, 1]
     );
     
-    console.log("TRIGGGER",updatedOrderDetails)
+    // console.log("TRIGGGER",updatedOrderDetails)
     return updatedOrderDetails;
     // let updatedProduct = await db.one(
     //   "SELECT name FROM products WHERE id=$1",
@@ -157,6 +171,17 @@ const updateCurrentCart = async (body) => {
   }
 };
 
+
+const createNewCart = async (customer_id) => {
+  try{
+    const newCart = await db.one("INSERT INTO carts (customer_id, is_active) VALUES ($1, TRUE) RETURNING *",customer_id);
+    return newCart;
+  }catch(err){
+    return err;
+  }
+}
+
+
 const deleteProductFromCart = async (customer_id,products_id) => {
   try{
     const getActiveCart = await db.one(
@@ -170,4 +195,22 @@ const deleteProductFromCart = async (customer_id,products_id) => {
   }
 };
 
-module.exports = { getCurrentCart, getPreviousCarts, updateCurrentCart, deleteProductFromCart };
+const submitCheckedOutCart = async (customer_id) => {
+  try{
+    const activeCart = await db.one(
+      "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
+      customer_id
+    );
+    const setInactiveCart = await db.one("UPDATE carts SET is_active=FALSE WHERE id=$1 RETURNING *", activeCart.id);
+    if(setInactiveCart.is_active === false){
+      const newCart = createNewCart(customer_id);
+      return newCart;
+    }else{
+      return {Error: "Cart is still active, query did not change active status"}
+    }
+  }catch(err){
+    return err;
+  }
+}
+
+module.exports = { getCurrentCart, getPreviousCarts, createNewCart, updateCurrentCart, deleteProductFromCart, submitCheckedOutCart };
