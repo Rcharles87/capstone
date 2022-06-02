@@ -15,7 +15,7 @@ function Cart({ carts, setCarts }) {
     axios
       .get(`${API}/carts/${userID}/active`)
       .then((res) => {
-        // console.log(res.data)
+        console.log(res.data)
         setCarts(res.data);
       })
       .catch((err) => {
@@ -36,12 +36,14 @@ function Cart({ carts, setCarts }) {
 
 
   const activeCart = carts.map((product) => {
+    console.log(product);
     return (
       <div key={product.orderNumber} className="active-cart">
         <div id="order-details">
           <div id="restaurant-name">{product.restaurant}</div>
           <div id="order-num">Order: #{product.orderNumber}</div>
           {product.items.map((item) => {
+            console.log(item);
             return (
               <div key={item.id} id="single-meal">
                 <button><CancelIcon/></button>

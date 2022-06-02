@@ -39,7 +39,7 @@ const getCurrentCart = async (customer_id) => {
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
 
       const productsArr = [];
-
+      
       for(let detail of cartDetail){
         let product = await db.one("SELECT * FROM products WHERE id=$1", detail.products_id);
         productsArr.push({...product, quantity:detail.quantity});
@@ -62,7 +62,7 @@ const getCurrentCart = async (customer_id) => {
         restaurant: restaurantsArr[0].name
       });
     };
-
+    
     return currentCartDetailArr;
   } catch (err) {
     return err;
