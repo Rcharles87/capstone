@@ -11,13 +11,12 @@ function Restaurant( {singleRestaurant} ) {
   return (
     <div className='restaurant-container'>
             <Link className='restLink' to={`/restaurant/${singleRestaurant.id}`}>
-
         <div className='restaurant-data'>
           <img className="restaurant-image"  src={restaurantsImage} alt='restaurant stock'/>
             <div className='restaurant-name'>
-                <h3>
-                  {singleRestaurant.name}
-                 </h3>
+              <div>
+                  <h3>{singleRestaurant.name}</h3>
+              </div>
             </div>
             <div className='restaurant-type'>
                 <div>
