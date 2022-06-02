@@ -14,6 +14,8 @@ function Home({ loginText }) {
     SetIsChecked(!isChecked);
   };
 
+  console.log(loginText)
+  
   return (
     <div>
       {loginText === false ? (

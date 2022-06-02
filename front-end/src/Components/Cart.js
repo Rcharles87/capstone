@@ -39,9 +39,9 @@ function Cart({ carts, setCarts }) {
     axios
       .get(`${API}/carts/${userID}/active`)
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.Error){
-          console.log("add things to thecart ");
+          // console.log("add things to thecart ");
         }else{
           setCarts(res.data);
         }
@@ -51,8 +51,9 @@ function Cart({ carts, setCarts }) {
       });
   }, [userID]);
 
+
   const handleDelete = (item) => {
-    console.log("delete!", item)
+    // console.log("delete!", item)
     axios.delete(`${API}/customers/${userID}/deleteItem`)
     .then((res) => {
       window.alert("The item has been removed")
@@ -63,10 +64,10 @@ function Cart({ carts, setCarts }) {
   };
   // console.log({userID})
   const handleCheckout = () => {
-    console.log("checkout ")
+    // console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      console.log("submit sucessful")
+      // console.log("submit sucessful")
     })
     .catch((err) => {
       console.log(err)
