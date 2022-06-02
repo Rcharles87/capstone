@@ -8,11 +8,7 @@ const validationAddToCart = async (req, res, next) => {
         const activeCart = await validateActiveCart(body.userID) //ask if the user has an active cart or not?
         const isSameRestaurant = await validateMultipleRestaurants(body, activeCart) //check if the user is adding something from a different restaurant
        
-        if(isSameRestaurant){
-            const isInStock = await validateInStock(); //check if there is any left instock ... 
-       }else if (!isSameRestaurant){
-           res.status(300).json({error: "Customer Must order from the same restaurant"})
-       }
+       
     }catch(err){
         return err;
     }
@@ -20,3 +16,4 @@ const validationAddToCart = async (req, res, next) => {
 }
 
 module.exports = validationAddToCart;
+
