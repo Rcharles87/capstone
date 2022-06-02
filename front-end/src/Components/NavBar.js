@@ -20,7 +20,7 @@ function NavBar({ setLoginText }) {
     
       <Link to="/carts/inactive">Profile</Link>
 
-          <Link to="/carts">Cart</Link>
+      <Link to="/carts">Cart</Link>
    
     </div>
   ) : (

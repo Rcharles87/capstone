@@ -7,33 +7,12 @@ import { Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Cart({ carts, setCarts }) {
-  // const [carts, setCarts] = useState([]);
+function Cart({ carts, setCarts, setCheckedOut}) {
+  
   // console.log(carts)
   const userID = localStorage.getItem("userID");
   // const activeCart_id = carts[0].orderNumber;
 
-
-  // [
-  //   {
-  //     orderNumber: 2,
-  //     items: [
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object]
-  //     ],
-  //     restaurant: 'Tamashi Ramen'
-  //   }
-  // ]
-
-  // if(res.data.Error){
-  //   console.log("error");
-  // }else{
-  //   setProductByRestaurant(res.data);
-  // }
 
   useEffect(() => {
     axios
@@ -67,11 +46,16 @@ function Cart({ carts, setCarts }) {
     // console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
+<<<<<<< HEAD
+      
+=======
       // console.log("submit sucessful")
+>>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
     })
     .catch((err) => {
       console.log(err)
     })
+    setCheckedOut(true);// add 
   }
 
   const activeCart = carts?.map((product) => {
@@ -107,6 +91,10 @@ function Cart({ carts, setCarts }) {
     <div className="cart-container">
       <div>
         {activeCart.length < 1 ? (
+<<<<<<< HEAD
+          <div>          
+          <Link to="/"> Start your order </Link>
+=======
           <div>
             {/* <div className="active-cart">
                 <div id="order-details">
@@ -131,6 +119,7 @@ function Cart({ carts, setCarts }) {
           </div> */}
           
           <Link to="/restaurants"> Start your order </Link>
+>>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
           </div>
           ): (
            <div className="active-cart-check">{activeCart}

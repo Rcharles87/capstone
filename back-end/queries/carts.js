@@ -44,8 +44,6 @@ const getCurrentCart = async (customer_id) => {
     // [ { id: 21, is_active: true, customer_id: 2 } ]
 
     for(let cart of currentCart){
-      
-  
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
       // console.log("trigger getting curr cart",cartDetail);
       const productsArr = [];
@@ -70,7 +68,7 @@ const getCurrentCart = async (customer_id) => {
             id: item.id,
             quantity: item.quantity
           })),
-          restaurant: restaurantsArr[0]?.name
+          restaurant: restaurantsArr[0].name
         });
       }else{
         // console.log("Hey no items for u")
@@ -166,7 +164,7 @@ const updateCurrentCart = async (body) => {
       [updatedCart[0].id, body.productID, 1]
     );
     
-    // console.log("TRIGGGER",updatedOrderDetails)
+    console.log("check order details", updatedOrderDetails)
     return updatedOrderDetails;
     // let updatedProduct = await db.one(
     //   "SELECT name FROM products WHERE id=$1",

@@ -14,11 +14,16 @@ function Home({ loginText }) {
     SetIsChecked(!isChecked);
   };
 
+<<<<<<< HEAD
+
+
+=======
   console.log(loginText)
   
+>>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
   return (
     <div>
-      {loginText === false ? (
+      {!localStorage.getItem("userID") ? (
         <div className="home-container">
           <Splash />
           <FloatingLinks />
