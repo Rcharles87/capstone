@@ -50,7 +50,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     .catch((err) => {
       console.log(err)
     })
-    setCheckedOut(true);
+    setCheckedOut(true);// add 
   }
 
 

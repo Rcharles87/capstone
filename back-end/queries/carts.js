@@ -44,7 +44,6 @@ const getCurrentCart = async (customer_id) => {
     // [ { id: 21, is_active: true, customer_id: 2 } ]
 
     for(let cart of currentCart){
-  
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
       console.log("trigger getting curr cart",cartDetail);
       const productsArr = [];
