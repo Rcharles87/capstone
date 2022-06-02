@@ -1,7 +1,7 @@
 const express = require("express");
 const products = express.Router({mergeParams:true});
 
-const {getAllProducts, getRestaurantProducts, deleteProduct} = require("../queries/products.js");
+const {getAllProducts} = require("../queries/products.js");
 
 products.get("/", async(req,res)=>{
     try {
