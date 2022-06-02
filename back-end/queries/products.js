@@ -18,5 +18,12 @@ const getRestaurantProducts = async (restaurant_id) => {
     };
 };
 
+const deleteProduct = async (id) => {
+    try{
+        
+    }catch(err){
+        return err;
+    }
+}
 
 module.exports = { getAllProducts, getRestaurantProducts}

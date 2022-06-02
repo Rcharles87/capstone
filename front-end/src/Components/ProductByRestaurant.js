@@ -15,7 +15,7 @@ function ProductByRestaurant({id}){
 useEffect(() => {
   axios.get(`${API}/restaurants/${id}/products`)
   .then((res) => {
-    console.log("trigger",res.data)
+    console.log("trigger",res.data);
     setProductByRestaurant(res.data);
 },
 (error) => console.log("get", error)
@@ -32,6 +32,10 @@ useEffect(() => {
       restaurantID: product.restaurant_id
     };
 
+
+    // console.log("API trigger");
+    // console.log("Res info", resInfo)
+
     axios.post(`${API}/carts/addToCart`, resInfo)
       .then(
         () => {
@@ -40,6 +44,8 @@ useEffect(() => {
         (err) => console.error(err)
       ).catch((err) => console.warn("catch err", err))
   }
+
+
 
     return(
       <div className="products-container">

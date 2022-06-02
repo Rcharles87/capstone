@@ -11,6 +11,7 @@ customers.get("/", async (req, res) => {
     }
 })
 
+
 customers.get("/:id", async (req,res) =>{
     const {id} = req.params
     try {
