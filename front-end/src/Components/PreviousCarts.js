@@ -19,7 +19,7 @@ function PreviousCarts() {
         console.log(err);
       });
   }, [userID]);
-  console.log("trigger",oldCarts)
+  // console.log("trigger",oldCarts)
 
   let previousOrders = oldCarts.map((cart) => {
     return (

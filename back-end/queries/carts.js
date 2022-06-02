@@ -32,21 +32,22 @@ const getCurrentCart = async (customer_id) => {
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       customer_id
     );
-    console.log("func is getting cart",currentCart)// it is getting cart
+    // console.log("func is getting cart",currentCart)// it is getting cart
 
-    if(currentCart.length < 1 ){ //if no active carts create one and return that
-      let newCart = createNewCart(customer_id); //
-      return newCart;
-    }
+    // if(currentCart.length < 1 ){ //if no active carts create one and return that
+    //   let newCart = createNewCart(customer_id); //
+    //   return newCart;
+    // }
     const currentCartDetailArr = []; //? 
 
 
     // [ { id: 21, is_active: true, customer_id: 2 } ]
 
     for(let cart of currentCart){
+      
   
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
-      console.log("trigger getting curr cart",cartDetail);
+      // console.log("trigger getting curr cart",cartDetail);
       const productsArr = [];
       console.log(cartDetail);
       if(cartDetail.length >= 1){
@@ -72,7 +73,7 @@ const getCurrentCart = async (customer_id) => {
           restaurant: restaurantsArr[0]?.name
         });
       }else{
-        console.log("Hey no items for u")
+        // console.log("Hey no items for u")
         return {Error: "Please add items to cart"}
       }
     };
@@ -140,12 +141,21 @@ const getPreviousCarts = async (customer_id) => {
 };
 
 const updateCurrentCart = async (body) => {
+
   try {
     //use customerID get customers active cart and save in a variable called "cart"
-    const updatedCart = await db.any(
+    let updatedCart = await db.any(
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       body.userID
     ); 
+
+
+
+    if(updatedCart.length < 1){
+      updatedCart = [ await createNewCart(body.userID)]
+    }
+    console.log(updatedCart)
+
     // console.log("Carts.js line 142",updatedCart)
     // console.log("Ad")
     //variable is currentActiveCart
@@ -153,7 +163,7 @@ const updateCurrentCart = async (body) => {
     // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr
     const updatedOrderDetails = await db.one(
       "INSERT INTO order_details (carts_id, products_id, quantity) VALUES ($1, $2, $3) RETURNING *",
-      [updatedCart.id, body.productID, 1]
+      [updatedCart[0].id, body.productID, 1]
     );
     
     // console.log("TRIGGGER",updatedOrderDetails)
@@ -167,7 +177,7 @@ const updateCurrentCart = async (body) => {
     //   name: updatedProduct.name,
     // };
   } catch (err) {
-    return err;
+    console.log(err);
   }
 };
 

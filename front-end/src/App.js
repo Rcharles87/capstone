@@ -1,5 +1,5 @@
 import { Routes , Route } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './App.css';
 
 //import of stand alone components 
@@ -25,6 +25,15 @@ function App() {
 
   const [loginText, setLoginText] = useState(false);
   const [carts, setCarts] = useState([]);
+
+  useEffect( ()=> {
+    let userId = localStorage.getItem("userID")
+    if(userId){
+      setLoginText(true)
+    }else{
+      setLoginText(false)
+    }
+  },[])
 
   return (
     <div className="main">

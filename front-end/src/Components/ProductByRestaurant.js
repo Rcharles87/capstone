@@ -9,13 +9,13 @@ const API = process.env.REACT_APP_API_URL;
 function ProductByRestaurant({id}){
   
   const [productByRestaurant, setProductByRestaurant ] = useState([]);
-  console.log(productByRestaurant)
+  // console.log(productByRestaurant)
   const userId = localStorage.getItem("userID")
 
 useEffect(() => {
   axios.get(`${API}/restaurants/${id}/products`)
   .then((res) => {
-    console.log("trigger",res.data);
+    // console.log("trigger",res.data);
     setProductByRestaurant(res.data);
 },
 (error) => console.log("get", error)
@@ -23,7 +23,7 @@ useEffect(() => {
   .catch((c) => console.warn("catch", c))
 }, [id])
 
-  console.log(productByRestaurant);
+  // console.log(productByRestaurant);
   
   const handleAddToCart = (product) => {
     const resInfo = {
@@ -39,7 +39,7 @@ useEffect(() => {
     axios.post(`${API}/carts/addToCart`, resInfo)
       .then(
         () => {
-          console.log('api')
+          // console.log('api')
         },
         (err) => console.error(err)
       ).catch((err) => console.warn("catch err", err))
@@ -49,8 +49,8 @@ useEffect(() => {
 
     return(
       <div className="products-container">
-          {productByRestaurant.map((product, id) => (
-            <div className="individual-product">
+          {productByRestaurant.map((product, index) => (
+            <div key = {index} className="individual-product">
               <img id="product-image" src="https://i.imgur.com/JRd96AZ.png" alt="mealkit-sprites"></img>
                 <div className="product-details">
                   <h1>{product.name}</h1>

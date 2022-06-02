@@ -8,9 +8,9 @@ function FbSort() {
         "Top Rated"
     ];
 
-    const sortOptionsMap = sortOptions.map((option) => {
+    const sortOptionsMap = sortOptions.map((option, index) => {
         return (
-            <div className='radio-container'>
+            <div key={index} className='radio-container'>
                 <input
                     type="radio"
                     value={option}
