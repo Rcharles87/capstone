@@ -2,8 +2,8 @@
     color: white;
     background-color: rgb(110, 217, 227);
     border-radius: 15px;
-    margin: 50px;
-    padding: 10px;
+    /* margin: 50px;
+    padding: 10px; */
     /* max-width: 300px; */
 }
 
@@ -38,3 +38,7 @@
 .restaurant-type{
     margin: 10px;
 } 
+
+.restaurant-image{
+    max-height: 20vw;
+}
