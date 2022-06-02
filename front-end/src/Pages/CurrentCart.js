@@ -1,10 +1,10 @@
 import React from 'react'
 import Cart from '../Components/Cart'
 
-function CurrentCart({carts, setCarts}) {
+function CurrentCart({carts, setCarts, setCheckedOut}) {
   return (
     <div className='c.container'>
-        <Cart carts={carts} setCarts={setCarts}/>
+        <Cart carts={carts} setCarts={setCarts} setCheckedOut={setCheckedOut}/>
     </div>
   )
 }

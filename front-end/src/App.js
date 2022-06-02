@@ -25,6 +25,7 @@ function App() {
 
   const [loginText, setLoginText] = useState(false);
   const [carts, setCarts] = useState([]);
+  const [checkedOut, setCheckedOut] = useState(false);
 
   return (
     <div className="main">
@@ -32,7 +33,7 @@ function App() {
       <Routes>
         <Route path="*" element={<FourOFour />} />
         <Route path="/" element={<Home loginText={loginText}/>}/>
-        <Route path="/carts" element={<CurrentCart setCarts={setCarts} carts={carts}/>} />
+        <Route path="/carts" element={<CurrentCart setCarts={setCarts} carts={carts}/>} setCheckedOut={setCheckedOut}/>
         <Route path='/login' element={<Login setLoginText={setLoginText} setCarts={setCarts} carts={carts}/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/carts/inactive' element={<UserView/>} />

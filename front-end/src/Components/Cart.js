@@ -7,33 +7,12 @@ import { Link } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Cart({ carts, setCarts }) {
-  // const [carts, setCarts] = useState([]);
+function Cart({ carts, setCarts, setCheckedOut}) {
+  
   // console.log(carts)
   const userID = localStorage.getItem("userID");
   // const activeCart_id = carts[0].orderNumber;
 
-
-  // [
-  //   {
-  //     orderNumber: 2,
-  //     items: [
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object]
-  //     ],
-  //     restaurant: 'Tamashi Ramen'
-  //   }
-  // ]
-
-  // if(res.data.Error){
-  //   console.log("error");
-  // }else{
-  //   setProductByRestaurant(res.data);
-  // }
 
   useEffect(() => {
     axios
@@ -66,11 +45,12 @@ function Cart({ carts, setCarts }) {
     console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      console.log("submit sucessful")
+      
     })
     .catch((err) => {
       console.log(err)
     })
+    setCheckedOut(true);
   }
 
 
@@ -109,29 +89,7 @@ function Cart({ carts, setCarts }) {
     <div className="cart-container">
       <div>
         {activeCart.length < 1 ? (
-          <div>
-            {/* <div className="active-cart">
-                <div id="order-details">
-                  <div id="restaurant-name"></div>
-                  <div id="order-num">Order: #</div>
-                      <div id="single-meal">
-                        <button><CancelIcon/></button>
-                        <div id="meal-img">
-                          <img
-                            id="food-img"
-                            src=""
-                            alt="food icon"
-                          />
-                        </div>
-                        <div id="meal-name">
-                          Meal Kit: 
-                          <div id="quantitiy">Quantity:  </div>
-                        </div>
-                        <hr />
-                      </div>
-              </div>
-          </div> */}
-          
+          <div>          
           <Link to="/"> Start your order </Link>
           </div>
           ): (
