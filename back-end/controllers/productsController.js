@@ -1,7 +1,7 @@
 const express = require("express");
 const products = express.Router({mergeParams:true});
 
-const {getAllProducts, getRestaurantProducts} = require("../queries/products.js");
+const {getAllProducts, getRestaurantProducts, deleteProduct} = require("../queries/products.js");
 
 products.get("/", async(req,res)=>{
     try {
@@ -11,5 +11,15 @@ products.get("/", async(req,res)=>{
         return error;
     };
 });
+
+products.delete("/:id", async (req, res) => {
+    const {id} = req.params;
+    try{
+        const deletedProduct = await deleteProduct(id);
+        res.status(200).json({payload: "success", itemDeleted: deletedItem})
+    }catch(err){
+        return err;
+    }
+})
 
 module.exports = products;

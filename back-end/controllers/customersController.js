@@ -11,6 +11,7 @@ customers.get("/", async (req, res) => {
     }
 })
 
+
 customers.get("/:id", async (req,res) =>{
     const {id} = req.params
     try {
@@ -51,6 +52,18 @@ customers.put("/:id", async (req, res) => {
         return err;
     }
 
+})
+
+customers.delete("/:id/deleteItem", async (req,res) => {
+    const { id } = req.params;
+    console.log(id)
+    try {
+        //Find the active cart of a customer
+        //Find order details for the active cart
+        //Delete from order details where order details.products_id = the products_id (frontend)
+    } catch (error) {
+        
+    }
 })
 
 module.exports = customers;

@@ -1,44 +1,91 @@
+body{
+  border: 1px solid black;
+  margin:0;
+  padding: 0;
+}
+
 .products-container{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+  margin: 110px;
+  gap: 150px;
+  /* border: 2px solid black; */
+}
+
+.individual-product{ 
+  margin: 200px;
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin:0;
+  padding: 0;
 }
 
-.individual-product{
-  margin: 100px;
+.product-details{
   text-align: left;
-  display: flex;
-  border: 2px solid black;
 }
 
-.dietary-restrictions{
-  display: flex;
-  height: 300px;
-}
 
 #product-image{
-  height: 350px;
+  height: 250px;
 }
 
 #add-to-cart-btn{
-  background-color: #abcbac; /* Green */
+  background-color: rgb(91, 201, 203); /* Green */
   border: none;
   color: rgb(255, 255, 255);
   padding: 15px 32px;
   text-align: center;
-  height: 50px;
-  margin: 80px;
+  /* height: 40px; */
   font-size: 16px;
   border-radius: 8px;
   transition-duration: 0.2s;
+  line-height: 100%;
 }
 
 #add-to-cart-btn:hover {
   color: white;
   background-color: #4CAF50; /* Green */
-  /* box-shadow: 0 6px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
 }
 
+/* .dietary-restrictions{
+  align-items: center;
+  display: flex;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+} */
+
 #dietary-sprite{
-  height: 25%;
+  padding: 0;
+  margin:0;
+  height: 30px;
+}
+
+.restaurant-details{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  /* color: rgb(250, 250, 250); */
+  text-align: left;
+  /* margin-top: 100px; */
+  padding: 20px;
+  /* border: 2px solid black; */
+  background: rgb(117, 208, 216) url("https://st4.depositphotos.com/4177785/27354/v/1600/depositphotos_273546568-stock-illustration-food-vector-seamless-pattern-cuisine.jpg") no-repeat fixed center; 
+}
+
+#back-btn{
+  background-color: rgb(91, 201, 203); /* Green */
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 5px 16px;
+  text-align: center;
+  /* height: 40px; */
+  font-size: 16px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  line-height: 100%;
 }

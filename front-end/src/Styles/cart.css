@@ -1,7 +1,7 @@
 .active-cart{
     /* display: grid; */
-    border: solid blue 2px;
-    /* width: 50vw; */
+    /* border: solid blue 2px; */
+    margin-top: 5vh;
 }
 
 #restaurant-name{
@@ -11,7 +11,7 @@
     text-decoration: underline;
 }
 
-#food-img{
+#food-img {
     width: 150px;
 }
 
@@ -27,6 +27,21 @@ flex: 1;
     display: flex;
     width: 100%;
     align-items: center;
+    margin-right: 10vw;
+}
+
+#single-meal:nth-child(even){
+    background-color: rgb(219, 215, 215);
+}
+
+#single-meal button {
+    background: none;
+    border: none;
+    padding: none;
+}
+
+#single-meal img{
+    width: 200px;
 }
 
 #order-num{
@@ -38,6 +53,17 @@ flex: 1;
 .cart-container{
     display: flex;
     flex-direction: row;
-    border: solid red 1px;
+    /* border: solid red 1px; */
     justify-content: center;
+}
+
+.cart-container button{
+    color: red;
+    background-color: ghostwhite;
+    border-radius: 15px;
+    font-weight: bolder;
+}
+
+.css-i4bv87-MuiSvgIcon-root{
+    color: red;
 }
