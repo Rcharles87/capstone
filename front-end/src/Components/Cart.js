@@ -3,12 +3,12 @@ import axios from "axios";
 import CancelIcon from '@mui/icons-material/Cancel';
 import food_container from "../assets/food_container.png"
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
 function Cart({ carts, setCarts, setCheckedOut}) {
-  
+  let navigate = useNavigate();
   // console.log(carts)
   const userID = localStorage.getItem("userID");
   // const activeCart_id = carts[0].orderNumber;
@@ -46,16 +46,13 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     // console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-<<<<<<< HEAD
-      
-=======
-      // console.log("submit sucessful")
->>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
+      navigate("/")
     })
     .catch((err) => {
       console.log(err)
     })
     setCheckedOut(true);// add 
+    
   }
 
   const activeCart = carts?.map((product) => {
@@ -91,35 +88,8 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     <div className="cart-container">
       <div>
         {activeCart.length < 1 ? (
-<<<<<<< HEAD
-          <div>          
+          <div className="active-empty-cart">          
           <Link to="/"> Start your order </Link>
-=======
-          <div>
-            {/* <div className="active-cart">
-                <div id="order-details">
-                  <div id="restaurant-name"></div>
-                  <div id="order-num">Order: #</div>
-                      <div id="single-meal">
-                        <button><CancelIcon/></button>
-                        <div id="meal-img">
-                          <img
-                            id="food-img"
-                            src=""
-                            alt="food icon"
-                          />
-                        </div>
-                        <div id="meal-name">
-                          Meal Kit: 
-                          <div id="quantitiy">Quantity:  </div>
-                        </div>
-                        <hr />
-                      </div>
-              </div>
-          </div> */}
-          
-          <Link to="/restaurants"> Start your order </Link>
->>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
           </div>
           ): (
            <div className="active-cart-check">{activeCart}
