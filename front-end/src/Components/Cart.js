@@ -46,11 +46,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     // console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-<<<<<<< HEAD
       
-=======
-      // console.log("submit sucessful")
->>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
     })
     .catch((err) => {
       console.log(err)
@@ -91,35 +87,8 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     <div className="cart-container">
       <div>
         {activeCart.length < 1 ? (
-<<<<<<< HEAD
           <div>          
           <Link to="/"> Start your order </Link>
-=======
-          <div>
-            {/* <div className="active-cart">
-                <div id="order-details">
-                  <div id="restaurant-name"></div>
-                  <div id="order-num">Order: #</div>
-                      <div id="single-meal">
-                        <button><CancelIcon/></button>
-                        <div id="meal-img">
-                          <img
-                            id="food-img"
-                            src=""
-                            alt="food icon"
-                          />
-                        </div>
-                        <div id="meal-name">
-                          Meal Kit: 
-                          <div id="quantitiy">Quantity:  </div>
-                        </div>
-                        <hr />
-                      </div>
-              </div>
-          </div> */}
-          
-          <Link to="/restaurants"> Start your order </Link>
->>>>>>> 21898a591c62840b87e78318fddb570c79786d6a
           </div>
           ): (
            <div className="active-cart-check">{activeCart}
