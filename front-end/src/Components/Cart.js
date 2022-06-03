@@ -96,11 +96,10 @@ function Cart({ carts, setCarts, setCheckedOut}) {
           ): (
             <div className="active-cart-check">
              <div>
-             <CheckOut carts={carts}/>
-             </div>
-             <div>
              {activeCart}
              </div>
+             
+             <CheckOut carts={carts}/>
            {/* <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>  */}
            </div>
         )}
@@ -112,3 +111,14 @@ function Cart({ carts, setCarts, setCheckedOut}) {
 }
 
 export default Cart;
+
+
+  //     <div className="cart-container">
+  //       <div>
+  //         {activeCart}
+  //         <button>Delete Current Order</button> 
+  //       </div>
+  //       <CheckOut carts={carts}/>
+  //     </div>
+  //   );
+  // }
