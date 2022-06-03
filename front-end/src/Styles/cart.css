@@ -68,10 +68,21 @@ flex:1;
 }
 
 .cart-container button{
-    /* color: red; */
-    /* background-color: ghostwhite; */
-    border-radius: 15px;
-    font-weight: bolder;
+    background-color: rgb(91, 201, 203); /* Green */
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    /* height: 40px; */
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+    line-height: 100%;
+}
+
+.cart-container button:hover{
+    color: white;
+    background-color: #4CAF50;
 }
 
 .css-i4bv87-MuiSvgIcon-root{
