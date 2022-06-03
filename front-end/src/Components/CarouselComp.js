@@ -9,24 +9,24 @@ import Carousel from 'nuka-carousel';
 function CarouselComp() {
     const carouselOptions = [
         {
-            headline: 'Conveniantly coming to a conveniance store near you',
-            subtext: 'Conveniant Enough?🤔',
+            headline: 'Ready to go meals',
+            subtext: 'Prepped daily',
             image: convenianceFoodImage
         },
         {
-            headline: 'Inflation got you down 😩 😰 👊 ?',
-            subtext: 'Groceries coming up!🤯',
+            headline: 'Variety of dietary categories available',
+            subtext: 'Check restaurant menu',
             image: shopping_cart_image
         },
         {
-            headline: 'Coming to a state near you 😎',
-            subtext: 'Expanding Soon 🤞',
-            image: unitedStatedMap
+            headline: 'Bakery Goods 🍩 ',
+            subtext: 'From participating locations',
+            image: donutsImage
         },
         {
-            headline: 'Donut 🍩 Kill my vibe',
-            subtext: 'kill a box of donuts instead',
-            image: donutsImage
+            headline: 'Coming to a city near you',
+            subtext: 'New locations coming soon',
+            image: unitedStatedMap
         }
     ];
 
