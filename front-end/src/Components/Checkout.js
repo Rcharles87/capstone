@@ -1,7 +1,7 @@
 import React from 'react'
 import "../Styles/checkout.css"
 
-function CheckOut({carts}) {
+function CheckOut({carts, handleCheckout}) {
 
     let total = carts.map((cart)=>{
         // return (
@@ -20,7 +20,7 @@ function CheckOut({carts}) {
 
         <p>Total number of meals: </p>
         <p>Kinds of meals: </p>
-        <button>Checkout</button>
+        <button onClick={handleCheckout}>Checkout</button>
 
     </div>
   )

@@ -10,18 +10,15 @@ const API = process.env.REACT_APP_API_URL;
 
 function Cart({ carts, setCarts, setCheckedOut}) {
   let navigate = useNavigate();
-  // console.log(carts)
   const userID = localStorage.getItem("userID");
-  // const activeCart_id = carts[0].orderNumber;
 
 
   useEffect(() => {
     axios
       .get(`${API}/carts/${userID}/active`)
       .then((res) => {
-        // console.log(res.data)
         if(res.data.Error){
-          // console.log("add things to thecart ");
+
         }else{
           setCarts(res.data);
         }
@@ -33,7 +30,6 @@ function Cart({ carts, setCarts, setCheckedOut}) {
 
 
   const handleDelete = (item) => {
-    // console.log("delete!", item)
     axios.delete(`${API}/customers/${userID}/deleteItem`)
     .then((res) => {
       window.alert("The item has been removed")
@@ -42,19 +38,21 @@ function Cart({ carts, setCarts, setCheckedOut}) {
       console.log(err);
     });
   };
-  // console.log({userID})
+  
   const handleCheckout = () => {
-    // console.log("checkout ")
+
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      navigate("/")
+      setCarts(res.data)
+      navigate(`/carts/inactive`)
     })
     .catch((err) => {
       console.log(err)
     })
-    setCheckedOut(true);// add 
     
   }
+
+  console.log(carts)
 
   const activeCart = carts?.map((product) => {
     return (
@@ -63,7 +61,6 @@ function Cart({ carts, setCarts, setCheckedOut}) {
           <div id="order-num">Order: #{product.orderNumber}</div>
           
           {product.items.map((item) => {
-            console.log(item);
             return (
               <div key={item.id} className="meal-container">
                 <CancelIcon/>
@@ -99,7 +96,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
              {activeCart}
              </div>
              
-             <CheckOut carts={carts}/>
+             <CheckOut carts={carts} handleCheckout={handleCheckout}/>
            {/* <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>  */}
            </div>
         )}
@@ -111,14 +108,3 @@ function Cart({ carts, setCarts, setCheckedOut}) {
 }
 
 export default Cart;
-
-
-  //     <div className="cart-container">
-  //       <div>
-  //         {activeCart}
-  //         <button>Delete Current Order</button> 
-  //       </div>
-  //       <CheckOut carts={carts}/>
-  //     </div>
-  //   );
-  // }
