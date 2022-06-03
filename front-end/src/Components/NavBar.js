@@ -38,11 +38,11 @@ function NavBar({ setLoginText }) {
           <img src={logo} alt="logo" />
         </Link>
 
-        <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/`}>
+        {/* <Link style={{ textDecoration: 'none', color: 'white' }} component={Link} to={`/`}>
                 <h4 className="nav-btns">Our Mission</h4>
-        </Link>
+        </Link> */}
       </div>
-      {/* <div className="navbar-text">Meals 4 NYC</div> */}
+      <div className="navbar-text">Meals 4 NYC</div>
 
       <div className="cart">
         <div>
