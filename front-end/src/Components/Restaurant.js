@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styles/Restaurant.css';
 import { Link } from 'react-router-dom';
 
-import restaurantStockImage from '../assets/restaurantStockImage.jpeg';
+
 import restaurantsImage from '../assets/restaurantsImage.jpg';
 
 function Restaurant( {singleRestaurant} ) {

@@ -71,8 +71,11 @@ const getCurrentCart = async (customer_id) => {
           restaurant: restaurantsArr[0].name
         });
       }else{
-        // console.log("Hey no items for u")
-        return {Error: "Please add items to cart"}
+        currentCartDetailArr.push({
+          orderNum: cart.id,
+          items: [],
+          restaurant: ""
+        })
       }
     };
     // console.log(currentCartDetailArr)

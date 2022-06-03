@@ -19,7 +19,6 @@ function FbSort() {
             </div>
         )
     })
-
   return (
     <div>{sortOptionsMap}<hr/></div>
   )
