@@ -18,7 +18,7 @@ import Map from './Components/Map';
 import Restaurants from './Components/Restaurants';
 import RestaurantDetails from './Components/RestaurantDetails';
 import ProductByRestaurant from './Components/ProductByRestaurant';
-// import PreviousCart from './Components/PreviousCart';
+import PreviousCart from './Components/PreviousCart';
 
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
         <Route path='/carts/inactive' element={<UserView/>} />
         <Route path='/restaurant-locator' element={<Map/>} />
         <Route path='/restaurants' element={<Restaurants/>}/>
-        {/* <Route path='/carts/inactive/:id' element={<PreviousCart/>}/> */}
+        <Route path='/carts/inactive/:id' element={<PreviousCart/>}/>
         {/* <Route path='/products' element={<Products/>}/> */}
         <Route path='/products/:restaurant_id' element={<ProductByRestaurant/>} />
         <Route path='/restaurant/:id' element={<RestaurantDetails/>} />

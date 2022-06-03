@@ -18,17 +18,12 @@
     background-color: rgba(91, 201, 203, 0.312);
 
 }
-/* text-align: center;
-display: flex;
-align-self: center;
-background-color: #f5f3eb;
-border-radius: 15px;
-height: 7vh;
-margin-bottom: 15px;
-border: 1px solid rgb(213, 213, 223);
-align-content: center;
-flex-wrap: wrap;
-justify-content: space-evenly; */
+
+.pre-cart-link{
+    text-decoration: none;
+    color: black;
+}
+
 
 /* .info-name{
 
