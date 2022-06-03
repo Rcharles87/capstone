@@ -38,7 +38,7 @@ const getCurrentCart = async (customer_id) => {
     //   let newCart = createNewCart(customer_id); //
     //   return newCart;
     // }
-    const currentCartDetailArr = []; //? 
+    const currentCartDetailArr = []; //
 
 
     // [ { id: 21, is_active: true, customer_id: 2 } ]
