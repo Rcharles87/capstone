@@ -8,7 +8,8 @@ CREATE TABLE customers (
     Fname TEXT NOT NULL,
     Lname TEXT NOT NULL,
     username TEXT NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    phoneNum TEXT NOT NULL
 );
 
 
