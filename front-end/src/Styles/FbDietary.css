@@ -13,7 +13,7 @@
     justify-content: center;
     align-content: space-evenly;
     justify-items: center;
-    transition: all 0.4s ease 0s;
+    transition: all 0.8s ease 0s;
     cursor: pointer;
 
 }
@@ -29,5 +29,5 @@
 }
 
 .button-container button:hover{
-    background-color: #d1dbe1;
+    background-color: #afdbef;
 }
