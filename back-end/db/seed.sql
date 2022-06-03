@@ -1,10 +1,10 @@
 \c tasty_waste;
 
-INSERT INTO customers (Fname, Lname, username, password) VALUES
-('rae', 'charles', 'rcharles', '1234567'),
-('laiba', 'sajid', 'lsajid', '1234567'),
-('hannah', 'inkabi', 'hinkabi', '1234567'),
-('ronnie', 'garcia', 'rgarcia', '1234567');
+INSERT INTO customers (Fname, Lname, username, password, phoneNum) VALUES
+('rae', 'charles', 'rcharles', '1234567', '5105967634'),
+('laiba', 'sajid', 'lsajid', '1234567', '6033752728'),
+('hannah', 'inkabi', 'hinkabi', '1234567', '4435833951'),
+('ronnie', 'garcia', 'rgarcia', '1234567', '9105713651');
 
 INSERT INTO carts (customer_id, is_active) VALUES
 (1, true),
