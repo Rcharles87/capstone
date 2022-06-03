@@ -4,18 +4,16 @@
 }
 
 .button-container button{
-    padding: 10px;
+    background-color: rgb(91, 201, 203); /* Green */
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 3px;
+    text-align: center;
+    /* height: 40px; */
+    font-size: 16px;
     border-radius: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 150px;
-    background-color: ghostwhite;
-    justify-content: center;
-    align-content: space-evenly;
-    justify-items: center;
-    transition: all 0.8s ease 0s;
-    cursor: pointer;
-
+    transition-duration: 0.2s;
+    line-height: 100%;
 }
 
 .button-image{
@@ -29,5 +27,6 @@
 }
 
 .button-container button:hover{
-    background-color: #afdbef;
+    color: white;
+    background-color: #4CAF50;
 }

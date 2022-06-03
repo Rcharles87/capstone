@@ -1,7 +1,7 @@
 .ad-container{
     /* border: 2px solid brown; */
     max-height: 200px;
- 
+    background-color: ghostwhite;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
