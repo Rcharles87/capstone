@@ -32,7 +32,7 @@ function CarouselComp() {
 
     const carouselOptionsArray = carouselOptions.map((option, index) => {
         return (
-            <div key={index} className='ad-container'>
+            <div key={index} className='ad-container' >
                 <div className='adText-container'>
                     <h2>
                         {option.headline}
@@ -49,7 +49,7 @@ function CarouselComp() {
     })
   return (
     <div>
-        <Carousel>
+        <Carousel speed={1000} cellSpacing={30} autoplay="true" autoplayInterval={3700} wrapAround="true" style={{borderRadius:"15px"}}>
             {carouselOptionsArray}
         </Carousel>
     </div>
