@@ -13,21 +13,29 @@ function Cart({ carts, setCarts, setCheckedOut}) {
   const userID = localStorage.getItem("userID");
   // const activeCart_id = carts[0].orderNumber;
 
+  const getActiveCart = async () => {
+    const res = await axios.get(`${API}/carts/${userID}/active`);
+
+          setCarts(res.data);
+        
+    console.log("res~~",res)
+  }
 
   useEffect(() => {
-    axios
-      .get(`${API}/carts/${userID}/active`)
-      .then((res) => {
-        // console.log(res.data)
-        if(res.data.Error){
-          // console.log("add things to thecart ");
-        }else{
-          setCarts(res.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getActiveCart()
+    // axios
+    //   .get(`${API}/carts/${userID}/active`)
+    //   .then((res) => {
+    //     // console.log(res.data)
+    //     if(res.data.Error){
+    //       // console.log("add things to thecart ");
+    //     }else{
+    //       setCarts(res.data);
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }, [userID]);
 
 
@@ -42,8 +50,9 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     });
   };
   // console.log({userID})
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     // console.log("checkout ")
+    await getActiveCart();
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
       navigate("/")
@@ -51,10 +60,9 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     .catch((err) => {
       console.log(err)
     })
-    setCheckedOut(true);// add 
     
   }
-
+  console.log("carts line 63", carts)
   const activeCart = carts?.map((product) => {
     return (
       <div key={product.orderNumber} className="active-cart">
