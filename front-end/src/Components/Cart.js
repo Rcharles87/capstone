@@ -104,8 +104,6 @@ function Cart({ carts, setCarts, setCheckedOut}) {
            <button className="checkout-btn" onClick={handleCheckout}>Checkout</button> 
            </div>
         )}
-        
-        
       </div>
     </div>
   );
