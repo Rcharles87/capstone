@@ -4,6 +4,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import food_container from "../assets/food_container.png"
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import CheckOut from "./Checkout.js";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -86,14 +87,21 @@ function Cart({ carts, setCarts, setCheckedOut}) {
 
   return (
     <div className="cart-container">
+
       <div>
         {activeCart.length < 1 ? (
           <div className="active-empty-cart">          
           <Link to="/"> Start your order </Link>
           </div>
           ): (
-           <div className="active-cart-check">{activeCart}
-           <button className="checkout-btn" onClick={handleCheckout}>Checkout</button> 
+            <div className="active-cart-check">
+             <div>
+             <CheckOut carts={carts}/>
+             </div>
+             <div>
+             {activeCart}
+             </div>
+           {/* <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>  */}
            </div>
         )}
         
