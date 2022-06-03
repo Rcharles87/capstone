@@ -3,11 +3,12 @@ import React from "react";
 import axios from "axios";
 import "../Styles/products.css";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
 function ProductByRestaurant({id}){
-  
+  const navigate = useNavigate();
   const [productByRestaurant, setProductByRestaurant ] = useState([]);
   // console.log(productByRestaurant)
   const userId = localStorage.getItem("userID")
@@ -39,7 +40,7 @@ useEffect(() => {
     axios.post(`${API}/carts/addToCart`, resInfo)
       .then(
         () => {
-          // console.log('api')
+          navigate("/carts")
         },
         (err) => console.error(err)
       ).catch((err) => console.warn("catch err", err))
@@ -61,7 +62,7 @@ useEffect(() => {
                     <img id="dietary-sprite" src="https://i.imgur.com/gqdeqpl.png" alt="diet-res"></img>
                     <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg" alt="diet-res"></img>
                   </div>
-                  <button id="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
+                  <button  id="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
                 </div>
             </div>
         ))}
