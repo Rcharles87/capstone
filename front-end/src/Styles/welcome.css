@@ -1,5 +1,10 @@
 .welcome-container {
-    border: 1px solid green;
+    display: grid;
     height: 250px;
-    text-align: center;
+    border-radius: 25px;
+    align-content: center;
+    justify-content: center;
+    margin: 7px 15px;
+    background: rgb(117, 208, 216) url("https://st4.depositphotos.com/4177785/27354/v/1600/depositphotos_273546568-stock-illustration-food-vector-seamless-pattern-cuisine.jpg")  ; 
+
 }

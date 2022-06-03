@@ -3,12 +3,12 @@ import axios from "axios";
 import CancelIcon from '@mui/icons-material/Cancel';
 import food_container from "../assets/food_container.png"
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
 function Cart({ carts, setCarts, setCheckedOut}) {
-  
+  let navigate = useNavigate();
   // console.log(carts)
   const userID = localStorage.getItem("userID");
   // const activeCart_id = carts[0].orderNumber;
@@ -46,12 +46,13 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     // console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      
+      navigate("/")
     })
     .catch((err) => {
       console.log(err)
     })
     setCheckedOut(true);// add 
+    
   }
 
   const activeCart = carts?.map((product) => {
@@ -87,7 +88,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     <div className="cart-container">
       <div>
         {activeCart.length < 1 ? (
-          <div>          
+          <div className="active-empty-cart">          
           <Link to="/"> Start your order </Link>
           </div>
           ): (

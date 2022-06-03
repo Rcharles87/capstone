@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styles/Restaurant.css';
 import { Link } from 'react-router-dom';
 
-import restaurantStockImage from '../assets/restaurantStockImage.jpeg';
+
 import restaurantsImage from '../assets/restaurantsImage.jpg';
 
 function Restaurant( {singleRestaurant} ) {
@@ -12,7 +12,9 @@ function Restaurant( {singleRestaurant} ) {
     <div className='restaurant-container'>
             <Link className='restLink' to={`/restaurant/${singleRestaurant.id}`}>
         <div className='restaurant-data'>
+          <div className='image-container'>
           <img className="restaurant-image"  src={restaurantsImage} alt='restaurant stock'/>
+          </div>
             <div className='restaurant-name'>
               <div>
                   <h3>{singleRestaurant.name}</h3>
