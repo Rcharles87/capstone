@@ -1,6 +1,6 @@
 .uv-container{
     display: grid;
-    height: 100vh;
+    /* height: 100vh; */
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
@@ -16,8 +16,8 @@
 .up-container{
     grid-area: main;
     margin: 10px;
-    height: 70vh;
-    width: 65vw;
+    /* height: 70vh; */
+    /* width: 65vw; */
     background-color: rgba(245, 242, 237, 0.408);
     border-radius: 15px;
 }

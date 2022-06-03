@@ -32,16 +32,8 @@ const getCurrentCart = async (customer_id) => {
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=true",
       customer_id
     );
-    // console.log("func is getting cart",currentCart)// it is getting cart
+    const currentCartDetailArr = []; //? 
 
-    // if(currentCart.length < 1 ){ //if no active carts create one and return that
-    //   let newCart = createNewCart(customer_id); //
-    //   return newCart;
-    // }
-    const currentCartDetailArr = []; //
-
-
-    // [ { id: 21, is_active: true, customer_id: 2 } ]
 
     for(let cart of currentCart){
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
@@ -78,7 +70,6 @@ const getCurrentCart = async (customer_id) => {
         })
       }
     };
-    // console.log(currentCartDetailArr)
     return currentCartDetailArr;
   } catch (err) {
     return err;

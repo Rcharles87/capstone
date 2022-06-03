@@ -1,6 +1,5 @@
 .active-cart{
     /* display: grid; */
-    /* border: solid black 2px; */
     margin-top: 5vh;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -8,6 +7,13 @@
 .active-empty-cart{
     display: grid;
     max-height: 100vh;
+}
+
+.active-cart-check{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+align-items: baseline;
+justify-items: center;
 }
 
 .restaurant-name{
@@ -28,7 +34,6 @@ flex:1;
 }
 
 .meal-container{
-    /* border: 2px solid black; */
     display: flex;
     width: 100%;
     align-items: center;
@@ -62,7 +67,6 @@ flex:1;
 .cart-container{
     display: flex;
     flex-direction: row;
-    /* border: solid red 1px; */
     justify-content: center;
     max-height: 100%;
 }
@@ -73,7 +77,6 @@ flex:1;
     color: rgb(255, 255, 255);
     padding: 15px 32px;
     text-align: center;
-    /* height: 40px; */
     font-size: 16px;
     border-radius: 8px;
     transition-duration: 0.2s;
