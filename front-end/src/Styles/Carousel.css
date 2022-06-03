@@ -1,6 +1,7 @@
 .ad-container{
-    border: 2px solid brown;
+    /* border: 2px solid brown; */
     max-height: 200px;
+ 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -11,12 +12,15 @@
 
 .adText-container{
     grid-area: text;
+
 }
 
 .adImage-container{
     grid-area: img;
+
 }
 .ad-container img {
-    /* max-width: 150px; */
-    
+    /* max-width: 500px; */
+    max-height: 300px;
+    border-radius: 15px;
 }

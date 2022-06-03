@@ -44,12 +44,10 @@ const getCurrentCart = async (customer_id) => {
     // [ { id: 21, is_active: true, customer_id: 2 } ]
 
     for(let cart of currentCart){
-      
-  
       const cartDetail = await db.any("SELECT * FROM order_details WHERE carts_id=$1", cart.id);
       // console.log("trigger getting curr cart",cartDetail);
       const productsArr = [];
-      console.log(cartDetail);
+      // console.log(cartDetail);
       if(cartDetail.length >= 1){
         for(let detail of cartDetail){
           let product = await db.one("SELECT * FROM products WHERE id=$1", detail.products_id);
@@ -70,7 +68,7 @@ const getCurrentCart = async (customer_id) => {
             id: item.id,
             quantity: item.quantity
           })),
-          restaurant: restaurantsArr[0]?.name
+          restaurant: restaurantsArr[0].name
         });
       }else{
         // console.log("Hey no items for u")
@@ -85,13 +83,13 @@ const getCurrentCart = async (customer_id) => {
 };
 
 const getPreviousCarts = async (customer_id) => {
+  const allCartsDetailsArr = [];
+  
   try {
     const previousCarts = await db.any(
       "SELECT * FROM carts WHERE customer_id=$1 AND is_active=false",
       customer_id
     );
-
-    const allCartsDetailsArr = [];
 
     for (let previousCart of previousCarts) {
       const cartDetail = await db.any(
@@ -108,6 +106,7 @@ const getPreviousCarts = async (customer_id) => {
         );
         productsArr.push({...product, quantity:detail.quantity});
       }
+      console.log(productsArr)
 
       const restaurantsArr = [];
       for (let product of productsArr) {
@@ -125,10 +124,14 @@ const getPreviousCarts = async (customer_id) => {
           id: item.id,
           quantity: item.quantity
         })),
-        restaurants: restaurantsArr[0].name,
+        restaurants: restaurantsArr[0].name
       });
-
+      
+      // console.log(allCartsDetailsArr)
+      // console.log("trigger",restaurantsArr)
     }
+    // console.log("****")
+
     // console.log(allCartsDetailsArr)
     // const previousCarts = await db.any(
     //   "SELECT products.id, products.name, order_details.carts_id, carts.id, carts.customer_id, carts.is_active FROM (products INNER JOIN order_details ON products.id=order_details.products_id) INNER JOIN carts ON order_details.carts_id=carts.id WHERE carts.is_active=false AND carts.customer_id=$1;",
@@ -136,7 +139,7 @@ const getPreviousCarts = async (customer_id) => {
     // );
     return allCartsDetailsArr;
   } catch (err) {
-    return err;
+    console.log(err);
   }
 };
 
@@ -154,19 +157,13 @@ const updateCurrentCart = async (body) => {
     if(updatedCart.length < 1){
       updatedCart = [ await createNewCart(body.userID)]
     }
-    console.log(updatedCart)
-
-    // console.log("Carts.js line 142",updatedCart)
-    // console.log("Ad")
-    //variable is currentActiveCart
-    // console.log(updatedCart)
-    // use updatedCart.id to get all order details associated with the cart.id that needs to be updated and save as a variable updateOrderDetailsArr
+   
     const updatedOrderDetails = await db.one(
       "INSERT INTO order_details (carts_id, products_id, quantity) VALUES ($1, $2, $3) RETURNING *",
       [updatedCart[0].id, body.productID, 1]
     );
     
-    // console.log("TRIGGGER",updatedOrderDetails)
+    // console.log("check order details", updatedOrderDetails)
     return updatedOrderDetails;
     // let updatedProduct = await db.one(
     //   "SELECT name FROM products WHERE id=$1",

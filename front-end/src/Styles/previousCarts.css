@@ -7,10 +7,16 @@
 .info-container {
     text-align: center;
     align-self: center;
-    background-color: #f5f3eb;
     border-radius: 15px;
     height: auto;
     margin-bottom: 15px;
+    padding: 3px 0px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.127);
+}
+
+.info-container:nth-child(even){
+    background-color: rgba(91, 201, 203, 0.312);
+
 }
 /* text-align: center;
 display: flex;
@@ -24,13 +30,13 @@ align-content: center;
 flex-wrap: wrap;
 justify-content: space-evenly; */
 
-.info-name{
+/* .info-name{
 
 }
 
 .info-quantity{
 
-}
+} */
 
 .hr5{
     border: 0;

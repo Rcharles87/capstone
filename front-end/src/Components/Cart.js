@@ -3,37 +3,16 @@ import axios from "axios";
 import CancelIcon from '@mui/icons-material/Cancel';
 import food_container from "../assets/food_container.png"
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
-function Cart({ carts, setCarts }) {
-  // const [carts, setCarts] = useState([]);
+function Cart({ carts, setCarts, setCheckedOut}) {
+  let navigate = useNavigate();
   // console.log(carts)
   const userID = localStorage.getItem("userID");
   // const activeCart_id = carts[0].orderNumber;
 
-
-  // [
-  //   {
-  //     orderNumber: 2,
-  //     items: [
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object], [Object],
-  //       [Object]
-  //     ],
-  //     restaurant: 'Tamashi Ramen'
-  //   }
-  // ]
-
-  // if(res.data.Error){
-  //   console.log("error");
-  // }else{
-  //   setProductByRestaurant(res.data);
-  // }
 
   useEffect(() => {
     axios
@@ -67,11 +46,13 @@ function Cart({ carts, setCarts }) {
     // console.log("checkout ")
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      // console.log("submit sucessful")
+      navigate("/")
     })
     .catch((err) => {
       console.log(err)
     })
+    setCheckedOut(true);// add 
+    
   }
 
   const activeCart = carts?.map((product) => {
@@ -84,7 +65,7 @@ function Cart({ carts, setCarts }) {
             console.log(item);
             return (
               <div key={item.id} className="meal-container">
-                <button><CancelIcon/></button>
+                <CancelIcon/>
                   <img id="food-img" src={food_container} alt="food icon"/>
                 <div className="restaurant-name"><b>{product.restaurant}</b></div>
                 <div className="meal-details">
@@ -92,7 +73,7 @@ function Cart({ carts, setCarts }) {
                   <div id="quantity">
                     <b>Quantity:</b> <input type="number" id="quantity" name="quantity" min="1" max={item.quantity}/>
                   </div>
-                  <button id="delete-item-btn" onClick={()=>handleDelete(item)}>Delete</button>
+                  {/* <button id="delete-item-btn" onClick={()=>handleDelete(item)}>Delete</button> */}
                 </div>
                 <hr />
               </div>
@@ -107,30 +88,8 @@ function Cart({ carts, setCarts }) {
     <div className="cart-container">
       <div>
         {activeCart.length < 1 ? (
-          <div>
-            {/* <div className="active-cart">
-                <div id="order-details">
-                  <div id="restaurant-name"></div>
-                  <div id="order-num">Order: #</div>
-                      <div id="single-meal">
-                        <button><CancelIcon/></button>
-                        <div id="meal-img">
-                          <img
-                            id="food-img"
-                            src=""
-                            alt="food icon"
-                          />
-                        </div>
-                        <div id="meal-name">
-                          Meal Kit: 
-                          <div id="quantitiy">Quantity:  </div>
-                        </div>
-                        <hr />
-                      </div>
-              </div>
-          </div> */}
-          
-          <Link to="/restaurants"> Start your order </Link>
+          <div className="active-empty-cart">          
+          <Link to="/"> Start your order </Link>
           </div>
           ): (
            <div className="active-cart-check">{activeCart}

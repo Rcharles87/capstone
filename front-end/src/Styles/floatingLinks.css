@@ -7,6 +7,7 @@
     grid-template-rows: auto;
     grid-template-areas:
     "signup faq"
+    "map map"
     "maintext img1"
     "img2 maintext2"
     ;
@@ -27,7 +28,7 @@
 }
 
 #sign-up img {
-    width: 30%;
+    width: 25%;
 }
 
 #faq {
@@ -39,7 +40,11 @@
 }
 
 #faq img {
-    width: 50%;
+    width: 30%;
+}
+
+.map-container{
+    grid-area: map;
 }
 
 #veggies-img {

@@ -1,15 +1,16 @@
 .restaurant-container{
     color: white;
-    background-color: rgb(110, 217, 227);
+    background-color: rgba(91, 201, 203, 0.312);
     border-radius: 15px;
-    /* margin: 50px;
-    padding: 10px; */
-    /* max-width: 300px; */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.127);
+    margin: 3px;
+    z-index: 1;
 }
 
 .restLink{
     text-decoration: none;
     color: black;
+    /* z-index: 1; */
 }
 
 .restaurant-data{
@@ -40,6 +41,24 @@
     margin: 10px;
 } 
 
-.restaurant-image{
-    max-height: 15vw;
+.image-container{
+    max-height: 200px;
+    border-radius: 25px;
+    margin: 5px;
+    box-shadow: inset 0px 0px 15px 4px rgb(0 0 0 / 90%);
+    z-index: 0;
 }
+
+.image-container img{
+    max-height: 200px;
+    border-radius: 25px;
+    position: relative;
+    z-index: -1;
+}
+/* .restaurant-image{
+    max-height: 200px;
+    border-radius: 15px;
+    z-index: -2;
+} */
+
+

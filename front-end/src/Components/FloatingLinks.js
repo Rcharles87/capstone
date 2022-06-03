@@ -6,6 +6,7 @@ import signupicon from "../assets/standing.png";
 import {Link} from 'react-router-dom'
 import"../Styles/floatingLinks.css"
 import Slideshow from "../Components/Slideshow.js"
+import Map from "./Map"
 
 let sampleText =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper tincidunt augue, eu rutrum nunc venenatis ut. Donec vel lacinia mi. Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum Praesent sodales tincidunt leo consequat aliquam.Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum.";
@@ -33,6 +34,10 @@ function FloatingLinks() {
           <img src={bagicon} alt="illustration of green recycle bag" />
           <h1>Faq</h1>
         </div> */}
+        <div className='map-container'>
+          <h1>Restaurants near me</h1>
+        <Map />
+        </div>
         <div id="veggies-img">
           <img src={veggies} alt="vegetables in a basket" />
         </div>
