@@ -2,7 +2,7 @@ import "../Styles/cart.css";
 import axios from "axios";
 import CancelIcon from '@mui/icons-material/Cancel';
 import food_container from "../assets/food_container.png"
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
