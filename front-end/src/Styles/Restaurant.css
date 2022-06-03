@@ -4,13 +4,13 @@
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.127);
     margin: 3px;
-    /* z-index: -3; */
+    z-index: 1;
 }
 
 .restLink{
     text-decoration: none;
     color: black;
-    z-index: -3;
+    /* z-index: 1; */
 }
 
 .restaurant-data{
@@ -44,8 +44,9 @@
 .image-container{
     max-height: 200px;
     border-radius: 25px;
-    box-shadow: inset 0px 0px 15px 4px rgb(0 0 0 / 90%);
     margin: 5px;
+    box-shadow: inset 0px 0px 15px 4px rgb(0 0 0 / 90%);
+    z-index: 0;
 }
 
 .image-container img{

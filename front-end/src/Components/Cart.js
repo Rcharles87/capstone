@@ -65,7 +65,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
             console.log(item);
             return (
               <div key={item.id} className="meal-container">
-                <button><CancelIcon/></button>
+                <CancelIcon/>
                   <img id="food-img" src={food_container} alt="food icon"/>
                 <div className="restaurant-name"><b>{product.restaurant}</b></div>
                 <div className="meal-details">
@@ -73,7 +73,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
                   <div id="quantity">
                     <b>Quantity:</b> <input type="number" id="quantity" name="quantity" min="1" max={item.quantity}/>
                   </div>
-                  <button id="delete-item-btn" onClick={()=>handleDelete(item)}>Delete</button>
+                  {/* <button id="delete-item-btn" onClick={()=>handleDelete(item)}>Delete</button> */}
                 </div>
                 <hr />
               </div>
