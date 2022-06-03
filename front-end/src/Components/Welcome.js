@@ -21,18 +21,17 @@ function Welcome() {
   },[userId])
 
   const welcomeArrMessage = [
-    "Say hello to your little profile 🔫  ",
-    "Hey there pal! 😛",
-    "Sup!",
-    "We're happy to see you again 😆 ",
-    "Welcome, ready to order? 👀",
+    "Welcome back ",
+    "Hello ",
+    "We're happy to see you again ",
+    "Welcome "
   ]
 
   const welcomeMessageRandom = welcomeArrMessage[Math.floor(Math.random() * welcomeArrMessage.length)]
 
   return (
     <div className='welcome-container'>
-      <h1>{welcomeMessageRandom} {userName.fname}</h1>
+      <h1>{welcomeMessageRandom} {userName.fname}!</h1>
       </div>
   )
 }
