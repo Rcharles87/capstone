@@ -11,7 +11,8 @@ function Signup() {
         Fname:"",
         Lname:"",
         username:"",
-        password:""
+        password:"",
+        phoneNum:""
     });
 
 
@@ -46,6 +47,14 @@ function Signup() {
                 type="text"
                 onChange={handleTextChange}
                 placeholder="Please enter last name"
+            />
+             <label htmlFor="phone num">Phone Number:</label>
+            <input
+                id="phoneNum"
+                value={signUp.phoneNum}
+                type="number"
+                onChange={handleTextChange}
+                placeholder="Enter a phone number"
             />
             <label htmlFor="username">Username:</label>
             <input

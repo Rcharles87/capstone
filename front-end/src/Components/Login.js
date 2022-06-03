@@ -45,7 +45,7 @@ const handleSubmit = (event) => {
             <input
                 id="password"
                 value={login.password}
-                type="text"
+                type="password"
                 onChange={handleTextChange}
                 placeholder="Please enter a password"
             />
