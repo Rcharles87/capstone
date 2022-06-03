@@ -16,7 +16,7 @@ carts.get("/:customer_id/active", async (req, res) =>{
         if(productsInOrder){
             res.status(200).json(productsInOrder)
         }else{
-            res.status(410).json({error: "Please add items to cart"})
+            res.status(200).json({error: "Please add items to cart"})
         }
     }catch(err){
         console.log(err)

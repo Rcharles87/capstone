@@ -63,7 +63,11 @@ const getCurrentCart = async (customer_id) => {
           restaurant: restaurantsArr[0].name
         });
       }else{
-        return {Error: "Please add items to cart"}
+        currentCartDetailArr.push({
+          orderNum: cart.id,
+          items: [],
+          restaurant: ""
+        })
       }
     };
     return currentCartDetailArr;

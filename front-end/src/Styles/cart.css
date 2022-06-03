@@ -11,6 +11,9 @@
 
 .active-cart-check{
 display: grid;
+grid-template-columns: repeat(2, 1fr);
+align-items: baseline;
+justify-items: center;
 }
 
 .restaurant-name{

@@ -6,6 +6,8 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.127);
     background-color: rgba(241, 240, 240, 0.289);
     border-radius: 15px;
+    height: 200px;
+    align-items: center;
 }
 
 .checkout-container button {

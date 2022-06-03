@@ -1,6 +1,6 @@
 .loggedInDisplay-container{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr 2fr;
     /* grid-template-rows: auto; */
     grid-template-areas: 
     "fil car car" 
@@ -10,11 +10,13 @@
 
 .f-container{
     grid-area: fil;
+    margin-right: 80px;
 }
 
 .r-container{
     grid-area: rest;
     place-content: center/center;
+
 }
 
 .c-container{
