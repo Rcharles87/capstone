@@ -2,37 +2,42 @@ import "../Styles/cart.css";
 import axios from "axios";
 import CancelIcon from '@mui/icons-material/Cancel';
 import food_container from "../assets/food_container.png"
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import CheckOut from "./Checkout.js";
 
 const API = process.env.REACT_APP_API_URL;
 
 function Cart({ carts, setCarts, setCheckedOut}) {
   let navigate = useNavigate();
-  // console.log(carts)
   const userID = localStorage.getItem("userID");
-  // const activeCart_id = carts[0].orderNumber;
 
+  const getActiveCart = async () => {
+    const res = await axios.get(`${API}/carts/${userID}/active`);
+
+          setCarts(res.data);
+        
+  }
 
   useEffect(() => {
-    axios
-      .get(`${API}/carts/${userID}/active`)
-      .then((res) => {
-        // console.log(res.data)
-        if(res.data.Error){
-          // console.log("add things to thecart ");
-        }else{
-          setCarts(res.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getActiveCart()
+    // axios
+    //   .get(`${API}/carts/${userID}/active`)
+    //   .then((res) => {
+    //     // console.log(res.data)
+    //     if(res.data.Error){
+    //       // console.log("add things to thecart ");
+    //     }else{
+    //       setCarts(res.data);
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }, [userID]);
 
 
   const handleDelete = (item) => {
-    // console.log("delete!", item)
     axios.delete(`${API}/customers/${userID}/deleteItem`)
     .then((res) => {
       window.alert("The item has been removed")
@@ -42,18 +47,19 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     });
   };
   // console.log({userID})
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     // console.log("checkout ")
+    await getActiveCart();
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      navigate("/")
+      navigate(`/carts/inactive`)
     })
     .catch((err) => {
       console.log(err)
     })
-    setCheckedOut(true);// add 
     
   }
+
 
   const activeCart = carts?.map((product) => {
     return (
@@ -62,7 +68,6 @@ function Cart({ carts, setCarts, setCheckedOut}) {
           <div id="order-num">Order: #{product.orderNumber}</div>
           
           {product.items.map((item) => {
-            console.log(item);
             return (
               <div key={item.id} className="meal-container">
                 <CancelIcon/>
@@ -86,18 +91,22 @@ function Cart({ carts, setCarts, setCheckedOut}) {
 
   return (
     <div className="cart-container">
+
       <div>
-        {activeCart.length < 1 ? (
+        {carts[0]?.items.length < 1 ? (
           <div className="active-empty-cart">          
           <Link to="/"> Start your order </Link>
           </div>
           ): (
-           <div className="active-cart-check">{activeCart}
-           <button className="checkout-btn" onClick={handleCheckout}>Checkout</button> 
+            <div className="active-cart-check">
+             <div>
+             {activeCart}
+             </div>
+             
+             <CheckOut carts={carts} handleCheckout={handleCheckout}/>
+           {/* <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>  */}
            </div>
         )}
-        
-        
       </div>
     </div>
   );

@@ -1,8 +1,7 @@
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../Styles/previousCarts.css";
-import PreviousCart from "./PreviousCart";
 const API = process.env.REACT_APP_API_URL;
 
 function PreviousCarts() {
@@ -24,19 +23,25 @@ function PreviousCarts() {
 
   let previousOrders = oldCarts.map((cart) => {
     return (
-      <div className="info-container" key={cart.orderNum}>
-          <div> <h3>Restaurant: {cart.restaurants} </h3></div>
+    
+      <div className="info-container" key={cart.orderNum} >
+          <Link className="pre-cart-link" to={`/carts/inactive/${cart.orderNum}`}> 
+            <h3>Order #: {cart.orderNum}</h3>
+            <h3>Restaurant: {cart.restaurants} 
+            </h3>
+            </Link>
           
-          {cart.items.map((products)=>{
-              // console.log(products)
-              return(
-                  <div key={products.id}>
-                      <div className="info-name">Meal Type: {products.name}</div>
-                      <div className="info-quantity">Quantity: {products.quantity}</div>
-                  </div>
+          {/* {cart.items.map((products)=>{
+            // console.log(products)
+            return(
+              <div key={products.id}>
+              <div className="info-name">Meal Type: {products.name}</div>
+              <div className="info-quantity">Quantity: {products.quantity}</div>
+              </div>
               )
-          })}
+            })} */}
       </div>
+  
     );
   });
   

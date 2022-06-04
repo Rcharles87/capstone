@@ -19,9 +19,12 @@ function FbSort() {
             </div>
         )
     })
-
   return (
-    <div>{sortOptionsMap}<hr/></div>
+    <div>
+        <hr/>
+        {sortOptionsMap}
+        <hr/>
+    </div>
   )
 }
 
