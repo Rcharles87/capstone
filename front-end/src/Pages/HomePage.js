@@ -53,7 +53,6 @@ function Home({ loginText }) {
               
             </div>
           )}
-
         </div>
       )}
     </div>

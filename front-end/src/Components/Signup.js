@@ -22,6 +22,7 @@ function Signup() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+    
         axios.post(`${API}/auth/signup`, signUp)
         .then((res) =>{
             localStorage.setItem("userID", res.data.id)
@@ -68,7 +69,7 @@ function Signup() {
             <input
                 id="password"
                 value={signUp.password}
-                type="text"
+                type="password"
                 onChange={handleTextChange}
                 placeholder="Please enter a password"
             />

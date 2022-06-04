@@ -68,6 +68,11 @@
     grid-area: img2;
 }
 
+#veggies2-img img{
+    height: 600px;
+    width: auto;
+}
+
 #main-content-text2 {
     /* border: 1px solid red; */
     margin: 100px;
