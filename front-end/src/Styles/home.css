@@ -22,3 +22,10 @@
 .c-container{
     grid-area: car
 }
+
+.mapView{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1em;
+    margin-top: 10px;
+}

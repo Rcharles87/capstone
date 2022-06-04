@@ -24,9 +24,10 @@ function Home({ loginText }) {
           <FloatingLinks />
         </div>
       ) : (
-        <div>
+        <div className="mapView">
           <input
             type="checkbox"
+            className="mapView"
             id="map-view"
             name="map-view"
             value="map-view"
