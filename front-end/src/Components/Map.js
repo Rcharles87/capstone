@@ -27,7 +27,7 @@ function Map(){
       const linkToRestaurant = () => {
         return(
           <div>
-            <Link style={{ textDecoration: 'none', color: 'black' }} key={restaurants} to={`/restaurants`} >Order Now</Link>
+            <Link style={{ textDecoration: 'none', color: 'black' }} key={restaurants.id} to={`/restaurants`} >Order Now</Link>
           </div>
         )
       };
@@ -50,6 +50,7 @@ function Map(){
               position={[restaurant.lat, restaurant.lon]}
               icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
             <Popup>
+                <img id="restaurant-sprite" src={restaurant.restaurant_sprites} />
                 <h1>{restaurant.name}</h1>
                 <p><em>{restaurant.cuisine_type}</em></p>
                 <p>{restaurant.add}</p>

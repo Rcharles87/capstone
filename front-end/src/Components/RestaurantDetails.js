@@ -22,6 +22,7 @@ function RestaurantDetails() {
   return (
     <div className="restaurant-products-container">
         <div className="restaurant-details">
+            {/* <img id="restaurant-sprite" src={restaurant.restaurant_sprites} /> */}
             <div><h1>{restaurant.name}</h1></div>
             <div><h4>{restaurant.cuisine_type}</h4></div>
             <div><h4>{restaurant.add}</h4></div>
