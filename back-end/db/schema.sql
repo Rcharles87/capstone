@@ -29,6 +29,7 @@ CREATE TABLE restaurants (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     cuisine_type TEXT NOT NULL,
+    restaurant_sprites TEXT NOT NULL,
     add TEXT NOT NULL,
     lat DOUBLE PRECISION,
     lon DOUBLE PRECISION

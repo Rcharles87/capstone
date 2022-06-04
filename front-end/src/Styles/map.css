@@ -16,3 +16,9 @@
 .map-marker-details{
   text-decoration: underline;
 }
+
+#restaurant-sprite{
+  height: 120px;
+  margin: 5px;
+  /* margin-top: 10px; */
+}

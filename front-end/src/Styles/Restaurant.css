@@ -42,20 +42,21 @@
 } 
 
 .image-container{
-    max-height: 200px;
+    max-height: 180px;
     border-radius: 25px;
-    margin: 5px;
-    box-shadow: inset 0px 0px 15px 4px rgb(0 0 0 / 90%);
+    margin: 10px;
+    /* box-shadow: inset 0px 0px 15px 4px rgb(0 0 0 / 90%); */
     z-index: 0;
 }
 
 .image-container img{
-    max-height: 200px;
+    max-height: 220px;
     border-radius: 25px;
     position: relative;
     z-index: -1;
 }
-/* .restaurant-image{
+/* 
+.restaurant-image{
     max-height: 200px;
     border-radius: 15px;
     z-index: -2;
