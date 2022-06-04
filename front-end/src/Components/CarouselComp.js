@@ -52,7 +52,7 @@ function CarouselComp() {
         <Carousel speed={1000} cellSpacing={30} autoplay="true" autoplayInterval={3700} wrapAround="true" style={{borderRadius:"15px"}}>
             {carouselOptionsArray}
         </Carousel>
-        <hr/>
+        <hr className='hr'/>
     </div>
   )
 }

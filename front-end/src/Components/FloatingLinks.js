@@ -1,6 +1,4 @@
 import React from 'react'
-import veggies from "../assets/veggies.jpg";
-import veggies2 from "../assets/veggies2.jpg";
 import bagicon from "../assets/bag.png";
 import signupicon from "../assets/standing.png";
 import {Link} from 'react-router-dom'
@@ -8,9 +6,14 @@ import"../Styles/floatingLinks.css"
 import Slideshow from "../Components/Slideshow.js"
 import Map from "./Map"
 
-let sampleText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper tincidunt augue, eu rutrum nunc venenatis ut. Donec vel lacinia mi. Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum Praesent sodales tincidunt leo consequat aliquam.Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum.";
+//images
+import splashImage1 from "../assets/splashImage1.jpeg";
+import splashImage2 from "../assets/splashImage2.jpeg";
 
+
+let sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper tincidunt augue, eu rutrum nunc venenatis ut. Donec vel lacinia mi. Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum Praesent sodales tincidunt leo consequat aliquam.Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum.";
+
+const sampleText1 = ""
 
 function FloatingLinks() {
   return (
@@ -20,13 +23,13 @@ function FloatingLinks() {
         <div id="sign-up">
           <img src={signupicon} alt="illustration of girl on laptop" />
           <Link to="/signup">
-          <h3>Dont make it a tuff decision <br /> signup today!!!</h3>
+          <h3>Creating real change <br /> Signup today!</h3>
           </Link>
         </div>
         <div id="faq">
           <img src={bagicon} alt="illustration of green recycle bag" />
           <Link to="faq">
-            <h3>Check out our faq's,<br />find out more about food waste,<br /> and how you can help</h3>
+            <h3>Millions meals saved, and counting....!<br /> Click here to learn more about food waste</h3>
           </Link>
           {/* <h1>Sign Up</h1> */}
         </div>
@@ -39,11 +42,11 @@ function FloatingLinks() {
         <Map />
         </div>
         <div id="veggies-img">
-          <img src={veggies} alt="vegetables in a basket" />
+          <img src={splashImage1} alt="vegetables in a basket" />
         </div>
         <div id="main-content-text">{sampleText}</div>
         <div id="veggies2-img">
-          <img src={veggies2} alt="vegetables in a basket" />
+          <img src={splashImage2} alt="vegetables in a basket" />
         </div>
         <div id="main-content-text2">{sampleText}</div>
       </div>
