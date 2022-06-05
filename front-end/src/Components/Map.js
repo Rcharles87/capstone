@@ -24,14 +24,14 @@ function Map(){
   
       // console.log(restaurants);
 
-      const linkToRestaurant = () => {
-        return(
-          <div>
-            <Link style={{ textDecoration: 'none', color: 'black' }} key={restaurants.id} to={`/restaurants`} >Order Now</Link>
-          </div>
-        )
-      };
-  
+      // const linkToRestaurant = () => {
+      //   return(
+      //     <div>
+      //       <Link style={{ textDecoration: 'none', color: 'black' }} key={restaurants.id} to={`/restaurants/${restaurants.id}`} >Order Now</Link>
+      //     </div>
+      //   )
+      // };
+
   return(
     <div  className="map-container">
       
@@ -46,7 +46,7 @@ function Map(){
 
         {restaurants.map(restaurant => (
           <Marker 
-              key={restaurant.restaurant_id}
+              key={restaurant.id}
               position={[restaurant.lat, restaurant.lon]}
               icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} >
             <Popup>
@@ -54,10 +54,11 @@ function Map(){
                 <h1>{restaurant.name}</h1>
                 <p><em>{restaurant.cuisine_type}</em></p>
                 <p>{restaurant.add}</p>
-                <button>{linkToRestaurant()}</button>
+                <Link style={{ textDecoration: 'none', color: 'black' }} key={restaurant.id} to={`/restaurant/${restaurant.id}`}><button>Order Now</button></Link>
             </Popup>
           </Marker>
         ))}
+        console.log(restaurant)
       </MapContainer>
     </div>
     )
