@@ -36,18 +36,26 @@ function PreviousCart() {
   console.log(previousOrder)
   let previousOrderInfo = previousOrder?.items.map((item)=>{
     return(
-      <div className="info-container" key={item.id}>
-      <div className="info-name">Meal Type: {item.name}</div>
-      <div className="info-quantity">Quantity: {item.quantity}</div>
-      </div>
+      <div>
+        <div className="info-container" key={item.id}>
+        <div className="info-name">Meal Type: {item.name}</div>
+        <div className="info-quantity">Quantity: {item.quantity}</div>
+        </div>
+        </div>
     )
   })
-
+  
   return (
     <div>
       <button className="previous-btn" onClick={handleGoBack} >Go Back</button>
-    <div className="previous-order-container">
-      <h1>{previousOrder?.restaurants}</h1>
+      <img className="order-processing-img" src="https://cdn.dribbble.com/users/393062/screenshots/14492170/media/67f661f7f825b62980571026e1280675.gif" ></img>
+      <div className="successful-order-text">
+      <h2>Your order is currently being worked on!</h2>
+      <br></br>
+      Thank you for making an impact
+      </div>
+      <div className="previous-order-container">
+      <h2>{previousOrder?.restaurants}</h2>
       <hr />
       <div className="order-info">
       {previousOrderInfo}

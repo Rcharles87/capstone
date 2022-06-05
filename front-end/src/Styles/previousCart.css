@@ -1,28 +1,45 @@
+body{
+  background-color: rgb(254, 254, 254);
+}
+
 .previous-order-container{
     text-align: center;
     border-radius: 15px;
     width: 80%;
     margin: 0 auto;
-    margin-top: 10vh;
+    margin-top: 5vh;
     padding: 30px;
     background-color: rgba(245, 242, 237, 0.408);
 }
 
 .previous-btn{
-background-color: rgb(91, 201, 203); /* Green */
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 15px 32px;
-  text-align: center;
-  /* height: 40px; */
-  font-size: 16px;
-  border-radius: 8px;
-  transition-duration: 0.2s;
-  line-height: 100%;
-  margin: 15px 0 0 15px;
+    background-color: rgb(91, 201, 203); /* Green */
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 15px 32px;
+    text-align: center;
+    /* height: 40px; */
+    font-size: 16px;
+    border-radius: 8px;
+    transition-duration: 0.2s;
+    line-height: 100%;
+    margin: 15px 0 0 15px;
 }
+/* .order-info{
+    margin:50px;
+} */
 
 .previous-btn:hover{
-color: white;
-  background-color: #4CAF50;
+    color: white;
+    background-color: #4CAF50;
+}
+
+.order-processing-img{
+    height: 300px;
+    display:block;
+    margin: 0 auto;
+}
+
+.successful-order-text{
+  text-align: center;
 }
