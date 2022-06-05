@@ -42,7 +42,7 @@ function NavBar({ setLoginText }) {
                 <h4 className="nav-btns">Our Mission</h4>
         </Link> */}
       </div>
-      <div className="navbar-text">Meals 4 NYC</div>
+      <div className="navbar-text">MEALS 4 NYC</div>
 
       <div className="cart">
         <div>
