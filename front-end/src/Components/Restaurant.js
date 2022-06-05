@@ -3,7 +3,6 @@ import '../Styles/Restaurant.css';
 import { Link } from 'react-router-dom';
 
 function Restaurant( {singleRestaurant} ) {
-  console.log(singleRestaurant.restaurant_sprites)
 
   return (
     <div className='restaurant-container'>
