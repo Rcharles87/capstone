@@ -6,11 +6,14 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CheckOut from "./Checkout.js";
 
+
 const API = process.env.REACT_APP_API_URL;
+
 
 function Cart({ carts, setCarts, setCheckedOut}) {
   let navigate = useNavigate();
   const userID = localStorage.getItem("userID");
+  
 
   const getActiveCart = async () => {
     const res = await axios.get(`${API}/carts/${userID}/active`);
@@ -52,7 +55,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     await getActiveCart();
     axios.put(`${API}/carts/submit`, {userID})
     .then((res) => {
-      navigate(`/carts/inactive`)
+     setTimeout(()=>navigate(`/carts/inactive/${carts[0].orderNumber}`), 3000)
     })
     .catch((err) => {
       console.log(err)
@@ -60,6 +63,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
     
   }
 
+  console.log(carts)
 
   const activeCart = carts?.map((product) => {
     return (
@@ -108,6 +112,7 @@ function Cart({ carts, setCarts, setCheckedOut}) {
            </div>
         )}
       </div>
+      
     </div>
   );
 }
