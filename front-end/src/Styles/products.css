@@ -84,7 +84,26 @@ body{
   background-color: rgb(91, 201, 203); /* Green */
   border: none;
   color: rgb(255, 255, 255);
-  padding: 5px 16px;
+  padding: 15px 32px;
+  text-align: center;
+  /* height: 40px; */
+  font-size: 16px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  line-height: 100%;
+  margin: 15px 0px 0px 15px;
+}
+
+#back-btn:hover{
+  color: white;
+  background-color: #4CAF50;
+}
+
+.modal-button {
+  background-color: rgb(91, 201, 203); /* Green */
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
   text-align: center;
   /* height: 40px; */
   font-size: 16px;
@@ -92,3 +111,7 @@ body{
   transition-duration: 0.2s;
   line-height: 100%;
 }
+ .modal-button:hover{
+  color: white;
+  background-color: #4CAF50; /* Green */
+ }

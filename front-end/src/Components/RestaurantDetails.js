@@ -27,10 +27,10 @@ function RestaurantDetails() {
             <div><h4>{restaurant.cuisine_type}</h4></div>
             <div><h4>{restaurant.add}</h4></div>
         </div>
-            {<ProductByRestaurant id={id}/>}
         <div className='button-link'>
                 <button id="back-btn" onClick={() => navigate(-1)}>Go Back</button>
         </div>
+            {<ProductByRestaurant id={id}/>}
     </div>
   )
 };
