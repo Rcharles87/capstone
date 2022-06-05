@@ -4,13 +4,34 @@ import axios from "axios";
 import "../Styles/products.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const API = process.env.REACT_APP_API_URL;
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'rgba(205, 238, 239, 1)',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 function ProductByRestaurant({id}){
+
+
   const navigate = useNavigate();
   const [productByRestaurant, setProductByRestaurant ] = useState([]);
-  // console.log(productByRestaurant)
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const userId = localStorage.getItem("userID")
 
 useEffect(() => {
@@ -24,7 +45,6 @@ useEffect(() => {
   .catch((c) => console.warn("catch", c))
 }, [id])
 
-  // console.log(productByRestaurant);
   
   const handleAddToCart = (product) => {
     const resInfo = {
@@ -34,16 +54,17 @@ useEffect(() => {
     };
 
 
-    // console.log("API trigger");
-    // console.log("Res info", resInfo)
-
     axios.post(`${API}/carts/addToCart`, resInfo)
       .then(
         () => {
-          navigate("/carts")
+
         },
         (err) => console.error(err)
-      ).catch((err) => console.warn("catch err", err))
+        ).catch((err) => console.warn("catch err", err))
+  }
+  
+  const handleGoToCart = () => { 
+    navigate("/carts")
   }
 
 
@@ -62,11 +83,26 @@ useEffect(() => {
                     <img id="dietary-sprite" src="https://i.imgur.com/gqdeqpl.png" alt="diet-res"></img>
                     <img id="dietary-sprite" src="https://i.imgur.com/8Lah7WN.jpg" alt="diet-res"></img>
                   </div>
-                  <button  id="add-to-cart-btn" onClick={() => handleAddToCart(product)}>Add To Cart</button>
+                  <button  id="add-to-cart-btn" onClick={() => {handleAddToCart(product); handleOpen();}}>Add To Cart</button>
                 </div>
             </div>
         ))}
-        {/* <Map /> */}
+         <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Added to cart 
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <button className="modal-button" onClick={handleGoToCart}>Go to cart</button>
+          </Typography>
+        </Box>
+      </Modal>
+
       </div>
     )
 };
