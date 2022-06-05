@@ -11,9 +11,9 @@ import splashImage1 from "../assets/splashImage1.jpeg";
 import splashImage2 from "../assets/splashImage2.jpeg";
 
 
-let sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper tincidunt augue, eu rutrum nunc venenatis ut. Donec vel lacinia mi. Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum Praesent sodales tincidunt leo consequat aliquam.Sed ac fringilla leo, a luctus ligula. Curabitur diam sapien, consectetur eu convallis placerat, tempor rhoncus lectus. In tempor vehicula vestibulum.";
+let sampleText = "Everyone knows that NYC is the place to go if you want some delicious pizza. I mean they even have their own style of pizza! But, did you know that New York City was the birthplace of pizza in America? Using skills learned from his hometown Naples, Italy, the first pizza in the US was crafted in the heart of Little Italy by Italian baker, Gennaro Lombardi. Fun Fact: Lombardi’s Pizza was established in 1905 and is still around today!"
 
-const sampleText1 = ""
+const sampleText1 = "Did you know that some of America’s best foods were first created in the great city of New York? It’s true! Foods like the all-American hotdog, eggs benedict, red velvet cake, and even chicken & waffles all were invented in New York City! Even popular foods like General Tso’s chicken as well as spaghetti and meatballs got their American start in the Big Apple. While they may not have been invented in New York they certainly became popular in the city before expanding to the rest of the country. Now that’s definitely some food for thought!"
 
 function FloatingLinks() {
   return (
@@ -48,7 +48,7 @@ function FloatingLinks() {
         <div id="veggies2-img">
           <img src={splashImage2} alt="vegetables in a basket" />
         </div>
-        <div id="main-content-text2">{sampleText}</div>
+        <div id="main-content-text2">{sampleText1}</div>
       </div>
     </div>
   )
