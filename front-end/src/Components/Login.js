@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../Styles/forms.css";
 
 const API= process.env.REACT_APP_API_URL;
 
@@ -51,7 +52,9 @@ const handleSubmit = (event) => {
             />
             <button className="submit-btn">Submit</button>
       </form>
-      <Link to="/signup">Click here to signup</Link>
+      <div className="sign-up-btn-container">
+      <Link className="sign-up-btn" to="/signup">dont have an account? Sign up!</Link>
+      </div>
     </div>
   );
 };
