@@ -33,7 +33,6 @@ function PreviousCart() {
   }
 
   let previousOrder = oldCarts.find((cart) => cart.orderNum == id );
-  console.log(previousOrder)
   let previousOrderInfo = previousOrder?.items.map((item)=>{
     return(
       <div>
