@@ -53,7 +53,7 @@ const handleSubmit = (event) => {
             <button className="submit-btn">Submit</button>
       </form>
       <div className="sign-up-btn-container">
-      <Link className="sign-up-btn" to="/signup">dont have an account? Sign up!</Link>
+      <Link className="sign-up-btn" to="/signup">Don't have an account? Sign up!</Link>
       </div>
     </div>
   );
