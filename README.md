@@ -1,7 +1,9 @@
+# Capstone Project
+
+Food insecurity in America and across the globe is a huge problem. With the rising cost of inflation and New York population growing, the situation needs to be met with an applicable solution. Meals4NYC is a platform that connects restaurants to customers who are in need of a warm meal. New York residents locate restaurants on a map and browse through restaurant options. New York residents can reserve meal-kits provided by the restaurants and check out their order.
 
 
-
-### Instructions to run app Locally 
+## Instructions to run app Locally 
 
 I have some pre-wrtitten scripts to make this process a lot easier. A friendly suggestion if you dont have postgresSQL please download from [here](https://www.postgresql.org/download/). After please change directory into the back-end folder and run
 
