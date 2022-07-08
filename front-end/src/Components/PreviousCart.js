@@ -32,7 +32,7 @@ function PreviousCart() {
     navigate("/carts/inactive")
   }
 
-  let previousOrder = oldCarts.find((cart) => cart.orderNum == id );
+  let previousOrder = oldCarts.find((cart) => cart.orderNum == id );      
   let previousOrderInfo = previousOrder?.items.map((item)=>{
     return(
       <div>
