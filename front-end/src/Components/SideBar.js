@@ -5,15 +5,17 @@ import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import AddIcon from '@mui/icons-material/Add';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HelpIcon from '@mui/icons-material/Help';
+import { Link } from 'react-router-dom';
 
 function SideBar() {
   return (
     <div className='sideBar-container'>
+      
       <div className='sideBar-content'>
     <ul>
-      <li><ManageAccountsIcon/> Account Info</li>
+     <li><ManageAccountsIcon/> Account Info</li>
       <li><ReceiptLongIcon/> Orders</li>
-      <li><AddIcon/> Update Account</li>
+      <Link to="/update"><li><AddIcon/> Update Account</li></Link>
       <li><SettingsIcon/>Settings</li>
       <li><HelpIcon/>Help</li>
     </ul>

@@ -19,6 +19,7 @@ import Restaurants from './Components/Restaurants';
 import RestaurantDetails from './Components/RestaurantDetails';
 import ProductByRestaurant from './Components/ProductByRestaurant';
 import PreviousCart from './Components/PreviousCart';
+import UpdateAcc from './Pages/UpdateAcc';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         {/* <Route path='/products' element={<Products/>}/> */}
         <Route path='/products/:restaurant_id' element={<ProductByRestaurant/>} />
         <Route path='/restaurant/:id' element={<RestaurantDetails/>} />
+        <Route path='/update'element={<UpdateAcc/>}/>
       </Routes>
      <Footer />
     </div>
