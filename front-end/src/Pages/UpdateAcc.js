@@ -1,8 +1,11 @@
 import React from 'react'
+import UpdateUser from '../Components/UpdateUser'
 
 function UpdateAcc() {
   return (
-    <div>UpdateAcc</div>
+    <div>
+      <UpdateUser/>
+    </div>
   )
 }
 

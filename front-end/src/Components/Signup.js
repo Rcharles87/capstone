@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Styles/forms.css"
 
@@ -29,6 +29,8 @@ function Signup() {
             navigate("/login")
         })
     }
+
+   
 
     return (
         <div className="form-container">
