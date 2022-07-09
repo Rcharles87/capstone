@@ -1,10 +1,10 @@
 import React from 'react'
 import PreviousCarts from '../Components/PreviousCarts'
-import SideBar from '../Components/SideBar';
+import SideBar from '../Components/ProfileMenu';
 import Welcome from '../Components/Welcome';
-import '../Styles/userView.css'
+import '../Styles/profile.css'
 
-function UserView() {
+function Profile() {
   return (
     <div className='uv-container'>
       <div className='w-container'>
@@ -12,13 +12,13 @@ function UserView() {
       </div>
 
       <div className='up-container'>
-        <PreviousCarts/> 
+        <SideBar/>
+        {/* <PreviousCarts/>  */}
       </div>
       <div className='sb-container'>
-        <SideBar/>
       </div>
     </div>
   )
 }
 
-export default UserView;
+export default Profile;

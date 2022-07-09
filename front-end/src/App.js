@@ -12,7 +12,7 @@ import Home from './Pages/HomePage';
 import CurrentCart from './Pages/CurrentCart';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
-import UserView from './Pages/UserView';
+import Profile from './Pages/Profile';
 import FourOFour from './Pages/Four0Four';
 import Map from './Components/Map';
 import Restaurants from './Components/Restaurants';
@@ -20,6 +20,9 @@ import RestaurantDetails from './Components/RestaurantDetails';
 import ProductByRestaurant from './Components/ProductByRestaurant';
 import PreviousCart from './Components/PreviousCart';
 import UpdateAcc from './Pages/UpdateAcc';
+// import PreviousCarts from './Components/PreviousCarts';
+import PreviousOrders from './Pages/PreviousOrders';
+import UserAccountInfo from './Pages/UserAccountInfo';
 
 
 function App() {
@@ -46,14 +49,15 @@ function App() {
         <Route path="/carts" element={<CurrentCart setCarts={setCarts} carts={carts}/>} setCheckedOut={setCheckedOut}/>
         <Route path='/login' element={<Login setLoginText={setLoginText} setCarts={setCarts} carts={carts}/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/carts/inactive' element={<UserView/>} />
+        <Route path='/profile' element={<Profile/>} />
         <Route path='/restaurant-locator' element={<Map/>} />
         <Route path='/restaurants' element={<Restaurants/>}/>
         <Route path='/carts/inactive/:id' element={<PreviousCart/>}/>
-        {/* <Route path='/products' element={<Products/>}/> */}
+        <Route path='/previousOrders' element={<PreviousOrders/>}/>
         <Route path='/products/:restaurant_id' element={<ProductByRestaurant/>} />
         <Route path='/restaurant/:id' element={<RestaurantDetails/>} />
         <Route path='/update'element={<UpdateAcc/>}/>
+        <Route path='/accountInfo' element={<UserAccountInfo/>} />
       </Routes>
      <Footer />
     </div>

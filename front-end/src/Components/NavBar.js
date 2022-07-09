@@ -18,7 +18,7 @@ function NavBar({ setLoginText }) {
     <div className="profile-logout-container">
       <Link to="/" onClick={handleLogout}>Logout</Link>
     
-      <Link to="/carts/inactive">Profile</Link>
+      <Link to="/profile">Profile</Link>
 
       <Link to="/carts">Cart</Link>
    

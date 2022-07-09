@@ -4,10 +4,9 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-template-areas: 
-    'side wel wel'
-    'side wel wel'
-    'side main main'
-    'side main main';
+    'wel wel wel'
+    'wel wel wel'
+    '. main .';
 }
 
 .w-container{
