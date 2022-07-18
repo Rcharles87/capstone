@@ -25,7 +25,9 @@ function NavBar({ setLoginText }) {
     </div>
   ) : (
     <div className="login-container">
-      <Link to="/login">Login/Signup</Link>
+      
+      <Link to="/login"><button>Login</button></Link>
+      <Link to="/signup"><button>Signup</button></Link>
     </div>
   );
 

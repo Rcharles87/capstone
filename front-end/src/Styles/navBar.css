@@ -7,9 +7,8 @@
     z-index: 7;
     padding: 10px;
     display: flex;
-    background-color: #406e8e;
+    background-color: #406e8e73;
     justify-content: space-between;
-    /* border: 2px solid rgb(110, 217, 227); */
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -45,7 +44,23 @@
 }
 
 .login-container {
-    margin: 0px 15px 0px 0px; 
+    display: flex;
+    margin: 0px 15px 0px 0px;
+    
+}
+
+.login-container a {
+    margin: 10px;
+}
+
+.login-container button {
+    color: black;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    height: 50px;
+    width: 90px;
+    font-size: 16px;
 }
 
 nav a {

@@ -6,6 +6,7 @@ import Map from "../Components/Map";
 import { useState } from "react";
 import FilterBar from "../Components/FilterBar";
 import CarouselComp from "../Components/CarouselComp";
+import splashImg from "../assets/Chinese.jpeg"
 
 function Home({ loginText }) {
   const [isChecked, SetIsChecked] = useState(false);
@@ -17,11 +18,15 @@ function Home({ loginText }) {
 
 
   return (
-    <div>
+   
+    <div className="home-container">
       {!localStorage.getItem("userID") ? (
-        <div className="home-container">
-          <Splash />
-          <FloatingLinks />
+        <div className="logged-out-container">
+          <div className="splash-search">
+            <img src={splashImg} alt="blah" />
+          </div>
+           <FloatingLinks />
+
         </div>
       ) : (
         <div className="mapView">

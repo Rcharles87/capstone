@@ -59,7 +59,7 @@ function App() {
         <Route path='/update'element={<UpdateAcc/>}/>
         <Route path='/accountInfo' element={<UserAccountInfo/>} />
       </Routes>
-     <Footer />
+     {/* <Footer /> */}
     </div>
   );
 }

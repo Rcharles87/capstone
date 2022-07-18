@@ -17,8 +17,7 @@ const sampleText1 = "Did you know that some of America’s best foods were first
 
 function FloatingLinks() {
   return (
-    <div className='fc-container'>
-        <Slideshow/>
+    <div className='homepage-links-container'>
         <div id="main-content">
         <div id="sign-up">
           <img src={signupicon} alt="illustration of girl on laptop" />
@@ -31,24 +30,19 @@ function FloatingLinks() {
           <Link to="faq">
             <h3>Millions meals saved, and counting....!<br /> Click here to learn more about food waste</h3>
           </Link>
-          {/* <h1>Sign Up</h1> */}
         </div>
-        {/* <div id="faq">
-          <img src={bagicon} alt="illustration of green recycle bag" />
-          <h1>Faq</h1>
-        </div> */}
-        <div className='map-container'>
+        {/* <div className='map-container'>
           <h1>Restaurants near me</h1>
-        <Map />
-        </div>
-        <div id="veggies-img">
+          <Map />
+        </div> */}
+        {/* <div id="veggies-img">
           <img src={splashImage1} alt="vegetables in a basket" />
         </div>
         <div id="main-content-text">{sampleText}</div>
         <div id="veggies2-img">
           <img src={splashImage2} alt="vegetables in a basket" />
         </div>
-        <div id="main-content-text2">{sampleText1}</div>
+        <div id="main-content-text2">{sampleText1}</div> */}
       </div>
     </div>
   )
