@@ -1,0 +1,23 @@
+.header{
+    display:flex;
+    padding: 20px;
+    // background-color: red;
+    justify-content: space-between;
+    align-items: center;
+
+    // &__logoContainer{
+        
+    // }
+    
+    &__logo{  
+        width: 100px;
+    }
+
+    &__buttonContainer button{
+
+        margin: 5px;
+    }
+
+   
+
+}

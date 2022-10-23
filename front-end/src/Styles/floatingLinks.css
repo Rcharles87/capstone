@@ -1,15 +1,15 @@
 #main-content {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display:grid;
-    margin: 50px;
-    /* border: 1px solid blue; */
+    margin: 20px;
+    border: 1px solid blue;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    /* grid-template-rows: auto; */
     grid-template-areas:
     "signup faq"
-    "map map"
+    /* "map map"
     "maintext img1"
-    "img2 maintext2"
+    "img2 maintext2" */
     ;
     gap: 40px;
 }
@@ -28,19 +28,19 @@
 }
 
 #sign-up img {
-    width: 25%;
+    max-width: 15%;
 }
 
 #faq {
     display: grid;
     align-items: center;
     justify-items: center;
-    width: 100%;
+    /* width: 100%; */
     grid-area: faq;
 }
 
 #faq img {
-    width: 30%;
+    max-width: 20%;
 }
 
 .map-container{

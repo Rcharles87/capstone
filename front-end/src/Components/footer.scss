@@ -1,0 +1,29 @@
+.footer{
+    position:absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 2.5rem;
+    padding: 10px;
+   
+    // position: absolute;
+    // bottom: 0;
+    // width: 100%;
+    // height: 2.5rem;
+
+    &__line{
+       width: 100%;
+       height: 2px;
+       background-color: black; 
+       margin-bottom: 5rem;
+    }
+   
+
+    &__itemsContainer{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__socialLinks svg{
+        margin: 10px;
+    }
+}

@@ -1,0 +1,25 @@
+.hero{
+    display: flex;
+    background-image: url("https://purewows3.imgix.net/images/articles/2020_04/blue_apron_meal_kit.png");
+    height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+
+    &__container p{
+        color: rgb(33, 37, 38);
+        font-size: 45px;
+        font-weight: 800;
+    }
+
+    &__container input{
+        font-size: 20px;
+        width: 300px;
+        text-align: center;
+        border-radius: 25px;
+        border-style: solid ;
+        padding: 10px;
+    }
+}

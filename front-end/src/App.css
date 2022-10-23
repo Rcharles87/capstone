@@ -1,36 +1,31 @@
 body {
+    margin: 0; 
+  
+}
+
+.main { 
+  position: relative;
+  min-height: 100vh;
     width: 100%;
-    margin: 0;
-    position: relative;
-    min-height: 100vh;
+    padding-bottom: 3.7rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.main {
-    padding-bottom: 3.7rem;
+.content-wrap{
+    /* position: absolute; */
+    padding-bottom: 2.5rem;
 }
 
-
-/* nav css */
-/* 
-display: flex;
-justify-content: space-between;
-background-color: #23395b;
-padding: 10px;
-margin-bottom: 425px;
-z-index: 7;
-opacity: .50; */
-
-/* ----------------- img css */
-    /* border: 3px solid red; */
-    /* top: 0;
-    width: 100vw;
+/* .footerCont{
     position: absolute;
-    z-index: -1;
-    height: 500px;
-    background-image: url(http://localhost:3000/static/media/fast_food.1b6130e….jpeg);
-    background-repeat: no-repeat;
-    background-size: auto; */
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+} */
+
+
+
+
 
 
 

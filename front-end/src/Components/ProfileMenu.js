@@ -1,8 +1,6 @@
 import React from 'react';
 import '../Styles/profileMenu.css';
 import { Link } from 'react-router-dom';
-import PreviousCarts from './PreviousCarts';
-import PreviousOrders from '../Pages/PreviousOrders';
 
 function ProfileMenu() {
 

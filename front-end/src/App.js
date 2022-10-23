@@ -42,6 +42,7 @@ function App() {
 
   return (
     <div className="main">
+      <div className='content-wrap'>
       <NavBar  setLoginText={setLoginText}/>
       <Routes>
         <Route path="*" element={<FourOFour />} />
@@ -59,7 +60,11 @@ function App() {
         <Route path='/update'element={<UpdateAcc/>}/>
         <Route path='/accountInfo' element={<UserAccountInfo/>} />
       </Routes>
+
+      </div>
+      <div className='footerCont'>
      <Footer />
+      </div>
     </div>
   );
 }

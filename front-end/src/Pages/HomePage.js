@@ -1,11 +1,12 @@
+import { useState } from "react";
 import "../Styles/home.css";
 import FloatingLinks from "../Components/FloatingLinks";
-import Splash from "../Components/Splash";
 import Restaurants from "../Components/Restaurants";
 import Map from "../Components/Map";
-import { useState } from "react";
 import FilterBar from "../Components/FilterBar";
 import CarouselComp from "../Components/CarouselComp";
+import Hero from "../Components/Hero";
+
 
 function Home({ loginText }) {
   const [isChecked, SetIsChecked] = useState(false);
@@ -17,12 +18,16 @@ function Home({ loginText }) {
 
 
   return (
-    <div>
+   
+    <div className="home-container">
       {!localStorage.getItem("userID") ? (
-        <div className="home-container">
-          <Splash />
-          <FloatingLinks />
-        </div>
+        // <div className="logged-out-container">
+        <>
+          <Hero/>
+          <FloatingLinks/>
+        </>
+
+        // </div>
       ) : (
         <div className="mapView">
           <input

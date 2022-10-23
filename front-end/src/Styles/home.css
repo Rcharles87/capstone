@@ -1,12 +1,32 @@
+ /* .home-container{ 
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    height: 580px;
+    width: 100vw;
+} */
+
+.logged-out-container img{
+  width: 100vw;
+}
+
+
+
+
+
+/* .splash-search {
+    /* margin: 200px; */
+/* }  */
+
 .loggedInDisplay-container{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
-    /* grid-template-rows: auto; */
+     grid-template-rows: auto;
     grid-template-areas: 
     "fil car car" 
     "fil rest rest" 
     "fil rest rest";
-}
+} 
 
 .f-container{
     grid-area: fil;
@@ -23,9 +43,9 @@
     grid-area: car
 }
 
-.mapView{
+ .mapView{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     letter-spacing: 1px;
     font-size: 1em;
     margin-top: 10px;
-}
+} 

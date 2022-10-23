@@ -4,8 +4,12 @@ color:rgb(110, 217, 227);
 text-align: center;
 background-color: #406e8e;
 position: absolute;
+left: 0;
 bottom: 0;
+right: 0;
 width: 100%;
 height: 2.5rem;
 }
 
+/* .content-container {
+} */
