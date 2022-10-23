@@ -1,10 +1,10 @@
- .home-container{ 
+ /* .home-container{ 
     position: absolute;
     top: 0px;
     z-index: -1;
     height: 580px;
     width: 100vw;
-}
+} */
 
 .logged-out-container img{
   width: 100vw;

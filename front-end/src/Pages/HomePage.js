@@ -1,12 +1,12 @@
+import { useState } from "react";
 import "../Styles/home.css";
 import FloatingLinks from "../Components/FloatingLinks";
-import Splash from "../Components/Splash";
 import Restaurants from "../Components/Restaurants";
 import Map from "../Components/Map";
-import { useState } from "react";
 import FilterBar from "../Components/FilterBar";
 import CarouselComp from "../Components/CarouselComp";
-import splashImg from "../assets/Chinese.jpeg"
+import Hero from "../Components/Hero";
+
 
 function Home({ loginText }) {
   const [isChecked, SetIsChecked] = useState(false);
@@ -21,13 +21,13 @@ function Home({ loginText }) {
    
     <div className="home-container">
       {!localStorage.getItem("userID") ? (
-        <div className="logged-out-container">
-          <div className="splash-search">
-            <img src={splashImg} alt="blah" />
-          </div>
-           <FloatingLinks />
+        // <div className="logged-out-container">
+        <>
+          <Hero/>
+          <FloatingLinks/>
+        </>
 
-        </div>
+        // </div>
       ) : (
         <div className="mapView">
           <input

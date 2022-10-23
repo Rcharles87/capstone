@@ -1,17 +1,27 @@
 body {
     margin: 0; 
-    /* position: absolute; */
   
 }
 
 .main { 
-    /* display: flex;  */
-    /* position: inherit; */
-    height: 100vh;
+  position: relative;
+  min-height: 100vh;
     width: 100%;
     padding-bottom: 3.7rem;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.content-wrap{
+    /* position: absolute; */
+    padding-bottom: 2.5rem;
+}
+
+/* .footerCont{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+} */
 
 
 
