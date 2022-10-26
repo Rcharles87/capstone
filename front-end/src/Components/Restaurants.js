@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {useState, useEffect} from "react";
-import '../Styles/Restaurants.css';
 import Restaurant from './Restaurant';
+import  './restaurants.scss';
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -19,10 +19,12 @@ function Restaurants() {
 
 
   return (
-    <div className='all-restaurants-container'>
-      {restaurants.map((restaurant) => {
-        return <Restaurant key={restaurant.id} singleRestaurant={restaurant}/>
-      })}
+    <div className='restaurantsCards'>
+      <div className='restaurantsCards__container'>
+        {restaurants.map((restaurant) => {
+          return <Restaurant key={restaurant.id} singleRestaurant={restaurant}/>
+        })}
+      </div>
     </div>
   )
 }

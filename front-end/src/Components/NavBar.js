@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import logo from "../assets/dummy-logo.png";
-import { Button } from "@mui/material";
+import logo from "../assets/official-Logo.png";
+// import { Button } from "@mui/material";
+import Button from "./shared/Button";
 import "./navbar.scss"
 
 
@@ -9,50 +10,44 @@ function NavBar({ setLoginText }) {
   const navigate = useNavigate();
 
   const handleLogout = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     window.localStorage.clear();
     setLoginText(false); 
     navigate('/');
   };
 
+  const handleLogin=()=>{
+    navigate("/login")
+  }
+
+  const handleSignup=()=>{
+    navigate("/signup")
+  }
+
   
   let text = localStorage.getItem("userID") ? (
-    <div className='header__buttonContainer'>
-      <Button variant='contained' href="/" onClick={handleLogout}>Logout</Button>
+    <div className='navbar__buttonContainer'>
+      <Button name="logout" size="small" onClick={handleLogout}/>
+      {/* <Button variant='contained' href="/" onClick={handleLogout}>Logout</Button> */}
       <Button variant="contained" href="/profile">Profile</Button>
       <Button variant="contained" href="/carts">Cart</Button>
     </div>
   ) : (
-    <div className='header__buttonContainer'>
-      <Button variant='contained'href="/login">Login</Button>
-      <Button variant='contained' href="/signup">Signup</Button>
-    </div>
+    
+<div className='navbar__buttonContainer'>
+  <Button name='login' size='small' onClick={handleLogin}/>
+  <Button name='signup' size='small'onClick={handleSignup}/>
+</div>
+
   );
 
   return (
-    // <nav>
-    //   <div className="nav-container">
-
-    //   <div className="home-logo">
-    //     <Link to="/">
-    //       <img src={logo} alt="logo" />
-    //     </Link>
-    //   </div>
-    //   <div className="navbar-text">MEALS 4 NYC</div>
-
-    //   <div className="cart">
-    //     <div>
-    //       {text}
-    //     </div>
-    //   </div>
-    //   </div>
-    // </nav>
-    <div className='header'>
-    <div className='header__logoContainer'>
-      <Link to="/">
-      <img  className='header__logo' src={logo} alt="" />
-      </Link>
-    </div>
+  <div className='navbar'>
+      <div className='navbar__logoContainer'>
+        <Link to="/">
+        <img  className='navbar__logo' src={logo} alt="" />
+        </Link>
+      </div>
     {text}
     
   </div>

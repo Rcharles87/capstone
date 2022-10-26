@@ -1,0 +1,37 @@
+.card{
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+
+
+    &__container{
+        max-width: 720px;
+        margin: 3rem 0;
+    }
+
+    &__title{
+        font-size: 2rem;
+        line-height: 3rem;
+        color: #406e8e;
+        text-transform: uppercase;
+        font-weight: 900;
+        text-decoration: underline;
+        text-decoration-thickness: 4px;
+        text-decoration-color: #6ed9e3;
+        text-underline-offset: 15px;
+       
+        
+    }
+
+
+  
+    &__text{
+        
+        font-size: 1.25rem;
+        font-weight: 400;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+    }
+
+}
