@@ -1,20 +1,20 @@
 import React from "react";
 import "../Styles/checkout.css";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+// import Modal from "@mui/material/Modal";
+// import Box from "@mui/material/Box";
+// import Typography from "@mui/material/Typography";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "rgba(205, 238, 239, 1)",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+// const style = {
+//   position: "absolute",
+//   top: "50%",
+//   left: "50%",
+//   transform: "translate(-50%, -50%)",
+//   width: 400,
+//   bgcolor: "rgba(205, 238, 239, 1)",
+//   border: "2px solid #000",
+//   boxShadow: 24,
+//   p: 4,
+// };
 
 function CheckOut({ carts, handleCheckout }) {
   const [open, setOpen] = React.useState(false);
@@ -37,7 +37,7 @@ function CheckOut({ carts, handleCheckout }) {
       >
         Checkout
       </button>
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -49,7 +49,7 @@ function CheckOut({ carts, handleCheckout }) {
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}></Typography>
         </Box>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

@@ -7,19 +7,29 @@
     background-size: cover;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
-    &__container p{
-        color: rgb(33, 37, 38);
-        font-size: 45px;
-        font-weight: 800;
+    &__container {
+        p{
+            color: rgb(33, 37, 38);
+            font-size: 45px;
+            font-weight: 800;
+            text-transform: uppercase;
+
+        }
     }
 
-    &__container input{
-        font-size: 20px;
-        width: 300px;
-        text-align: center;
-        border-radius: 25px;
-        border-style: solid ;
-        padding: 10px;
+    &__container {
+        input{
+            font-size: 20px;
+            width: 300px;
+            text-align: center;
+            border: 2px solid #406e8e;
+            border-radius: 25px;  
+            padding: 10px;
+            :placeholder{
+                color: #406e8e;
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ import Map from "../Components/Map";
 import FilterBar from "../Components/FilterBar";
 import CarouselComp from "../Components/CarouselComp";
 import Hero from "../Components/Hero";
+import HomePageCard from "../Components/HomepageCard";
 
 
 function Home({ loginText }) {
@@ -21,13 +22,14 @@ function Home({ loginText }) {
    
     <div className="home-container">
       {!localStorage.getItem("userID") ? (
-        // <div className="logged-out-container">
-        <>
+        <div className="logged-out-container">
+       
           <Hero/>
-          <FloatingLinks/>
-        </>
+          <HomePageCard/>
+          {/* <FloatingLinks/> */}
+       
 
-        // </div>
+         </div>
       ) : (
         <div className="mapView">
           <input
@@ -46,16 +48,13 @@ function Home({ loginText }) {
 
           ):(
             <div className="loggedInDisplay-container">
-              <div className="f-container">
-                <FilterBar />
-              </div>
-              <div className="c-container">
+             
                 <CarouselComp/>
-              </div>
-
-              <div className="r-container"> 
-                <Restaurants />
-              </div>
+                <div className="blah">
+                  {/* <FilterBar /> */}
+                  <Restaurants />
+                </div>
+            
               
             </div>
           )}

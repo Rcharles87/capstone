@@ -26,7 +26,7 @@ INSERT INTO restaurants (name, cuisine_type, restaurant_sprites, add, lat, lon) 
 ('Zabars', 'Cafe / Healthy', 'https://i.imgur.com/Rfxjgvg.png', '2245 Broadway, New York, NY 10024', 40.7849024, -73.97966685 ),
 ('Murrays Bagels', 'Baked Goods','https://i.imgur.com/8cfUePK.png', '500 6th Ave New York, NY 10011', 40.7447814, -73.9985854 ),
 ('Sweet Green', 'Salads & fresh vegetables','https://i.imgur.com/yXIvrtF.png', '8 E 18th St, New York, NY 10003', 40.73805135, -73.9912353351445 ),
-('Dig Inn', 'Balanced Vegetable based dishes','https://i.imgur.com/LPBupbt.png', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 ),
+-- ('Dig Inn', 'Balanced Vegetable based dishes','https://i.imgur.com/LPBupbt.png', '2254 Broadway, New York, NY 10024', 40.78485, -73.97955 ),
 ('Mias Brooklyn Bakery', 'Baked Goods / Coffee Bar with Savory items','https://i.imgur.com/zOrQFbG.png', '139 Smith St, Brooklyn, NY 11201', 40.687061, -73.990199 ),
 ('Rizzos Pizza', 'Pizzeria', 'https://i.imgur.com/66vWUjo.png', '313 Steinway Street, New York, NY 11103', 40.76339, -73.915261 ),
 ('Marthas Country Bakery', 'Bakery','https://i.imgur.com/1dOGoKS.png', '36-21 Ditmars Boulevard New York, NY 11105', 40.774026, -73.90746 ),
@@ -55,7 +55,7 @@ INSERT INTO products (restaurant_id, name, description, portion, calories, quant
 (4, 'Gluten free','Pre Packaged balanced meal kit', '12oz', 280, 21),
 (5, 'Non-dairy','Pre Packaged balanced meal kit', '12oz', 280, 36),
 (5, 'Low Sodium','Pre Packaged balanced meal kit', '12oz', 280, 1),
-(6, 'Vegan','Pre Packaged balanced meal kit', '12oz', 280, 15),
+-- (6, 'Vegan','Pre Packaged balanced meal kit', '12oz', 280, 15),
 (7, 'Gluten free','Pre Packaged balanced meal kit', '12oz', 280, 21),
 (8, 'Non-dairy','Pre Packaged balanced meal kit', '12oz', 280, 36),
 (8, 'Low Sodium','Pre Packaged balanced meal kit', '12oz', 280, 1),
@@ -93,8 +93,8 @@ INSERT INTO products (restaurant_id, name, description, portion, calories, quant
 (18, 'Halal','Pre Packaged balanced meal kit', '12oz', 280, 1),
 (19, 'Vegan','Pre Packaged balanced meal kit', '12oz', 280, 22),
 (19, 'Gluten free','Pre Packaged balanced meal kit', '12oz', 280, 35),
-(19, 'Non-dairy','Pre Packaged balanced meal kit', '12oz', 280, 3),
-(20, 'Halal','Pre Packaged balanced meal kit', '12oz', 280, 1);
+(19, 'Non-dairy','Pre Packaged balanced meal kit', '12oz', 280, 3);
+-- (20, 'Halal','Pre Packaged balanced meal kit', '12oz', 280, 1);
 
 INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (3, 1, 1),
@@ -104,5 +104,5 @@ INSERT INTO order_details (carts_id, products_id, quantity) VALUES
 (1, 5, 3),
 (5, 9, 1),
 (6, 12, 3),
-(3, 4, 1),
-(3, 6, 4);
+(3, 4, 1);
+-- (3, 6, 4);
